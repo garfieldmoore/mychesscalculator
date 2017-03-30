@@ -228,9 +228,22 @@
       }
 
       for (var i=0; i < grades.length; i++) {
+        var opponentsgrade=grades[i];
+
         if (grades[i] !='undefined' && results[i]!='undefined' && !isNaN(grades[i]))
         {
-          result=result + grades[i] + results[i];
+          // the grades differ by no more than 40 rule
+          if (currentgrade != 'undefined' && currentgrade>0)
+            if (opponentsgrade > currentgrade+40){
+              opponentsgrade=currentgrade+40;
+            }
+
+            if (opponentsgrade < currentgrade-40){
+              opponentsgrade=currentgrade-40;
+            }
+          }
+
+          result=result + opponentsgrade + results[i];
           divisor++;
         }
       }
