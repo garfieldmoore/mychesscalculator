@@ -44,29 +44,40 @@
   <body>
 
  <div ng-app="">
-<h3>Enter your opponents grades and the result to calculate your grade</h1>
-
+   <h3>Enter your opponents grades and the result to calculate your grade</h1>
+   <br/>
 
   <form name = "search" id="searchForm" action="" method = "POST" action="getPageResults">
 
     <div class = 'form-group'>
     <div class='form-inline'>
 
-       <label for='grade1'>Game 1</label>
+       <label for='currentgrade'>Current Grade</label>
+
+        <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
+      </div>
+    </div>
+
+    <br/>
+
+    <div class = 'form-group'>
+    <div class='form-inline'>
+
+       <label for='grade1'>Opponent 1</label>
 
         <input type="text" class="form-control" placeholder="grade" id="grade1">
          <label class="form-check-label">
-           <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+           <input type="radio" class="form-check-input" name="game1result" id="win1" value="50" >
            Win
          </label>
 
        <label class="form-check-label">
-           <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+           <input type="radio" class="form-check-input" name="game1result" id="loss" value="-50" checked>
            Loss
          </label>
 
        <label class="form-check-label">
-           <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+           <input type="radio" class="form-check-input" name="game1result" id="draw" value="0">
            Draw
          </label>
      </div>
@@ -75,25 +86,94 @@
    <div class = 'form-group'>
    <div class='form-inline'>
 
-      <label for='grade2'>Game 2</label>
+      <label for='grade2'>Opponent 2</label>
 
        <input type="text" class="form-control" placeholder="grade" id="grade2">
         <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+          <input type="radio" class="form-check-input" name="game2result" id="win1" value="50" >
           Win
         </label>
 
       <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+          <input type="radio" class="form-check-input" name="game2result" id="loss" value="-50" checked>
           Loss
         </label>
 
       <label class="form-check-label">
-          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+          <input type="radio" class="form-check-input" name="game2result" id="draw" value="0">
           Draw
         </label>
     </div>
+  </div>
+
+  <div class = 'form-group'>
+  <div class='form-inline'>
+
+     <label for='grade1'>Opponent 3</label>
+
+      <input type="text" class="form-control" placeholder="grade" id="grade3">
+       <label class="form-check-label">
+         <input type="radio" class="form-check-input" name="game3result" id="win1" value="50" >
+         Win
+       </label>
+
+     <label class="form-check-label">
+         <input type="radio" class="form-check-input" name="game3result" id="loss" value="-50" checked>
+         Loss
+       </label>
+
+     <label class="form-check-label">
+         <input type="radio" class="form-check-input" name="game3result" id="draw" value="0">
+         Draw
+       </label>
    </div>
+ </div>
+
+ <div class = 'form-group'>
+ <div class='form-inline'>
+
+    <label for='grade1'>Opponent 4</label>
+
+     <input type="text" class="form-control" placeholder="grade" id="grade4">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="game4result" id="win1" value="50" >
+        Win
+      </label>
+
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="game4result" id="loss" value="-50" checked>
+        Loss
+      </label>
+
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="game4result" id="draw" value="0">
+        Draw
+      </label>
+  </div>
+</div>
+
+<div class = 'form-group'>
+<div class='form-inline'>
+
+   <label for='grade1'>Opponent 5</label>
+
+    <input type="text" class="form-control" placeholder="grade" id="grade5">
+     <label class="form-check-label">
+       <input type="radio" class="form-check-input" name="game5result" id="win1" value="50" >
+       Win
+     </label>
+
+   <label class="form-check-label">
+       <input type="radio" class="form-check-input" name="game5result" id="loss" value="-50" checked>
+       Loss
+     </label>
+
+   <label class="form-check-label">
+       <input type="radio" class="form-check-input" name="game5result" id="draw" value="0">
+       Draw
+     </label>
+ </div>
+</div>
 
     <div class='form-group'>
       <button class="btn btn-default" type="button" id="Calculate" onclick="calculate()">Calculate</button>
@@ -109,8 +189,82 @@
 
   <script type='text/javascript'>
     function calculate(){
-      console.log('Next page')
+      console.log('Calculating Grade...')
+      console.log(isNaN('fdfd'));
+      var currentgrade=parseInt($('#currentgrade').val());
 
+      var grade1=parseInt($('#grade1').val());
+      var grade2=parseInt($('#grade2').val());
+      var grade3=parseInt($('#grade3').val());
+      var grade4=parseInt($('#grade4').val());
+      var grade5=parseInt($('#grade5').val());
+
+      console.log('Grades:');
+      console.log(grade1);
+      console.log(grade2);
+      console.log(grade3);
+      console.log(grade4);
+      console.log(grade5);
+
+      console.log('Current Grade:' + currentgrade);
+
+      var r1 =parseInt( $('input[name=game1result]:checked').val());
+      var r2 =parseInt( $('input[name=game2result]:checked').val());
+      var r3 =parseInt( $('input[name=game3result]:checked').val());
+      var r4 =parseInt( $('input[name=game4result]:checked').val());
+      var r5 =parseInt( $('input[name=game5result]:checked').val());
+
+      console.log('Results:');;
+      console.log(r1);
+      console.log(r2);
+      console.log(r3);
+      console.log(r4);
+      console.log(r5);
+
+      var result=0;
+      var divisor=0;
+      if(currentgrade!='undefined' && currentgrade!=0 && !isNaN(currentgrade)){
+        result=result+currentgrade;
+        divisor++;
+      }
+
+      if (grade1!='undefined' && r1!='undefined' && !isNaN(grade1))
+      {
+        result=result + grade1 + r1;
+        divisor++;
+      }
+
+      if (grade2!='undefined' && r2!='undefined' && !isNaN(grade2))
+      {
+        result=result + grade2 + r2;
+        divisor++;
+      }
+
+      if (grade3!='undefined' && r3!='undefined' && !isNaN(grade3))
+      {
+        result=result + grade3 + r3;
+        divisor++;
+      }
+
+      if (grade4!='undefined' && r4!='undefined' && !isNaN(grade4))
+      {
+        result=result + grade4 + r4;
+        divisor++;
+      }
+
+      if (grade5!='undefined' && r5!='undefined' && !isNaN(grade5))
+      {
+        result=result + grade5 + r5;
+        divisor++;
+      }
+
+      result = result / divisor;
+      if(isNaN(result)){
+        $('#messages').append('There are some invalid entries for either your grade or your opponents grades.  Correct and try again.');
+      }
+      else{
+        $('#messages').append('Your grade is now '+result);
+      }
     };
 
   </script>
