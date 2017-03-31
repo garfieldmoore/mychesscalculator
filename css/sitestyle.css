@@ -1,2 +1,6 @@
 
 header img{width:100%}
+
+.form-inline > * {
+   margin:5px 3px;
+}
