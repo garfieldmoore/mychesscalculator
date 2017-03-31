@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>ECF Grade Calculator</title>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/sitestyle.css"/>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+      <!-- <link rel="stylesheet" href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css"> -->
+
+      <!-- Latest compiled and minified JavaScript -->
+      <!-- <script src="//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js"></script> -->
+      <script type='text/javascript' src='js/ratingCalculator.js'></script>
+
+  </head>
+
+  <body>
+
+ <div ng-app="">
+   <div id="wrap-header">
+   <header id="branding" role="banner"><div id="branding-content">
+     <h1>English Chess Federation Grading Calculator</div>
+     <!-- <div id="site-logo"></div>
+     <div id="site-logo-link" onclick="location.href='~/search.htm';"></div> -->
+
+     <div class="title-description-xhtml">
+       <!-- <h1 id="site-title" ><span><a href="http://getstuffed.info/dir/" title="Get Stuffed" rel="home">Get Stuffed</a></span></h1> -->
+       <!-- <h2 id="site-description"> cookery show</h2> -->
+     </div>
+     <div id="header_image">
+       <a href="index.html" title="ECF Grading Calculator" rel="home">
+         <img src="images/banner.jpg" width="940" height="188" alt="ECF Grade Calculator Heading" />
+       </a>
+     </div><!-- #header_image -->
+   </div></header><!-- #branding-content, #branding -->
+
+   <h3>Enter your opponents grades and the result to calculate your grade</h1>
+   <br/>
+
+  <form name = "search" id="searchForm" action="" method = "POST" action="getPageResults">
+
+    <div class = 'form-group'>
+    <div class='form-inline'>
+
+       <label for='currentgrade'>Current Grade</label>
+
+        <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
+      </div>
+    </div>
+
+    <br/>
+
+    <div class = 'form-group'>
+    <div class='form-inline'>
+       <label for='grade1'>Opponent 1</label>
+
+        <input type="text" class="form-control" placeholder="grade" id="grade1">
+         <label class="form-check-label">
+           <input type="radio" class="form-check-input" name="game1result" id="win1" value="50" >
+           Win
+         </label>
+
+       <label class="form-check-label">
+           <input type="radio" class="form-check-input" name="game1result" id="loss" value="-50" checked>
+           Loss
+         </label>
+
+       <label class="form-check-label">
+           <input type="radio" class="form-check-input" name="game1result" id="draw" value="0">
+           Draw
+         </label>
+     </div>
+   </div>
+
+   <div class = 'form-group'>
+   <div class='form-inline'>
+
+      <label for='grade2'>Opponent 2</label>
+
+       <input type="text" class="form-control" placeholder="grade" id="grade2">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="game2result" id="win1" value="50" >
+          Win
+        </label>
+
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="game2result" id="loss" value="-50" checked>
+          Loss
+        </label>
+
+      <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="game2result" id="draw" value="0">
+          Draw
+        </label>
+    </div>
+  </div>
+
+  <div class = 'form-group'>
+  <div class='form-inline'>
+
+     <label for='grade1'>Opponent 3</label>
+
+      <input type="text" class="form-control" placeholder="grade" id="grade3">
+       <label class="form-check-label">
+         <input type="radio" class="form-check-input" name="game3result" id="win1" value="50" >
+         Win
+       </label>
+
+     <label class="form-check-label">
+         <input type="radio" class="form-check-input" name="game3result" id="loss" value="-50" checked>
+         Loss
+       </label>
+
+     <label class="form-check-label">
+         <input type="radio" class="form-check-input" name="game3result" id="draw" value="0">
+         Draw
+       </label>
+   </div>
+ </div>
+
+ <div class = 'form-group'>
+ <div class='form-inline'>
+
+    <label for='grade1'>Opponent 4</label>
+
+     <input type="text" class="form-control" placeholder="grade" id="grade4">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="game4result" id="win1" value="50" >
+        Win
+      </label>
+
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="game4result" id="loss" value="-50" checked>
+        Loss
+      </label>
+
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="game4result" id="draw" value="0">
+        Draw
+      </label>
+  </div>
+</div>
+
+<div class = 'form-group'>
+<div class='form-inline'>
+
+   <label for='grade1'>Opponent 5</label>
+
+    <input type="text" class="form-control" placeholder="grade" id="grade5">
+     <label class="form-check-label">
+       <input type="radio" class="form-check-input" name="game5result" id="win1" value="50" >
+       Win
+     </label>
+
+   <label class="form-check-label">
+       <input type="radio" class="form-check-input" name="game5result" id="loss" value="-50" checked>
+       Loss
+     </label>
+
+   <label class="form-check-label">
+       <input type="radio" class="form-check-input" name="game5result" id="draw" value="0">
+       Draw
+     </label>
+ </div>
+</div>
+
+    <div class='form-group'>
+      <button class="btn btn-default" type="button" id="Calculate" onclick="calculate()">Calculate</button>
+      <button class="btn btn-default" type="button" id="Reset" onclick="Reset()">Reset</button>
+    </div>
+
+  </form>
+
+  <div id='messages'>
+
+  </div>
+</div>
+
+  </body>
+</html>
