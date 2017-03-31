@@ -71,3 +71,6 @@
       $('#messages').append('Your grade is now '+result);
     }
   }
+function reset(){
+  console.log('Resetting');
+}

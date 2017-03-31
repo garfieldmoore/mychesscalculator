@@ -61,19 +61,22 @@
       </header>
 
       <div class='container'>
-   <h3>Enter your opponents grades and the result to calculate your grade</h1>
    <br/>
   <form name = "search" id="searchForm" action="" method = "POST" action="getPageResults">
+    <fieldset>
+        <legend>Enter your current grade and results to calculate your new grade</legend>
+
       <div class = 'form-group'>
         <div class='form-inline'>
-
-           <label for='currentgrade'>Current Grade</label>
-
+           <label for='currentgrade'>Your Current Grade</label>
+           <div>
             <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
+          </div>
           </div>
       </div>
 
-      <br/>
+      <fieldset>
+          <legend>Your recent performance</legend>
 
         <div class = 'form-group'>
           <div class='form-inline'>
@@ -188,12 +191,19 @@
            </label>
        </div>
     </div>
+  </legend>
+</fieldset>
+
+<fieldset>
+    <legend></legend>
+</fieldset>
 
     <div class='form-group'>
       <button class="btn btn-default" type="button" id="Calculate" onclick="calculate()">Calculate</button>
-      <button class="btn btn-default" type="button" id="Reset" onclick="Reset()">Reset</button>
+      <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
     </div>
-
+</fieldset>
+</legend>
   </form>
 
   <div id='messages'>
