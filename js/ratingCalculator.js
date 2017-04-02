@@ -1,76 +1,128 @@
+angular.module('app', []).config(function() {});
 
-  function calculate(){
-    console.log('Calculating Grade...')
+// angular.module('app').controller('RatingCalculatorController', function($scope) {
+//
+//   $scope.games = [];
+//
+//   $scope.addNewGame = function() {
+//     console.log("Adding new game");
+//       var newItemNo = $scope.games.length + 1;
+//       $scope.games.push({
+//           'id': 'choice' + newItemNo
+//       });
+//   };
+//
+//   $scope.removeChoice = function(index) {
+//       $scope.games.splice(index, 1);
+//   };
+//
+// });
 
-    var currentgrade=parseInt($('#currentgrade').val());
+function RatingCalculatorController($scope){
 
-    console.log('Current Grade:' + currentgrade);
+  $scope.games = [];
+  var g={id: "game1", grade: "0", result: 50};
+  $scope.games[0]=g;
+  
+  $scope.addNewGame = function() {
+    console.log("Adding new game");
+      var newItemNo = $scope.games.length + 1;
+      $scope.games.push({
+          'id': 'game' + newItemNo
 
-    var grades = [];
-    grades.push(parseInt($('#grade1').val()));
-    grades.push(parseInt($('#grade2').val()));
-    grades.push(parseInt($('#grade3').val()));
-    grades.push(parseInt($('#grade4').val()));
-    grades.push(parseInt($('#grade5').val()));
+      });
+  };
 
-    console.log('Grades:');
-    for (var i=0; i < grades.length; i++) {
-      console.log(grades[i]);
-    }
+  $scope.removeChoice = function(index) {
 
-    var results = []
-    results.push(parseInt( $('input[name=game1result]:checked').val()));
-    results.push(parseInt( $('input[name=game2result]:checked').val()));
-    results.push(parseInt( $('input[name=game3result]:checked').val()));
-    results.push(parseInt( $('input[name=game4result]:checked').val()));
-    results.push(parseInt( $('input[name=game5result]:checked').val()));
+      $scope.games.splice(index, 1);
+  };
 
-    console.log('Results:');;
-    for (var i=0; i < grades.length; i++) {
-      console.log(results[i]);
-    }
+  // fields description of entity
+  $scope.fields = [
+    {
+      name: 'grade',
+      title: 'Grade',
+      required: true,
+      cssClassing:'testing',
+      type: {
+        view: 'input'
+      }
+    },
+    {
+      name: 'result',
+      title: 'Result`',
+      required: true,
+      cssClassing:'testing',
+      type: {
+        view: 'radio'
+      }
+    },
 
-    var result=0;
-    var divisor=0;
 
-    if(currentgrade!='undefined' && currentgrade>0 && !isNaN(currentgrade)){
-      result=result+currentgrade;
-      divisor++;
-    }
+  ];
 
-    for (var i=0; i < grades.length; i++) {
-      var opponentsgrade=grades[i];
+  $scope.calculate = function () {
+      console.log('Calculating Grade...')
 
-      if (grades[i] !='undefined' && results[i]!='undefined' && !isNaN(grades[i]))
-      {
-        // the grades differ by no more than 40 rule
-        if (currentgrade != 'undefined' && currentgrade>0)
-          if (opponentsgrade > currentgrade+40){
-            console.log('Apply the grade difference rule to opponent '+i);
-            opponentsgrade=currentgrade+40;
-          }
+      var currentgrade = parseInt($('#currentgrade').val());
 
-          if (opponentsgrade < currentgrade-40){
-            console.log('Apply the grade difference rule to opponent '+i);
-            opponentsgrade=currentgrade-40;
-          }
-          result=result + opponentsgrade + results[i];
+      console.log('Current Grade:' + currentgrade);
+
+      console.log('Grades:');
+      for (var i = 0; i < $scope.games.length; i++) {
+          console.log($scope.games[i].grade);
+      }
+
+      console.log('Results:');;
+      for (var i = 0; i < $scope.games.length; i++) {
+          console.log($scope.games[i].result);
+      }
+
+      var result = 0;
+      var divisor = 0;
+
+      if (currentgrade != 'undefined' && currentgrade > 0 && !isNaN(currentgrade)) {
+          result = result + currentgrade;
           divisor++;
-        }
+      }
+
+      for (var i = 0; i < $scope.games.length; i++) {
+          var opponentsgrade = $scope.games[i].grade;
+
+          if ($scope.games[i].grade != 'undefined' && $scope.games[i].result != 'undefined' && !isNaN($scope.games[i].grade)) {
+              // the grades differ by no more than 40 rule
+              if (currentgrade != 'undefined' && currentgrade > 0)
+                  if (opponentsgrade > currentgrade + 40) {
+                      console.log('Apply the grade difference rule to opponent ' + i);
+                      opponentsgrade = currentgrade + 40;
+                  }
+
+              if (opponentsgrade < currentgrade - 40) {
+                  console.log('Apply the grade difference rule to opponent ' + i);
+                  opponentsgrade = currentgrade - 40;
+              }
+              result = parseInt(result) + parseInt(opponentsgrade) + parseInt($scope.games[i].result);
+              divisor++;
+          }
       }
 
 
-    result = result / divisor;
-    result = Math.round(result);
+      result = result / divisor;
+      result = Math.round(result);
 
-    $('#messages').empty();
-    if(isNaN(result)){
-      $('#messages').append('<div>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</div>');
-    }
-    else{
-      $('#messages').append('Your grade is now '+result);
-    }
+      $('#messages').empty();
+      if (isNaN(result)) {
+          $('#messages').append('<div>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</div>');
+      } else {
+          $('#messages').append('Your grade is now ' + result);
+      }
   }
-function reset(){
-  console.log('Resetting');
+
+
+}
+
+
+function reset() {
+    console.log('Resetting');
 }

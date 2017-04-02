@@ -1,26 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-5585523782352073",
-        enable_page_level_ads: true
-      });
-    </script>
+    <meta <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Chess Grade Calculator</title>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -33,215 +25,149 @@
     <![endif]-->
 
     <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="css/sitestyle.css"/>
+    <link rel="stylesheet" href="css/sitestyle.css" />
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <!-- Latest compiled and minified CSS -->
-      <!-- <link rel="stylesheet" href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css"> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <!-- <link rel="stylesheet" href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css"> -->
 
-      <!-- Latest compiled and minified JavaScript -->
-      <!-- <script src="//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js"></script> -->
-      <script type='text/javascript' src='js/ratingCalculator.js'></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <!-- <script src="//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js"></script> -->
+    <script type='text/javascript' src='js/ratingCalculator.js'></script>
 
-      <!-- Google analytics -->
-          <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!-- Google analytics -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-96579101-1', 'auto');
-            ga('send', 'pageview');
+        ga('create', 'UA-96579101-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 
-          </script>
+</head>
 
-  </head>
-
-  <body>
+<body class="ng-app" ng-controller="RatingCalculatorController">
     <header class="image-bg-fluid-height">
-          <div id="header_image">
+        <div id="header_image">
             <a href="index.html" title="ECF Grading Calculator" rel="home">
-              <img src="images/banner_1.jpg" alt="ECF chess rating calculator banner">
+                <img src="images/banner_1.jpg" alt="ECF chess rating calculator banner">
             </a>
-          </div><!-- #header_image -->
-      </header>
+        </div>
+        <!-- #header_image -->
+    </header>
 
-      <div class='container'>
-   <br/>
-  <form name = "search" id="searchForm" action="" method = "POST" action="getPageResults">
-    <fieldset>
-        <legend>Enter your current grade and results to calculate your new grade</legend>
-        <p>Calculate your new English Chess Federation (ECF) grade...</p>
+    <div>
 
-      <div class = 'form-group'>
-        <div class='form-inline'>
-           <label for='currentgrade'>Your Current Grade</label>
-           <div>
-            <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
-          </div>
-          </div>
-      </div>
+        <div class='container'>
+            <br/>
+            <form name="search" id="searchForm" action="" method="POST" action="getPageResults">
+                <fieldset>
+                    <legend>Enter your current grade and results to calculate your new grade</legend>
+                    <p>Calculate your new English Chess Federation (ECF) grade...</p>
 
-      <fieldset>
-          <legend>Your recent performance</legend>
+                    <div class='form-group'>
+                        <div class='form-inline'>
+                            <label for='currentgrade'>Your Current Grade</label>
+                            <div>
+                                <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
+                            </div>
+                        </div>
+                    </div>
 
-        <div class = 'form-group'>
-          <div class='form-inline'>
-             <label for='grade1'>Opponent 1</label>
+                    <fieldset>
+                        <legend>Your recent performance</legend>
 
-              <input type="text" class="form-control" placeholder="grade" id="grade1">
-               <label class="form-check-label">
-                 <input type="radio" class="form-check-input" name="game1result" id="win1" value="50" >
+                        <fieldset data-ng-repeat="game in games">
+                            <div class='form-group'>
+                                <div class='form-inline'>
+                                    <label for='grade1'>Opponent 1</label>
+
+                                    <input type="text" class="form-control" ng-model="game.grade" placeholder="grade" id="grade" grade=''>
+                                    <label class="form-check-label">
+                 <input type="radio" class="form-check-input" ng-model="game.result" ng-data-value="1" name="game1result" id="win1" value="50" >
                  Win
                </label>
 
-             <label class="form-check-label">
-                 <input type="radio" class="form-check-input" name="game1result" id="loss" value="-50" checked>
+                                    <label class="form-check-label">
+                 <input type="radio" class="form-check-input" name="game1result" id="loss" ng-model="game.result" ng-data-value="-1" value="-50" checked>
                  Loss
                </label>
 
-             <label class="form-check-label">
-                 <input type="radio" class="form-check-input" name="game1result" id="draw" value="0">
+                                    <label class="form-check-label">
+                 <input type="radio" class="form-check-input" name="game1result" id="draw" ng-model="game.result" ng-data-value="0" value="0">
                  Draw
                </label>
-           </div>
-       </div>
+                                    <button class="remove" ng-click="removeChoice($index)">-</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                        </legend>
+                    </fieldset>
 
-       <div class = 'form-group'>
-         <div class='form-inline'>
+                    <fieldset>
+                        <legend></legend>
+                    </fieldset>
 
-            <label for='grade2'>Opponent 2</label>
+                    <div class='form-group'>
+                        <button class="btn btn-default" type="button" id="Calculate" ng-click="calculate()">Calculate</button>
+                        <button class="btn btn-default" ng-click="addNewGame()">Add Game</button>
 
-             <input type="text" class="form-control" placeholder="grade" id="grade2">
-              <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="game2result" id="win1" value="50" >
-                Win
-              </label>
+                        <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
+                    </div>
 
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="game2result" id="loss" value="-50" checked>
-                Loss
-              </label>
 
-            <label class="form-check-label">
-                <input type="radio" class="form-check-input" name="game2result" id="draw" value="0">
-                Draw
-              </label>
-          </div>
-      </div>
+                </fieldset>
+                </legend>
+            </form>
 
-      <div class = 'form-group'>
-        <div class='form-inline'>
+            <div id="choicesDisplay">
+                {{ games }}
+            </div>
 
-           <label for='grade1'>Opponent 3</label>
 
-            <input type="text" class="form-control" placeholder="grade" id="grade3">
-             <label class="form-check-label">
-               <input type="radio" class="form-check-input" name="game3result" id="win1" value="50" >
-               Win
-             </label>
+            <div id='messages'>
 
-           <label class="form-check-label">
-               <input type="radio" class="form-check-input" name="game3result" id="loss" value="-50" checked>
-               Loss
-             </label>
+            </div>
 
-           <label class="form-check-label">
-               <input type="radio" class="form-check-input" name="game3result" id="draw" value="0">
-               Draw
-             </label>
-         </div>
-     </div>
-
-     <div class = 'form-group'>
-       <div class='form-inline'>
-
-          <label for='grade1'>Opponent 4</label>
-
-           <input type="text" class="form-control" placeholder="grade" id="grade4">
-            <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="game4result" id="win1" value="50" >
-              Win
-            </label>
-
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="game4result" id="loss" value="-50" checked>
-              Loss
-            </label>
-
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="game4result" id="draw" value="0">
-              Draw
-            </label>
         </div>
+        <!-- container -->
+        <br/>
     </div>
+    <!-- ng-ap -->
 
-    <div class = 'form-group'>
-      <div class='form-inline'>
-
-         <label for='grade1'>Opponent 5</label>
-
-          <input type="text" class="form-control" placeholder="grade" id="grade5">
-           <label class="form-check-label">
-             <input type="radio" class="form-check-input" name="game5result" id="win1" value="50" >
-             Win
-           </label>
-
-         <label class="form-check-label">
-             <input type="radio" class="form-check-input" name="game5result" id="loss" value="-50" checked>
-             Loss
-           </label>
-
-         <label class="form-check-label">
-             <input type="radio" class="form-check-input" name="game5result" id="draw" value="0">
-             Draw
-           </label>
-       </div>
-    </div>
-
-
-  </legend>
-</fieldset>
-
-<fieldset>
-    <legend></legend>
-</fieldset>
-
-<div class='form-group'>
-  <button class="btn btn-default" type="button" id="Calculate" onclick="calculate()">Calculate</button>
-  <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
-</div>
-
-
-</fieldset>
-</legend>
-  </form>
-
-  <div id='messages'>
-
-  </div>
-
-  </div> <!-- container -->
-<br/>
-  <div id="footer">
-      <div class="container">
-        <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
-        <div class="row" id="bottomNav">
+    <div id="footer">
         <div class="container">
-          <div class="col-lg-12 text-center"><a href="http://www.englishchess.org.uk/"><p class="text-muted">English Chess Federation rating calculator</p></a><div><a href="https://uk.linkedin.com/in/garfieldmoore"><i class="glyphicon glyphicon-copyright-mark"></i> Garfield Moore</a></div></div>
-          </div>
+            <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
+                <div class="row" id="bottomNav">
+                    <div class="container">
+                        <div class="col-lg-12 text-center">
+                            <a href="http://www.englishchess.org.uk/">
+                                <p class="text-muted">English Chess Federation rating calculator</p>
+                            </a>
+                            <div><a href="https://uk.linkedin.com/in/garfieldmoore"><i class="glyphicon glyphicon-copyright-mark"></i> Garfield Moore</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-          </div>
     </div>
+</body>
 
-  </body>
 </html>
