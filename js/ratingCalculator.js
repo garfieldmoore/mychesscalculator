@@ -21,9 +21,15 @@ angular.module('app', []).config(function() {});
 function RatingCalculatorController($scope){
 
   $scope.games = [];
-  var g={id: "game1", grade: "0", result: 50};
-  $scope.games[0]=g;
-  
+  for (var i = 0; i < 5; i++) {
+      var g = {
+          id: "game"+i,
+          grade: "0",
+          result: 1
+      };
+      $scope.games[i] = g;
+  }
+
   $scope.addNewGame = function() {
     console.log("Adding new game");
       var newItemNo = $scope.games.length + 1;
