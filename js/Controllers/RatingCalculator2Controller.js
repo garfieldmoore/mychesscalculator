@@ -3,9 +3,9 @@ app.controller('RatingCalculator2Controller',
     function RatingCalculator2Controller($scope) {
       console.log('Enter controller');
 
-        // $scope.player = {
-        //     grade: '',
-        // };
+        $scope.player = {
+            grade: '',
+        };
 
         $scope.games = [];
         for (var i = 0; i < 4; i++) {
@@ -26,9 +26,9 @@ app.controller('RatingCalculator2Controller',
 
         $scope.removeChoice = function(index) {
 
-          if ($scope.games.length > 0) {
+          // if ($scope.games.length > 1) {
             $scope.games.splice(index, 1);
-          }
+          // }
 
         };
 
@@ -58,7 +58,7 @@ app.controller('RatingCalculator2Controller',
         $scope.calculate = function() {
             console.log('Calculating Grade...')
 
-            var currentgrade = parseInt($('#currentgrade').val());
+            var currentgrade = parseInt($scope.player.grade);
 
             console.log('Current Grade:' + currentgrade);
 
