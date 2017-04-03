@@ -60,3 +60,7 @@ body {
     vertical-align: top;
     line-height: 100%;
 }
+
+button:disabled, button:disabled:hover{
+    background-color:#dddddd;;
+}
