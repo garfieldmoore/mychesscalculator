@@ -1,7 +1,7 @@
 'use strict'
 app.controller('RatingCalculator2Controller',
     function RatingCalculator2Controller($scope) {
-      console.log('Enter controller');
+        console.log('Enter controller');
 
         $scope.player = {
             grade: '',
@@ -18,20 +18,20 @@ app.controller('RatingCalculator2Controller',
 
         $scope.addNewGame = function() {
             console.log("Adding new game");
-                var newItemNo = $scope.games.length + 1;
-                $scope.games.push({
-                    'id': 'game' + newItemNo
-                });
+            var newItemNo = $scope.games.length + 1;
+            $scope.games.push({
+                'id': 'game' + newItemNo,
+                result: 1
+            });
         };
 
         $scope.removeChoice = function(index) {
 
-          if ($scope.games.length > 1) {
-            $scope.games.splice(index, 1);
-          }
-          else{
-            console.log('Cannot remove last game');
-          }
+            if ($scope.games.length > 1) {
+                $scope.games.splice(index, 1);
+            } else {
+                console.log('Cannot remove last game');
+            }
 
         };
 
