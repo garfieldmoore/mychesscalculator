@@ -1,6 +1,11 @@
 'use strict'
 app.controller('RatingCalculator2Controller',
     function RatingCalculator2Controller($scope) {
+      console.log('Enter controller');
+
+        // $scope.player = {
+        //     grade: '',
+        // };
 
         $scope.games = [];
         for (var i = 0; i < 4; i++) {
@@ -13,16 +18,18 @@ app.controller('RatingCalculator2Controller',
 
         $scope.addNewGame = function() {
             console.log("Adding new game");
-            var newItemNo = $scope.games.length + 1;
-            $scope.games.push({
-                'id': 'game' + newItemNo
-
-            });
+                var newItemNo = $scope.games.length + 1;
+                $scope.games.push({
+                    'id': 'game' + newItemNo
+                });
         };
 
         $scope.removeChoice = function(index) {
 
+          if ($scope.games.length > 0) {
             $scope.games.splice(index, 1);
+          }
+
         };
 
         // fields description of entity

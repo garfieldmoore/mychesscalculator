@@ -84,9 +84,9 @@
                 <p>Calculate your new English Chess Federation (ECF) grade...</p>
 
                 <div class='form-group form-inline'>
-                    <label for='currentgrade'>Your Current Grade</label>
+                    <label for='currentgrade'>enter your urrent ECF grade</label>
                     <div>
-                        <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
+                        <input type="text" class="form-control" placeholder="your current ECF grade" id="currentgrade" ng-model="player.grade">
                     </div>
                 </div>
             </fieldset>
@@ -97,7 +97,7 @@
                 <fieldset data-ng-repeat="game in games">
                     <div class='form-group form-inline'>
                         <label for='grade1'>Opponent's Grade: </label>
-                        <input type="text" class="form-control" ng-model="game.grade" placeholder="grade" id="grade" grade='' >
+                        <input type="text" class="form-control" ng-model="game.grade" placeholder="grade" id="grade" grade=''>
 
                         <label class="form-check-label">
                            <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
@@ -124,7 +124,7 @@
 
             <div class='form-group'>
                 <button class="btn btn-default" type="button" id="Calculate" ng-click="calculate()">Calculate</button>
-                <button class="btn btn-default" ng-click="addNewGame()">Add Game</button>
+                <button class="btn btn-default" type='button' id='AddGame' ng-click="addNewGame()">Add Game</button>
                 <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
             </div>
         </form>
@@ -139,6 +139,7 @@
 
     </div>
     <!-- container, rating controller -->
+    </br>
 
     <div id="footer">
         <div class="container">
