@@ -1,6 +1,5 @@
 'use strict'
-// Why does below line not register the controllers correctly?? - see app.js for module
-// app.controller('RatingCalculatorController',
+app.controller('RatingCalculator2Controller',
     function RatingCalculator2Controller($scope) {
 
         $scope.games = [];
@@ -116,4 +115,4 @@
             }
         }
     }
-// );
+);

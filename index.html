@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"  class="ng-app" ng-app="ratingsApp">
+<html lang="en" class="ng-app" ng-app="ratingsApp">
 
 <head>
     <meta charset="utf-8">
@@ -35,7 +35,9 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+
     <!-- Latest compiled and minified CSS -->
     <!-- <link rel="stylesheet" href="//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css"> -->
 
@@ -74,84 +76,70 @@
         </div>
         <!-- #header_image -->
     </header>
+    <br/>
 
-    <div ng-controller='RatingCalculator2Controller'>
+    <div ng-controller='RatingCalculator2Controller' class='container'>
+        <form name="search" id="searchForm" action="" method="POST" action="getPageResults">
+            <fieldset>
+                <legend>Enter your current grade and results to calculate your new grade</legend>
+                <p>Calculate your new English Chess Federation (ECF) grade...</p>
 
-        <div class='container'>
-            <br/>
-            <form name="search" id="searchForm" action="" method="POST" action="getPageResults">
-                <fieldset>
-                    <legend>Enter your current grade and results to calculate your new grade</legend>
-                    <p>Calculate your new English Chess Federation (ECF) grade...</p>
-
-                    <div class='form-group'>
-                        <div class='form-inline'>
-                            <label for='currentgrade'>Your Current Grade</label>
-                            <div>
-                                <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
-                            </div>
-                        </div>
+                <div class='form-group form-inline'>
+                    <label for='currentgrade'>Your Current Grade</label>
+                    <div>
+                        <input type="text" class="form-control" placeholder="your grade" id="currentgrade" value="0">
                     </div>
+                </div>
+            </fieldset>
 
-                    <fieldset>
-                        <legend>Your recent performance</legend>
+            <fieldset>
+                <legend>Your recent performance</legend>
 
-                        <fieldset data-ng-repeat="game in games">
-                            <div class='form-group'>
-                                <div class='form-inline'>
-                                    <label for='grade1'>Opponent's Grade: </label>
+                <fieldset data-ng-repeat="game in games">
+                    <div class='form-group form-inline'>
+                        <label for='grade1'>Opponent's Grade: </label>
+                        <input type="text" class="form-control" ng-model="game.grade" placeholder="grade" id="grade" grade='' >
 
-                                    <input type="text" class="form-control" ng-model="game.grade" placeholder="grade" id="grade" grade=''>
-                                    <label class="form-check-label">
-                 <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
-                 Win
-               </label>
+                        <label class="form-check-label">
+                           <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
+                           Win
+                        </label>
 
-                                    <label class="form-check-label">
+                        <label class="form-check-label">
                  <input type="radio" class="form-check-input" ng-model="game.result" ng-value="-1" value="-50">
                  Loss
                </label>
 
-                                    <label class="form-check-label">
+                        <label class="form-check-label">
                  <input type="radio" class="form-check-input" id="draw" ng-model="game.result" ng-value="0" value="0">
                  Draw
                </label>
-                                    <button class="remove" ng-click="removeChoice($index)">-</button>
-                                </div>
-                            </div>
-                        </fieldset>
-                        </legend>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend></legend>
-                    </fieldset>
-
-                    <div class='form-group'>
-                        <button class="btn btn-default" type="button" id="Calculate" ng-click="calculate()">Calculate</button>
-                        <button class="btn btn-default" ng-click="addNewGame()">Add Game</button>
-
-                        <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
+                        <button class="remove" ng-click="removeChoice($index)">-</button>
                     </div>
-
-
                 </fieldset>
-                </legend>
-            </form>
+            </fieldset>
 
-            <!-- <div id="choicesDisplay">
+            <fieldset>
+                <legend></legend>
+            </fieldset>
+
+            <div class='form-group'>
+                <button class="btn btn-default" type="button" id="Calculate" ng-click="calculate()">Calculate</button>
+                <button class="btn btn-default" ng-click="addNewGame()">Add Game</button>
+                <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
+            </div>
+        </form>
+
+        <!-- <div id="choicesDisplay">
                 {{ games }}
             </div> -->
 
-            <div id='messages'>
-
-            </div>
+        <div id='messages'>
 
         </div>
-        <!-- container -->
-        <br/>
+
     </div>
-    <!-- rating controller -->
+    <!-- container, rating controller -->
 
     <div id="footer">
         <div class="container">
