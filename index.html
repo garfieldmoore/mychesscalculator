@@ -101,17 +101,17 @@
 
                                     <input type="text" class="form-control" ng-model="game.grade" placeholder="grade" id="grade" grade=''>
                                     <label class="form-check-label">
-                 <input type="radio" class="form-check-input" ng-model="game.result" ng-data-value="1" name="game1result" id="win1" value="50" >
+                 <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
                  Win
                </label>
 
                                     <label class="form-check-label">
-                 <input type="radio" class="form-check-input" name="game1result" id="loss" ng-model="game.result" ng-data-value="-1" value="-50" checked>
+                 <input type="radio" class="form-check-input" ng-model="game.result" ng-value="-1" value="-50">
                  Loss
                </label>
 
                                     <label class="form-check-label">
-                 <input type="radio" class="form-check-input" name="game1result" id="draw" ng-model="game.result" ng-data-value="0" value="0">
+                 <input type="radio" class="form-check-input" id="draw" ng-model="game.result" ng-value="0" value="0">
                  Draw
                </label>
                                     <button class="remove" ng-click="removeChoice($index)">-</button>
@@ -137,9 +137,9 @@
                 </legend>
             </form>
 
-            <!-- <div id="choicesDisplay">
+            <div id="choicesDisplay">
                 {{ games }}
-            </div> -->
+            </div>
 
             <div id='messages'>
 
