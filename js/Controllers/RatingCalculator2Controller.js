@@ -1,10 +1,10 @@
 'use strict'
 // Why does below line not register the controllers correctly?? - see app.js for module
 // app.controller('RatingCalculatorController',
-    function RatingCalculatorController($scope) {
+    function RatingCalculator2Controller($scope) {
 
         $scope.games = [];
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 4; i++) {
             var g = {
                 id: "game" + i,
                 result: 1
