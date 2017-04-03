@@ -26,9 +26,12 @@ app.controller('RatingCalculator2Controller',
 
         $scope.removeChoice = function(index) {
 
-          // if ($scope.games.length > 1) {
+          if ($scope.games.length > 1) {
             $scope.games.splice(index, 1);
-          // }
+          }
+          else{
+            console.log('Cannot remove last game');
+          }
 
         };
 

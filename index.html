@@ -115,7 +115,7 @@
                  <input type="radio" class="form-check-input" id="draw" ng-model="game.result" ng-value="0" value="0">
                  Draw
                </label>
-                        <button class="remove" ng-click="removeChoice($index)">-</button>
+                        <button class="remove" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)">-</button>
                     </div>
                 </fieldset>
             </fieldset>
