@@ -1,1 +1,2 @@
-var app = angular.module('ratingApp', []).config(function() {});
+'use strict'
+var app = angular.module('ratingsApp', []);

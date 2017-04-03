@@ -1,4 +1,5 @@
-
+'use strict'
+// Why does below line not register the controllers correctly?? - see app.js for module
 // app.controller('RatingCalculatorController',
     function RatingCalculatorController($scope) {
 
