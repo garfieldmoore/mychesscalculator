@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+    <meta name="description" content="Calcualtes your English Chess Federation chess rating or chess grade.  Allows you to estimate your chess grade on recent performance">
+    <meta name="author" content="Garfield Moore">
     <title>Chess Grade Calculator</title>
-
+    <link rel="icon" href="images/favicon.ico">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -78,7 +80,7 @@
     <br/>
 
     <div ng-controller='RatingCalculator2Controller' class='container'>
-        <form name="calc" id="calcForm" method="POST">
+        <form name="calc" id="calcForm" action="" method="POST">
             <fieldset>
                 <legend>Enter your current grade and results to calculate your new grade</legend>
                 <p>Calculate your new English Chess Federation (ECF) grade...</p>
