@@ -108,7 +108,19 @@ function RatingCalculatorController($scope){
                   console.log('Apply the grade difference rule to opponent ' + i);
                   opponentsgrade = currentgrade - 40;
               }
-              result = parseInt(result) + parseInt(opponentsgrade) + parseInt($scope.games[i].result);
+
+              var offset;
+              if ($scope.games[i].result==0){
+                offset=0;
+              }
+              else if ($scope.games[i].result == 1){
+                offset = 50;
+              }
+              else{
+                offset = -50;
+              }
+
+              result = parseInt(result) + parseInt(opponentsgrade) + offset;
               divisor++;
           }
       }
