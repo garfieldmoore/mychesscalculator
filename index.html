@@ -67,6 +67,30 @@
 </head>
 
 <body>
+  <!-- facebook ads -->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '200395867122135',
+                xfbml: true,
+                version: 'v2.8'
+            });
+            FB.AppEvents.logPageView();
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- facebook ads -->
+
     <header class="image-bg-fluid-height">
         <div id="header_image">
             <a href="index.html" title="ECF Grading Calculator" rel="home">
@@ -78,7 +102,7 @@
     <br/>
 
     <div ng-controller='RatingCalculator2Controller' class='container'>
-        <form name="search" id="searchForm" action="" method="POST" action="getPageResults">
+        <form name="calc" id="calcForm" method="POST">
             <fieldset>
                 <legend>Enter your current grade and results to calculate your new grade</legend>
                 <p>Calculate your new English Chess Federation (ECF) grade...</p>
@@ -140,6 +164,12 @@
     </div>
     <!-- container, rating controller -->
     </br>
+    <!-- <div
+      class="fb-like"
+      data-share="true"
+      data-width="450"
+      data-show-faces="true">
+    </div> -->
 
     <div id="footer">
         <div class="container">
