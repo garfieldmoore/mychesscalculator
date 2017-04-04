@@ -1,4 +1,5 @@
-'use strict'
+'use strict';
+
 app.controller('RatingCalculator2Controller',
     function RatingCalculator2Controller($scope, chessGradeCalculator) {
         console.log('Enter controller');
