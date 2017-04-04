@@ -49,8 +49,6 @@
     <script type='text/javascript' src='js/Controllers/RatingCalculator2Controller.js'></script>
     <script type='text/javascript' src='js/services/ChessGradeCalculator.js'></script>
 
-    <script src="node_modules/angular-route/angular-route.js"></script>
-
     <!-- Google analytics -->
     <script>
         (function(i, s, o, g, r, a, m) {
@@ -82,7 +80,68 @@
     </header>
     <br/>
 
-    <ng-view></ng-view>
+    <div ng-controller='RatingCalculator2Controller' class='container'>
+        <form name="calc" id="calcForm" action="" method="POST">
+            <fieldset>
+                <legend>Enter your current grade and results to calculate your new grade</legend>
+                <p>Calculate your new English Chess Federation (ECF) grade...</p>
+
+                <div class='form-group form-inline'>
+                    <label for='currentgrade'>enter your urrent ECF grade</label>
+                    <div>
+                        <input type="text" class="form-control" placeholder="your current ECF grade" id="currentgrade" ng-model="player.grade">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Your recent performance</legend>
+
+                <fieldset data-ng-repeat="game in games">
+                    <div class='form-group form-inline'>
+                        <label for='grade1'>Opponent's Grade: </label>
+                        <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents ECF grade" id="grade" grade=''>
+
+                        <label class="form-check-label">
+                               <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
+                               Win
+                            </label>
+
+                        <label class="form-check-label">
+                     <input type="radio" class="form-check-input" ng-model="game.result" ng-value="-1" value="-50">
+                     Loss
+                   </label>
+
+                        <label class="form-check-label">
+                     <input type="radio" class="form-check-input" id="draw" ng-model="game.result" ng-value="0" value="0">
+                     Draw
+                   </label>
+                        <button class="remove" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)">-</button>
+                    </div>
+                </fieldset>
+            </fieldset>
+
+            <fieldset>
+                <legend></legend>
+            </fieldset>
+
+            <div class='form-group'>
+                <button class="btn btn-default" type="button" id="Calculate" ng-click="calculate()">Calculate</button>
+                <button class="btn btn-default" type='button' id='AddGame' ng-click="addNewGame()">Add Game</button>
+                <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
+            </div>
+        </form>
+
+        <!-- <div id="choicesDisplay">
+                    {{ games }}
+                </div> -->
+
+        <div id='messages'>
+
+        </div>
+
+    </div>
+    <!-- container -->
 
     </br>
     <!-- <div

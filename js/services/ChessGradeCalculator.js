@@ -1,5 +1,4 @@
 'use strict';
-
 app.factory('chessGradeCalculator', function() {
     return {
         calculate: function(currentgrade, games) {
