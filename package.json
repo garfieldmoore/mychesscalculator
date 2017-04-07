@@ -1,0 +1,23 @@
+{
+  "name": "ecfcalculator",
+  "version": "1.0.0",
+  "description": "install node",
+  "main": "index.js",
+  "dependencies": {
+    "qunit": "^1.0.0"
+  },
+  "devDependencies": {
+    "qunit": "^1.0.0",
+    "qunitjs": "^2.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://garfieldmoore@bitbucket.org/garfieldmoore/gradecalculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/garfieldmoore/gradecalculator#readme"
+}
