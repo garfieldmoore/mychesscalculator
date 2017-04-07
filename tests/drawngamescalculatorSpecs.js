@@ -28,7 +28,7 @@ QUnit.test('current grade should not change when all the games played are drawn 
     QUnit.assert.strictEqual(grade, 102, "The grades should be the same")
 });
 
-QUnit.test('new grade should be 110 when a 100 grade draws with a 120 grade', function() {
+QUnit.test('new grade should increase to 110 when a 100 grade draws with a 120 grade', function() {
 
     var $injector = angular.injector(['ratingsApp']);
     var myService = $injector.get('chessGradeCalculator');
@@ -37,4 +37,15 @@ QUnit.test('new grade should be 110 when a 100 grade draws with a 120 grade', fu
 
     var grade = myService.calculate(100, games);
     QUnit.assert.strictEqual(grade, 110, "The grades should be the same")
+});
+
+QUnit.test('new grade should decrease to 90 when a 100 grade draws with an 80 grade', function() {
+
+    var $injector = angular.injector(['ratingsApp']);
+    var myService = $injector.get('chessGradeCalculator');
+
+    var games=[{id:'game2', grade:80, result:0}]
+
+    var grade = myService.calculate(100, games);
+    QUnit.assert.strictEqual(grade, 90, "The grades should be the same")
 });
