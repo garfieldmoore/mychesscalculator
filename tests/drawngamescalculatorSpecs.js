@@ -9,9 +9,15 @@ describe("Player", function() {
 
     it("should be able to play a Song", function() {
         var sum = player + song;
-        expect(sum).toEqual(33);
+        expect(sum).toEqual(3);
 
     });
+
+    it("should be able to play a Song", function() {
+          var sum = player + song;
+          expect(sum).toEqual(3);
+
+      });
 });
 
 // QUnit.module('EcfCalculator', {
