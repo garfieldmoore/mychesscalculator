@@ -94,9 +94,28 @@
                     <button type="button" class="close" onclick="closeFeedback()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                     <h4 class="modal-title" id="myModalLabel">Suggestions / Feedback</h4>
                 </div>
+
                 <div class="modal-body">
-                    ...
+                    <div class="floating-form" id="contact_form">
+                        <h4 class="floating-form-heading">Your feedback is appreciated and we will try to incorporate your suggestions into our site</h4>
+                        <div id="contact_results"></div>
+                        <div id="contact_body" class='class="modal-body'>
+                            <label for='name' class="required "><span>Name <span class="required"></span></label>
+                            <input placeholder='your name' type="text" name="name" id="name" required="true" class="form-control"> </input>
+
+                            <label for='email' class=''>Email </label>
+                            <input type="email" id='email' placeholder='your email' name="email" required="true" class="form-control"></input>
+
+                            <label for='title' class=''>Title </label>
+                            <input type="text" id='title' placeholder='title' name="title" required="true" class="form-control"></input>
+
+                            <label for="message" class="required">Suggestions or feedback </label>
+                            <textarea name="message" rows='10' id="feedback_message" class="form-control col-md-12" required="true"></textarea>
+                            </label>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" onclick="closeFeedback()">Close</button>
                     <button type="button" class="btn btn-primary" onclick="sendFeedback()">Send</button>
