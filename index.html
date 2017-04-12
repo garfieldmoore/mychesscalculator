@@ -160,7 +160,7 @@
                      <input type="radio" class="form-check-input" id="draw" ng-model="game.result" ng-value="0" value="0">
                      Draw
                    </label>
-                        <button class="remove" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)">-</button>
+                        <button class="btn btn-default btn-round remove" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                     </div>
                 </fieldset>
             </fieldset>
