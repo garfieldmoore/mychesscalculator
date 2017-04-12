@@ -84,7 +84,7 @@
     </header>
     <br/>
 
-    <button type="button" class="btn btn-primary btn-lg clearfix btn-cff btn-cff-right-90 btn-cff-margin-top-30 " onclick="openFeedback()">Contact / Feedback</button>
+    <button type="button" class="btn btn-primary btn-lg clearfix btn-cff btn-cff-right-90 btn-cff-margin-top-30" onclick="openFeedback()">Contact / Feedback </br><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
 
     <!-- Modal window as shown at Twitter bootstrap-->
     <div class="modal" id="feedbackForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -165,24 +165,26 @@
                 </fieldset>
             </fieldset>
 
+            <div id='messages'>
+
+            </div>
+
             <fieldset>
                 <legend></legend>
             </fieldset>
 
             <div class='form-group'>
-                <button class="btn btn-default" type="button" id="Calculate" ng-click="calculate()">Calculate</button>
-                <button class="btn btn-default" type='button' id='AddGame' ng-click="addNewGame()">Add Game</button>
+                <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success" type="button" id="Calculate" ng-click="calculate()"></button>
+                <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary" type='button' id='AddGame' ng-click="addNewGame()"></button>
+
+                <!-- <button type="button" class="btn btn-default btn-lg btn-round"><span class="glyphicon glyphicon-plus"></span></button> -->
+                <!-- <button type="button" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </button> -->
+
                 <!-- <button class="btn btn-default" type="button" id="Reset" onclick="reset()">Reset</button> -->
             </div>
         </form>
-
-        <!-- <div id="choicesDisplay">
-                    {{ games }}
-                </div> -->
-
-        <div id='messages'>
-
-        </div>
 
     </div>
     <!-- container -->

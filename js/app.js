@@ -22,6 +22,8 @@ function sendFeedback(){
   console.log('message ' + feedback);
 
   var body = {name:'garfield', title:'test message', email:'garfieldmoore@gmail.com', message:'this is a test'};
+  // $('#contact_results').append('Thanks - We have recieved your feedback and will review it within 24 hours')
+
   // var response = $.ajax({
   //            url: "http://30000" + "/myapi/createIssue",
   //            method: "post",
@@ -39,6 +41,5 @@ function sendFeedback(){
   //                 alert("Status: " + textStatus); alert("Error: " + errorThrown);
   //             }
   //         });
-
   closeFeedback();
 }
