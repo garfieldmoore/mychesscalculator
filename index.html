@@ -11,6 +11,7 @@
     <meta name="author" content="Garfield Moore">
     <title>Chess Grade Calculator</title>
     <link rel="icon" href="images/favicon.ico">
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -27,10 +28,10 @@
     <![endif]-->
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
     <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
 
     <link rel="stylesheet" href="css/sitestyle.css" />
 
@@ -48,6 +49,8 @@
     <script type='text/javascript' src='js/app.js'></script>
     <script type='text/javascript' src='js/Controllers/RatingCalculator2Controller.js'></script>
     <script type='text/javascript' src='js/services/ChessGradeCalculator.js'></script>
+
+    <link rel="stylesheet" href="css/contact-feedback-form.css">
 
     <!-- Google analytics -->
     <script>
@@ -70,6 +73,7 @@
 </head>
 
 <body>
+
     <header class="image-bg-fluid-height">
         <div id="header_image">
             <a href="index.html" title="ECF Grading Calculator" rel="home">
@@ -79,6 +83,46 @@
         <!-- #header_image -->
     </header>
     <br/>
+
+    <button type="button" class="btn btn-primary btn-lg clearfix btn-cff btn-cff-left-90 btn-cff-margin-top-30" onclick="openFeedback()">Contact / Feedback</button>
+
+    <!-- Modal window as shown at Twitter bootstrap-->
+    <div class="modal" id="feedbackForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onclick="closeFeedback()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Suggestions / Feedback</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="floating-form" id="contact_form">
+                        <h4 class="floating-form-heading">Your feedback is appreciated and we will try to incorporate your suggestions into our site</h4>
+                        <div id="contact_results"></div>
+                        <div id="contact_body" class='class="modal-body'>
+                            <label for='name' class="required "><span>Name <span class="required"></span></label>
+                            <input placeholder='your name' type="text" name="name" id="name" required="true" class="form-control"> </input>
+
+                            <label for='email' class=''>Email </label>
+                            <input type="email" id='email' placeholder='your email' name="email" required="true" class="form-control"></input>
+
+                            <label for='title' class=''>Title </label>
+                            <input type="text" id='title' placeholder='title' name="title" required="true" class="form-control"></input>
+
+                            <label for="message" class="required">Suggestions or feedback </label>
+                            <textarea name="message" rows='10' id="feedback_message" class="form-control col-md-12" required="true"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" onclick="closeFeedback()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="sendFeedback()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div ng-controller='RatingCalculator2Controller' class='container'>
         <form name="calc" id="calcForm" action="" method="POST">
@@ -152,6 +196,7 @@
     </div> -->
 
     <div id="footer">
+
         <div class="container">
             <div class="col-xs-12 navbar-inverse navbar-fixed-bottom">
                 <div class="row" id="bottomNav">
@@ -167,6 +212,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>

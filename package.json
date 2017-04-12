@@ -1,0 +1,20 @@
+{
+  "name": "ecfcalculator",
+  "version": "1.0.0",
+  "description": "install node",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.5.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://garfieldmoore@bitbucket.org/garfieldmoore/gradecalculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/garfieldmoore/gradecalculator#readme"
+}

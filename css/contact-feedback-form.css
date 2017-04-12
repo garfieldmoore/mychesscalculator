@@ -1,0 +1,110 @@
+/* Basic class for Contact Feedback button */
+.btn-cff{
+    position: absolute; 
+    top: 50%;
+}
+
+/* Left aligned standard */ 
+.btn-cff-left{
+    
+}
+
+/* Right aligned standard */ 
+.btn-cff-right{
+    right: 0;
+}
+
+/* Top aligned standard */ 
+.btn-cff-top{
+    top: 0;
+}
+
+/* Bottom aligned standard */ 
+.btn-cff-left{
+    bottom: 0;
+}
+
+/* Left aligned rotate 90 deg */ 
+.btn-cff-left-90{
+    -ms-transform: rotate(90deg); 
+    -ms-transform-origin: bottom left; 
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: bottom left;
+    transform: rotate(90deg);
+    transform-origin: bottom left;
+    left: 0;
+}
+
+/* Left aligned rotate 90 deg inverse */ 
+.btn-cff-left-90-inverse{
+    -ms-transform: rotate(-90deg); 
+    -ms-transform-origin: top left; 
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin: top left;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    left: 0;
+}
+
+/* Right aligned rotate 90 deg */ 
+.btn-cff-right-90{
+    -ms-transform: rotate(-90deg); 
+    -ms-transform-origin: bottom right; 
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin: bottom right;
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
+    right: 0;
+}
+
+/* Right aligned rotate 90 deg inverse */ 
+.btn-cff-right-90-inverse{
+    -ms-transform: rotate(90deg); 
+    -ms-transform-origin: top right; 
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin: top right;
+    transform: rotate(90deg);
+    transform-origin: top right;
+    right: 0;
+}
+
+
+/* Top distance */ 
+.btn-cff-margin-top-10{ top: 10%; }
+.btn-cff-margin-top-20{ top: 20%; }
+.btn-cff-margin-top-30{ top: 30%; }
+.btn-cff-margin-top-50{ top: 50%; }
+.btn-cff-margin-top-60{ top: 60%; }
+.btn-cff-margin-top-70{ top: 70%; }
+.btn-cff-margin-top-80{ top: 80%; }
+.btn-cff-margin-top-90{ top: 90%; }
+
+/* Bottom distance */ 
+.btn-cff-margin-bottom-10{ bottom: 10%; }
+.btn-cff-margin-bottom-20{ bottom: 20%; }
+.btn-cff-margin-bottom-30{ bottom: 30%; }
+.btn-cff-margin-bottom-50{ bottom: 50%; }
+.btn-cff-margin-bottom-60{ bottom: 60%; }
+.btn-cff-margin-bottom-70{ bottom: 70%; }
+.btn-cff-margin-bottom-80{ bottom: 80%; }
+.btn-cff-margin-bottom-90{ bottom: 90%; }
+
+/* Left distance */ 
+.btn-cff-margin-left-10{ left: 10%; }
+.btn-cff-margin-left-20{ left: 20%; }
+.btn-cff-margin-left-30{ left: 30%; }
+.btn-cff-margin-left-50{ left: 50%; }
+.btn-cff-margin-left-60{ left: 60%; }
+.btn-cff-margin-left-70{ left: 70%; }
+.btn-cff-margin-left-80{ left: 80%; }
+.btn-cff-margin-left-90{ left: 90%; }
+
+/* Top distance */ 
+.btn-cff-margin-right-10{ right: 10%; }
+.btn-cff-margin-right-20{ right: 20%; }
+.btn-cff-margin-right-30{ right: 30%; }
+.btn-cff-margin-right-50{ right: 50%; }
+.btn-cff-margin-right-60{ right: 60%; }
+.btn-cff-margin-right-70{ right: 70%; }
+.btn-cff-margin-right-80{ right: 80%; }
+.btn-cff-margin-right-90{ right: 90%; }
