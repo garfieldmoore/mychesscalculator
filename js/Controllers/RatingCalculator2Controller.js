@@ -66,9 +66,9 @@ app.controller('RatingCalculator2Controller',
 
             $('#messages').empty();
             if (isNaN(result)) {
-                $('#messages').append('<div><h4>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</h4></div>');
+                $('#messages').append('<div><p>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</p></div>');
             } else {
-                $('#messages').append('<h4>Your grade is now ' + result + '</h4>');
+                $('#messages').append('<p>Your grade is now ' + result + '</p>');
             }
         }
     }
