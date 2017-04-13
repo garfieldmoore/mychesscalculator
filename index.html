@@ -84,7 +84,7 @@
     </header>
     <br/>
 
-    <button type="button" class="btn btn-primary btn-lg clearfix btn-cff btn-cff-right-90 btn-cff-margin-top-30" onclick="openFeedback()">Contact / Feedback </br><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
+    <button type="button" class="btn btn-primary btn-lg clearfix btn-cff btn-cff-right-90 btn-cff-margin-top-30" onclick="openFeedback()"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  Contact / Feedback</button>
 
     <!-- Modal window as shown at Twitter bootstrap-->
     <div class="modal" id="feedbackForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -97,7 +97,7 @@
 
                 <div class="modal-body">
                     <div class="floating-form" id="contact_form">
-                        <h4 class="floating-form-heading">Your feedback is appreciated and we will try to incorporate your suggestions into our site</h4>
+                        <div class="floating-form-heading">Tell us about your experience</div>
                         <div id="contact_results"></div>
                         <div id="contact_body" class='class="modal-body'>
                             <label for='name' class="required "><span>Name <span class="required"></span></label>
@@ -117,8 +117,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" onclick="closeFeedback()">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="sendFeedback()">Send</button>
+                    <!-- <button type="button" class="btn btn-default" onclick="closeFeedback()">Close</button> -->
+                    <button type="button" class="btn btn-primary" onclick="sendFeedback()">Send  <span class='glyphicon glyphicon-send'></span></button>
                 </div>
             </div>
         </div>
