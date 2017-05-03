@@ -1,62 +1,86 @@
 'use strict';
+
+function IsValid(currentgrade) {
+    return currentgrade != 'undefined' && currentgrade > 0 && !isNaN(currentgrade);
+}
+
+function LogGameResultInfo(game) {
+    console.log('opponents grade:');
+    console.log(game.grade);
+
+    console.log('Result:');;
+    console.log(game.result);
+}
+
+function ApplyMaximumGradeDifferenceRule(mygrade, opponentsgrade) {
+
+    if (opponentsgrade > mygrade + 40) {
+        console.log('Apply the grade difference rule to opponent ');
+        opponentsgrade = mygrade + 40;
+    }
+
+    if (opponentsgrade < mygrade - 40) {
+        console.log('Apply the grade difference rule to opponent ');
+        opponentsgrade = mygrade - 40;
+    }
+
+    return opponentsgrade;
+}
+
+function GetRewardPoints(game) {
+
+    var offset;
+    if (game.result == 0) {
+        offset = 0;
+    } else if (game.result == 1) {
+        offset = 50;
+    } else {
+        offset = -50;
+    }
+
+    return offset;
+
+}
+
+function HasResult(game) {
+
+    return game.result != 'undefined'
+}
+
+function ApplyRoundingUpRule(grade){
+
+  return Math.round(grade);
+}
+
 app.factory('chessGradeCalculator', function() {
     return {
         calculate: function(currentgrade, games) {
 
             console.log('Current Grade:' + currentgrade);
 
-            console.log('Grades:');
-            for (var i = 0; i < games.length; i++) {
-                console.log(games[i].grade);
-            }
+            var sumOfAllGrades = 0;
+            var numberofRatedGames = 0;
 
-            console.log('Results:');;
-            for (var i = 0; i < games.length; i++) {
-                console.log(games[i].result);
-            }
-
-            var result = 0;
-            var divisor = 0;
-
-            if (currentgrade != 'undefined' && currentgrade > 0 && !isNaN(currentgrade)) {
-                result = result + currentgrade;
-                divisor++;
+            if (IsValid(currentgrade)) {
+                sumOfAllGrades = sumOfAllGrades + currentgrade;
+                numberofRatedGames++;
             }
 
             for (var i = 0; i < games.length; i++) {
+                LogGameResultInfo(games[i]);
                 var opponentsgrade = games[i].grade;
 
-                if (games[i].grade != 'undefined' && games[i].result != 'undefined' && !isNaN(games[i].grade)) {
-                    // the grades differ by no more than 40 rule
-                    if (currentgrade != 'undefined' && currentgrade > 0)
-                        if (opponentsgrade > currentgrade + 40) {
-                            console.log('Apply the grade difference rule to opponent ' + i);
-                            opponentsgrade = currentgrade + 40;
-                        }
-
-                    if (opponentsgrade < currentgrade - 40) {
-                        console.log('Apply the grade difference rule to opponent ' + i);
-                        opponentsgrade = currentgrade - 40;
-                    }
-
-                    var offset;
-                    if (games[i].result == 0) {
-                        offset = 0;
-                    } else if (games[i].result == 1) {
-                        offset = 50;
-                    } else {
-                        offset = -50;
-                    }
-
-                    result = parseInt(result) + parseInt(opponentsgrade) + offset;
-                    divisor++;
+                if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
+                    opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
+                    var resultRewardPoints = GetRewardPoints(games[i])
                 }
+
+                sumOfAllGrades += opponentsgrade + resultRewardPoints;
+                numberofRatedGames++;
             }
 
-            result = result / divisor;
-            result = Math.round(result);
-
-            return result;
+            var averageGrade = ApplyRoundingUpRule(sumOfAllGrades / numberofRatedGames);
+            return averageGrade;
         }
     }
 });
