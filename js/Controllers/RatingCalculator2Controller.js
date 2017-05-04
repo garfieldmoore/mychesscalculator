@@ -15,7 +15,7 @@ app.controller('RatingCalculator2Controller',
 
             $scope.selectedChessFederation = item;
         }
-        
+
         $scope.games = [];
         for (var i = 0; i < 4; i++) {
             var g = {
@@ -70,7 +70,7 @@ app.controller('RatingCalculator2Controller',
         $scope.calculate = function() {
             console.log('Calculating Grade...')
             var currentgrade = parseInt($scope.player.grade);
-            var result = chessGradeCalculator.calculate(currentgrade, $scope.games);
+            var result = chessGradeCalculator.calculate(currentgrade, $scope.games,$scope.selectedChessFederation);
 
             $('#messages').empty();
             if (isNaN(result)) {

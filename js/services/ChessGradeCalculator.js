@@ -47,39 +47,58 @@ function HasResult(game) {
     return game.result != 'undefined'
 }
 
-function ApplyRoundingUpRule(grade){
+function ApplyRoundingUpRule(grade) {
 
-  return Math.round(grade);
+    return Math.round(grade);
 }
 
 app.factory('chessGradeCalculator', function() {
     return {
-        calculate: function(currentgrade, games) {
-            console.log('Current Grade:' + currentgrade);
-
-            var sumOfAllGrades = 0;
-            var numberofRatedGames = 0;
-
-            if (IsValid(currentgrade)) {
-                sumOfAllGrades += currentgrade;
-                numberofRatedGames++;
-            }
-
-            for (var i = 0; i < games.length; i++) {
-                LogGameResultInfo(games[i]);
-                var opponentsgrade = games[i].grade;
-
-                if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
-                    opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
-                    var resultRewardPoints = GetRewardPoints(games[i])
+        createFor: function(chessFederation) {
+            if (chessFederation === 'ELO') {
+                return {
+                  CalculationFrom: function(currentgrade, games) {
+                      return 199;
+                  }
                 }
+            } else {
+                return {
+                    CalculationFrom: function(currentgrade, games) {
+                        var sumOfAllGrades = 0;
+                        var numberofRatedGames = 0;
 
-                sumOfAllGrades += opponentsgrade + resultRewardPoints;
-                numberofRatedGames++;
+                        if (IsValid(currentgrade)) {
+                            sumOfAllGrades += currentgrade;
+                            numberofRatedGames++;
+                        }
+
+                        for (var i = 0; i < games.length; i++) {
+                            LogGameResultInfo(games[i]);
+                            var opponentsgrade = games[i].grade;
+
+                            if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
+                                opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
+                                var resultRewardPoints = GetRewardPoints(games[i])
+                            }
+
+                            sumOfAllGrades += opponentsgrade + resultRewardPoints;
+                            numberofRatedGames++;
+                        }
+
+                        var averageGrade = ApplyRoundingUpRule(sumOfAllGrades / numberofRatedGames);
+                        return averageGrade;
+                    }
+                }
             }
 
-            var averageGrade = ApplyRoundingUpRule(sumOfAllGrades / numberofRatedGames);
-            return averageGrade;
-        }
+    },
+
+    calculate: function(currentgrade, games, chessFederation) {
+        console.log('Current Grade:' + currentgrade);
+
+        var calculation = this.createFor(chessFederation);
+        return calculation.CalculationFrom(currentgrade, games);
+
     }
+}
 });
