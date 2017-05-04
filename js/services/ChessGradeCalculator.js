@@ -57,16 +57,16 @@ app.factory('chessGradeCalculator', function() {
         createFor: function(chessFederation) {
             if (chessFederation === 'ELO') {
                 return {
-                  CalculationFrom: function(currentgrade, games) {
-                      return 199;
-                  }
+                    CalculationFrom: function(currentgrade, games) {
+                        return 199;
+                    }
                 }
             } else {
                 return {
                     CalculationFrom: function(currentgrade, games) {
                         var sumOfAllGrades = 0;
                         var numberofRatedGames = 0;
-
+                        currentgrade = parseInt(currentgrade);
                         if (IsValid(currentgrade)) {
                             sumOfAllGrades += currentgrade;
                             numberofRatedGames++;
@@ -74,15 +74,16 @@ app.factory('chessGradeCalculator', function() {
 
                         for (var i = 0; i < games.length; i++) {
                             LogGameResultInfo(games[i]);
-                            var opponentsgrade = games[i].grade;
+                            var opponentsgrade = parseInt(games[i].grade);
 
                             if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
                                 opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
                                 var resultRewardPoints = GetRewardPoints(games[i])
+
+                                sumOfAllGrades += opponentsgrade + resultRewardPoints;
+                                numberofRatedGames++;
                             }
 
-                            sumOfAllGrades += opponentsgrade + resultRewardPoints;
-                            numberofRatedGames++;
                         }
 
                         var averageGrade = ApplyRoundingUpRule(sumOfAllGrades / numberofRatedGames);
@@ -91,14 +92,14 @@ app.factory('chessGradeCalculator', function() {
                 }
             }
 
-    },
+        },
 
-    calculate: function(currentgrade, games, chessFederation) {
-        console.log('Current Grade:' + currentgrade);
+        calculate: function(currentgrade, games, chessFederation) {
+            console.log('Current Grade:' + currentgrade);
 
-        var calculation = this.createFor(chessFederation);
-        return calculation.CalculationFrom(currentgrade, games);
+            var calculation = this.createFor(chessFederation);
+            return calculation.CalculationFrom(currentgrade, games);
 
+        }
     }
-}
 });

@@ -19,4 +19,18 @@ describe("Calculating wins", function() {
         var grade = myService.calculate(100, games);
         expect(grade).toEqual(130, "grade increases")
     });
+
+    it('converts from strings to numbers', function() {
+      $injector = angular.injector(['ratingsApp']);
+      myService = $injector.get('chessGradeCalculator');
+
+        var games = [{
+            id: 'game1',
+            grade: '110',
+            result: 1
+        }]
+
+        var grade = myService.calculate('100', games);
+        expect(grade).toEqual(130, "grade increases")
+    });
 });
