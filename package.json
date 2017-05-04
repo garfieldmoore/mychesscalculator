@@ -4,6 +4,7 @@
   "description": "install node",
   "main": "index.js",
   "dependencies": {
+    "elo-js": "^1.0.1",
     "require.js": "^1.0.0"
   },
   "devDependencies": {

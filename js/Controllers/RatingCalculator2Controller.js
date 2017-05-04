@@ -8,6 +8,14 @@ app.controller('RatingCalculator2Controller',
             grade: '',
         };
 
+        $scope.chessFederations = ['ELO', 'BCF'];
+        $scope.selectedChessFederation='ELO';
+
+        $scope.dropboxitemselected = function(item) {
+
+            $scope.selectedChessFederation = item;
+        }
+        
         $scope.games = [];
         for (var i = 0; i < 4; i++) {
             var g = {

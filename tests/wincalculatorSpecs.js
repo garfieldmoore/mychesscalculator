@@ -7,6 +7,8 @@ describe("Calculating wins", function() {
     });
 
     it('grade should increase to 130 when a 100 grade beats a 110 grade', function() {
+      $injector = angular.injector(['ratingsApp']);
+      myService = $injector.get('chessGradeCalculator');
 
         var games = [{
             id: 'game1',

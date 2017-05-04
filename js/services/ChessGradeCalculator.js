@@ -55,14 +55,13 @@ function ApplyRoundingUpRule(grade){
 app.factory('chessGradeCalculator', function() {
     return {
         calculate: function(currentgrade, games) {
-
             console.log('Current Grade:' + currentgrade);
 
             var sumOfAllGrades = 0;
             var numberofRatedGames = 0;
 
             if (IsValid(currentgrade)) {
-                sumOfAllGrades = sumOfAllGrades + currentgrade;
+                sumOfAllGrades += currentgrade;
                 numberofRatedGames++;
             }
 

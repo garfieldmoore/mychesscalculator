@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -51,6 +51,8 @@
     <script type='text/javascript' src='js/services/ChessGradeCalculator.js'></script>
 
     <link rel="stylesheet" href="css/contact-feedback-form.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Google analytics -->
     <script>
@@ -128,7 +130,16 @@
         <form name="calc" id="calcForm" action="" method="POST">
             <fieldset>
                 <legend>Enter your current grade and results to calculate your new grade</legend>
-                <p>Calculate your new English Chess Federation (ECF) grade...</p>
+
+                <label for='chessFederation'>Grading system</label>
+
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">{{selectedChessFederation}}
+     <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li ng-repeat="federation in chessFederations"><a ng-click="dropboxitemselected(federation)">{{federation}}</li>
+                    </ul>
+                </div>
 
                 <div class='form-group form-inline'>
                     <label for='currentgrade'>enter your current ECF grade</label>
@@ -207,14 +218,12 @@
                                 <p class="text-muted">English Chess Federation rating calculator</p>
                             </a>
                             <div><a href="https://uk.linkedin.com/in/garfieldmoore"><i class="glyphicon glyphicon-copyright-mark"></i> Garfield Moore</a></div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
     </div>
-
-
+    </div>
+    </div>
+    </div>
+    </div>
 </body>
 
 </html>
