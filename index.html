@@ -131,15 +131,16 @@
             <fieldset>
                 <legend>Enter your current grade and results to calculate your new grade</legend>
 
-                <label for='chessFederation'>Grading system</label>
-
+                <!-- <label for='chessFederation'>Grading system</label> -->
                 <div class="dropdown">
+
                     <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">{{selectedChessFederation}}
      <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                        <li ng-repeat="federation in chessFederations"><a ng-click="dropboxitemselected(federation)">{{federation}}</li>
-                    </ul>
+                        <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
+                  </ul>
                 </div>
+
 
                 <div class='form-group form-inline'>
                     <label for='currentgrade'>enter your current ECF grade</label>
