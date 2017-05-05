@@ -1,5 +1,14 @@
 
-header img{width:100%}
+header h2{
+  width:100%;
+  background-color: #265a88;
+  color: white;
+  margin-top:0;
+  margin:left:0;
+  text-align:center;
+  text-transform: uppercase;
+
+}
 
 .form-inline > * {
    margin:5px 3px;
