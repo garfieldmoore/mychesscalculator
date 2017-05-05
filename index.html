@@ -16,7 +16,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script>
+    <!-- <script type="text/javascript" src="js/bootstrap/bootstrap-dropdown.js"></script> -->
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -46,6 +46,8 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <!-- <script src="//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js"></script> -->
+    <script type='text/javascript' src="node_modules/elo-js/index.js"></script>
+
     <script type='text/javascript' src='js/app.js'></script>
     <script type='text/javascript' src='js/Controllers/RatingCalculator2Controller.js'></script>
     <script type='text/javascript' src='js/services/ChessGradeCalculator.js'></script>
@@ -75,11 +77,10 @@
 </head>
 
 <body>
-
     <header class="image-bg-fluid-height">
         <div id="header_image">
-            <a href="index.html" title="ECF Grading Calculator" rel="home">
-                <img src="images/banner_1.jpg" alt="ECF chess rating calculator banner">
+            <a href="index.html" title="Chess Grade Calculator" rel="home">
+                <img src="images/banner_1.jpg" alt="Chess rating calculator banner">
             </a>
         </div>
         <!-- #header_image -->
@@ -138,14 +139,14 @@
      <span class="caret"></span></button>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                         <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
-                  </ul>
+                    </ul>
                 </div>
 
 
                 <div class='form-group form-inline'>
-                    <label for='currentgrade'>enter your current ECF grade</label>
+                    <label for='currentgrade'>enter your current grade</label>
                     <div>
-                        <input type="text" class="form-control" placeholder="your current ECF grade" id="currentgrade" ng-model="player.grade">
+                        <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
                     </div>
                 </div>
             </fieldset>
@@ -156,7 +157,7 @@
                 <fieldset data-ng-repeat="game in games">
                     <div class='form-group form-inline'>
                         <label for='grade1'>Opponent's Grade: </label>
-                        <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents ECF grade" id="grade" grade=''>
+                        <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
 
                         <label class="form-check-label">
                                <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
@@ -219,11 +220,11 @@
                                 <p class="text-muted">English Chess Federation rating calculator</p>
                             </a>
                             <div><a href="https://uk.linkedin.com/in/garfieldmoore"><i class="glyphicon glyphicon-copyright-mark"></i> Garfield Moore</a></div>
+                        </div>
+                    </div>
                 </div>
-    </div>
-    </div>
-    </div>
-    </div>
+            </div>
+        </div>
     </div>
 </body>
 

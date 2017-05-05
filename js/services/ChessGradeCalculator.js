@@ -58,7 +58,38 @@ app.factory('chessGradeCalculator', function() {
             if (chessFederation === 'ELO') {
                 return {
                     CalculationFrom: function(currentgrade, games) {
-                        return 199;
+                        var playera = parseInt(currentgrade);
+                        var k = 20;
+                        var magic = 400;
+                        var expectedChances = 0;
+                        var result = 0;
+
+                        for (var i = 0; i < games.length; i++) {
+                            LogGameResultInfo(games[i]);
+                            var playerb = parseInt(games[i].grade);
+
+                            if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
+                                // expectedChances = 1 / (1 + (Math.pow((playerb - playera, 10) / magic)));
+                                expectedChances = playerb - playera;
+                                expectedChances = expectedChances / 400;
+                                expectedChances = Math.pow(10,expectedChances);
+                                expectedChances = 1 / (1 + expectedChances);
+
+                                var gameresult = games[i].result;
+
+                                if (gameresult == 0) {
+                                    result = 0.5; // draw
+                                } else if (gameresult == 1) {
+                                    result = 1; //win
+                                } else {
+                                    result = 0; //loss
+                                }
+
+                                currentgrade = Math.round(currentgrade + k * (result - expectedChances));
+                            }
+                        }
+
+                        return currentgrade;
                     }
                 }
             } else {
