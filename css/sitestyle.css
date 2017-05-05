@@ -4,9 +4,10 @@ header h2{
   background-color: #265a88;
   color: white;
   margin-top:0;
-  margin:left:0;
+  margin-bottom:0;
   text-align:center;
   text-transform: uppercase;
+  padding:10px;
 
 }
 
