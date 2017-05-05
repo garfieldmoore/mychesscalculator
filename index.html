@@ -133,9 +133,9 @@
                 <!-- <label for='chessFederation'>Grading system</label> -->
                 <div class="dropdown">
 
-                    <button class="btn btn-primary dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">{{selectedChessFederation}}
+                    <button class="btn btn-primary dropdown-toggle" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
      <span class="caret"></span></button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="chessFederationSelector">
                         <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
                     </ul>
                 </div>
@@ -150,7 +150,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>Your recent performance</legend>
+                <legend>Your recent games</legend>
 
                 <fieldset data-ng-repeat="game in games">
                     <div class='form-group form-inline'>

@@ -97,3 +97,7 @@ button:disabled, button:disabled:hover{
     width: 24px;
     height: 24px;
 }
+
+#chessFederationSelector{
+  width: 15%;
+}
