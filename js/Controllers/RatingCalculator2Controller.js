@@ -34,7 +34,8 @@ app.controller('RatingCalculator2Controller',
         for (var i = 0; i < 1; i++) {
             var g = {
                 id: "game" + i,
-                result: 1
+                result: 1,
+                resultText: 'Win',
             };
             $scope.games[i] = g;
         }

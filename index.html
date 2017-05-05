@@ -163,8 +163,8 @@
          <span class="caret"></span></button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="resultSelector">
                                 <li ng-model="game.result" ng-value="1"><a ng-click="dropboxResultitemselected(game, 1)">Win</a></li>
-                                <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
                                 <li ng-model="game.result" ng-value="0"><a ng-click="dropboxResultitemselected(game,0)">Draw</a></li>
+                                <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
                             </ul>
                             <button type="button" class="btn btn-default btn-xs btn-round btn-danger" ng-disabled="{{ $index == 0}}" ng-hide="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
                         </div>
