@@ -45,7 +45,8 @@ app.controller('RatingCalculator2Controller',
             var newItemNo = $scope.games.length + 1;
             $scope.games.push({
                 'id': 'game' + newItemNo,
-                result: 1
+                resultText: 'Win',
+                result: 1,
             });
         };
 
