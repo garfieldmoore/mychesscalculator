@@ -131,7 +131,7 @@
             <fieldset>
                 <legend>Enter your current grade and results to calculate your new grade</legend>
 
-                <!-- <label for='chessFederation'>Grading system</label> -->
+                <label for='chessFederationSelector'>Grading system</label>
                 <div class="dropdown">
 
                     <button class="btn btn-primary dropdown-toggle" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
@@ -158,22 +158,19 @@
                         <label for='grade1'>Opponent's Grade: </label>
                         <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
 
-                        <label class="form-check-label">
-                               <input type="radio" class="form-check-input" ng-model="game.result" ng-value="1" value="50" >
-                               Win
-                            </label>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" id="resultSelector" type="button" data-toggle="dropdown">{{game.resultText}}
+         <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="resultSelector">
+                                <li ng-model="game.result" ng-value="1"><a ng-click="dropboxResultitemselected(game, 1)">Win</a></li>
+                                <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
+                                <li ng-model="game.result" ng-value="0"><a ng-click="dropboxResultitemselected(game,0)">Draw</a></li>
+                            </ul>
+                            <button type="button" class="btn btn-default btn-xs btn-round btn-danger" ng-disabled="{{ $index == 0}}" ng-hide="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
+                        </div>
 
-                        <label class="form-check-label">
-                     <input type="radio" class="form-check-input" ng-model="game.result" ng-value="-1" value="-50">
-                     Loss
-                   </label>
-
-                        <label class="form-check-label">
-                     <input type="radio" class="form-check-input" id="draw" ng-model="game.result" ng-value="0" value="0">
-                     Draw
-                   </label>
-                        <button type="button" class="btn btn-default btn-xs btn-round btn-danger" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
                     </div>
+
                 </fieldset>
             </fieldset>
 

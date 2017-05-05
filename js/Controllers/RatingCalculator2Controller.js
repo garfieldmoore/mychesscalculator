@@ -9,15 +9,29 @@ app.controller('RatingCalculator2Controller',
         };
 
         $scope.chessFederations = ['ELO', 'BCF'];
-        $scope.selectedChessFederation='ELO';
+        $scope.selectedChessFederation = 'ELO';
 
         $scope.dropboxitemselected = function(item) {
 
             $scope.selectedChessFederation = item;
         }
 
+        $scope.dropboxResultitemselected = function(game, result) {
+            game.result = result;
+            if (game.result == 1) {
+                game.resultText = 'Win'
+            } else if (game.result == 0) {
+                game.resultText = 'Draw'
+            } else {
+                game.resultText = 'Loss'
+            }
+
+        }
+
+
+
         $scope.games = [];
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < 1; i++) {
             var g = {
                 id: "game" + i,
                 result: 1
@@ -56,11 +70,20 @@ app.controller('RatingCalculator2Controller',
             },
             {
                 name: 'result',
-                title: 'Result`',
+                title: 'Result',
                 required: true,
                 cssClassing: 'testing',
                 type: {
                     view: 'radio'
+                }
+            },
+            {
+                name: 'resultText',
+                title: 'ResultText',
+                required: false,
+                cssClassing: 'testing',
+                type: {
+                    view: 'input'
                 }
             },
 
@@ -70,7 +93,7 @@ app.controller('RatingCalculator2Controller',
         $scope.calculate = function() {
             console.log('Calculating Grade...')
             var currentgrade = parseInt($scope.player.grade);
-            var result = chessGradeCalculator.calculate(currentgrade, $scope.games,$scope.selectedChessFederation);
+            var result = chessGradeCalculator.calculate(currentgrade, $scope.games, $scope.selectedChessFederation);
 
             $('#messages').empty();
             if (isNaN(result)) {

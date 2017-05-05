@@ -1,4 +1,3 @@
-
 header h2{
   width:100%;
   background-color: #265a88;
@@ -10,8 +9,15 @@ header h2{
   letter-spacing: 2px;
   padding:20px;
   font-family: Baloo, cursive;
-
 }
+
+/*header.image-bg-fluid-height h2 {
+    padding: 50px 0 50px 0;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: lightgray;
+    font-family: lato;
+}*/
 
 .form-inline > * {
    margin:5px 3px;
@@ -100,6 +106,11 @@ button:disabled, button:disabled:hover{
     height: 24px;
 }
 
-#chessFederationSelector{
-  width: 15%;
+#chessFederationSelector, #resultSelector{
+  width: 20%;
+}
+
+.form-inline .button {
+  display:inline-block;
+  vertical-align: middle;
 }
