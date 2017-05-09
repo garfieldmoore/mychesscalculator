@@ -7,9 +7,18 @@ header h2{
   text-align:center;
   text-transform: capitalize;
   letter-spacing: 2px;
-  padding:20px;
+  padding:10px;
   font-family: Baloo, cursive;
 }
+
+.navbar-inverse {
+    background-color: #265a88;
+    border-color: #265a88;
+    padding:0;
+    margin:0;
+}
+
+
 
 /*header.image-bg-fluid-height h2 {
     padding: 50px 0 50px 0;
