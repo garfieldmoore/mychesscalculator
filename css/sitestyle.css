@@ -114,3 +114,40 @@ button:disabled, button:disabled:hover{
   display:inline-block;
   vertical-align: middle;
 }*/
+
+/* drop down menu */
+ul.dropdown-wide {
+ 	width: 280px !important;
+}
+
+ul.drop-accordian-menu {
+    display:none;
+    max-height: 250px;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 9pt;
+    width: auto;
+}
+ul.drop-accordian-menu li {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+}
+
+ul.drop-accordian-menu li a {
+    display: block;
+    padding: 5px 5px 5px 20px;
+    color: #000;
+    text-decoration: none;
+  	font-size: 8pt;
+    font-style: normal;
+    width: auto;
+}
+
+ul.drop-accordian-menu a:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
