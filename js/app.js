@@ -4,18 +4,18 @@ var app = angular.module('ratingsApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
 
-    $routeProvider.when('/ecfcalculator', {
-        templateUrl: 'templates/ChessCalculator.html',
-        controller: 'RatingCalculator2Controller'
+    $routeProvider.when('/calculator', {
+        templateUrl:'templates/ChessCalculator.html',
+        controller:'RatingCalculator2Controller'
     });
 
-    $routeProvider.when('/customerfeedback', {
-      templateUrl: 'templates/customerFeedback.html',
-      controller: 'CustomerFeedbackController'
-    })
+    $routeProvider.when('/feedback', {
+      templateUrl:'templates/customerFeedback.html',
+      controller:'CustomerFeedbackController'
+    });
 
     $routeProvider.otherwise({
-        redirectTo: '/ecfcalculator'
+        redirectTo:'/calculator'
     });
 
 });
