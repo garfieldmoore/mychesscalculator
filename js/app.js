@@ -9,7 +9,7 @@ app.config(function($routeProvider) {
         controller: 'RatingCalculator2Controller'
     });
 
-    $routeProvider.when('/customerFeedback', {
+    $routeProvider.when('#customerFeedback', {
       templateUrl: 'templates/customerFeedback.html',
       controller: 'CustomerFeedbackController'
     })

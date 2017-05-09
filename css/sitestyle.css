@@ -148,8 +148,9 @@ ul.drop-accordian-menu a:hover {
     color: #000;
 }
 
-#dropdownmenu {
+#firstLevelNav_small2 {
   background-color: #265a88;
+  border-color: #265a88;
 }
 
 #headername h2{
