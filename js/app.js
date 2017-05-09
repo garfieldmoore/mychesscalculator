@@ -1,6 +1,12 @@
 'use strict';
 
-var app = angular.module('ratingsApp', []);
+var app = angular.module('ratingsApp', ['ngRoute'])
+  .config(function($routeProvider){
+    $routeProvider.when('/',{
+      templateUrl: 'templates/chessCalculator.html',
+      controller: 'RatingCalculator2Controller'
+    })
+  });
 
 function openFeedback() {
     $('#feedbackForm').show();
@@ -38,6 +44,6 @@ function sendFeedback(){
                 console.log("Error: " + errorThrown);
               }
           });
-          
+
   closeFeedback();
 }
