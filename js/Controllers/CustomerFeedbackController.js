@@ -4,8 +4,7 @@ app.controller('CustomerFeedbackController',
     function CustomerFeedbackController($scope) {
         console.log('Enter customer feedback controller');
 
-
-        $scope.sendFeedback = function {
+        $scope.sendFeedback = function() {
 
             var name = encodeURI($('#name').val());
             var title = encodeURI($('#title').val());
