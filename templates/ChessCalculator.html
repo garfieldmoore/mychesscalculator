@@ -2,8 +2,6 @@
 <div class='container'>
     <form name="calc" id="calcForm" action="" method="POST">
         <fieldset>
-            <legend>Enter your current grade and results to calculate your new grade</legend>
-
             <label for='chessFederationSelector'>Grading system</label>
             <div class="dropdown">
 
@@ -15,7 +13,7 @@
             </div>
 
             <div class='form-group form-inline'>
-                <label for='currentgrade'>enter your current grade</label>
+                <label for='currentgrade'>My grade</label>
                 <div>
                     <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
                 </div>
@@ -23,7 +21,7 @@
         </fieldset>
 
         <fieldset>
-            <legend>Your recent games</legend>
+            <legend>My games</legend>
 
             <fieldset data-ng-repeat="game in games">
                 <div class='form-group form-inline'>

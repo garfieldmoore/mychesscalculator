@@ -85,7 +85,7 @@ app.factory('chessGradeCalculator', function() {
                                     result = 0; //loss
                                 }
 
-                                currentgrade = Math.round(currentgrade + k * (result - expectedChances));
+                                currentgrade = (currentgrade + k * (result - expectedChances));
                             }
                         }
 

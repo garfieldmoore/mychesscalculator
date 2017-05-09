@@ -14,6 +14,11 @@ app.config(function($routeProvider) {
       controller:'CustomerFeedbackController'
     });
 
+    $routeProvider.when('/about', {
+      templateUrl:'templates/about.html',
+      // controller:'CustomerFeedbackController'
+    });
+
     $routeProvider.otherwise({
         redirectTo:'/calculator'
     });

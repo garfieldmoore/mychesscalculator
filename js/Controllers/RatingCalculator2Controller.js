@@ -96,7 +96,8 @@ app.controller('RatingCalculator2Controller',
             console.log('Calculating Grade...')
             var currentgrade = parseInt($scope.player.grade);
             var result = chessGradeCalculator.calculate(currentgrade, $scope.games, $scope.selectedChessFederation);
-
+            result=Math.round(result);
+            
             $('#messages').empty();
             if (isNaN(result)) {
                 $('#messages').append('<div><p>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</p></div>');
