@@ -1,15 +1,10 @@
-header h2{
-  width:100%;
-  background-color: #265a88;
-  color: white;
-  margin-top:0;
-  margin-bottom:0;
-  text-align:center;
-  text-transform: capitalize;
-  letter-spacing: 2px;
-  padding:20px;
-  font-family: Baloo, cursive;
+.navbar-inverse {
+    background-color: #265a88;
+    border-color: #265a88;
+    padding:0;
+    margin:0;
 }
+
 
 /*header.image-bg-fluid-height h2 {
     padding: 50px 0 50px 0;
@@ -31,6 +26,7 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 40px;
 }
+
 #footer {
   position: absolute;
   bottom: 0;
@@ -148,6 +144,19 @@ ul.drop-accordian-menu li a {
 }
 
 ul.drop-accordian-menu a:hover {
-    background-color: #f1f1f1;
+    background-color: #265a88;
     color: #000;
+}
+
+#firstLevelNav_small2 {
+  background-color: #265a88;
+  border-color: #265a88;
+}
+
+#headername h2{
+  color: white;
+  text-align:center;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  font-family: Baloo, cursive;
 }
