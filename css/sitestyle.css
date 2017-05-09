@@ -1,5 +1,23 @@
+header h2{
+  width:100%;
+  background-color: #265a88;
+  color: white;
+  margin-top:0;
+  margin-bottom:0;
+  text-align:center;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  padding:20px;
+  font-family: Baloo, cursive;
+}
 
-header img{width:100%}
+/*header.image-bg-fluid-height h2 {
+    padding: 50px 0 50px 0;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: lightgray;
+    font-family: lato;
+}*/
 
 .form-inline > * {
    margin:5px 3px;
@@ -86,4 +104,50 @@ button:disabled, button:disabled:hover{
 .btn-round.btn-xs {
     width: 24px;
     height: 24px;
+}
+
+#chessFederationSelector, #resultSelector{
+  width: 25%;
+}
+
+/*.form-inline .button {
+  display:inline-block;
+  vertical-align: middle;
+}*/
+
+/* drop down menu */
+ul.dropdown-wide {
+ 	width: 280px !important;
+}
+
+ul.drop-accordian-menu {
+    display:none;
+    max-height: 250px;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 9pt;
+    width: auto;
+}
+ul.drop-accordian-menu li {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+}
+
+ul.drop-accordian-menu li a {
+    display: block;
+    padding: 5px 5px 5px 20px;
+    color: #000;
+    text-decoration: none;
+  	font-size: 8pt;
+    font-style: normal;
+    width: auto;
+}
+
+ul.drop-accordian-menu a:hover {
+    background-color: #f1f1f1;
+    color: #000;
 }
