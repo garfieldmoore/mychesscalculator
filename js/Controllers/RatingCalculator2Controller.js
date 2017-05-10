@@ -28,12 +28,10 @@ app.controller('RatingCalculator2Controller',
 
         }
 
-
-
         $scope.games = [];
         for (var i = 0; i < 1; i++) {
             var g = {
-                id: "game" + i,
+                id: i+1,
                 result: 1,
                 resultText: 'Win',
             };
@@ -44,7 +42,7 @@ app.controller('RatingCalculator2Controller',
             console.log("Adding new game");
             var newItemNo = $scope.games.length + 1;
             $scope.games.push({
-                'id': 'game' + newItemNo,
+                'id': newItemNo,
                 resultText: 'Win',
                 result: 1,
             });
@@ -97,7 +95,7 @@ app.controller('RatingCalculator2Controller',
             var currentgrade = parseInt($scope.player.grade);
             var result = chessGradeCalculator.calculate(currentgrade, $scope.games, $scope.selectedChessFederation);
             result=Math.round(result);
-            
+
             $('#messages').empty();
             if (isNaN(result)) {
                 $('#messages').append('<div><p>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</p></div>');
