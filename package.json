@@ -4,6 +4,7 @@
   "description": "install node",
   "main": "index.js",
   "dependencies": {
+    "angular-ui-bootstrap": "^2.5.0",
     "require.js": "^1.0.0"
   },
   "devDependencies": {
