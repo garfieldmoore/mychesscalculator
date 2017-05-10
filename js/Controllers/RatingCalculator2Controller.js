@@ -10,7 +10,7 @@ app.controller('RatingCalculator2Controller',
 
         $scope.chessFederations = ['ELO', 'ECF'];
         $scope.selectedChessFederation = 'ELO';
-
+        $scope.selectedGame = 0;
         $scope.dropboxitemselected = function(item) {
 
             $scope.selectedChessFederation = item;
@@ -31,7 +31,7 @@ app.controller('RatingCalculator2Controller',
         $scope.games = [];
         for (var i = 0; i < 1; i++) {
             var g = {
-                id: i+1,
+                id: i + 1,
                 result: 1,
                 resultText: 'Win',
             };
@@ -46,6 +46,8 @@ app.controller('RatingCalculator2Controller',
                 resultText: 'Win',
                 result: 1,
             });
+
+            $scope.selectedGame = $scope.games.length-1;
         };
 
         $scope.removeChoice = function(index) {
@@ -94,7 +96,7 @@ app.controller('RatingCalculator2Controller',
             console.log('Calculating Grade...')
             var currentgrade = parseInt($scope.player.grade);
             var result = chessGradeCalculator.calculate(currentgrade, $scope.games, $scope.selectedChessFederation);
-            result=Math.round(result);
+            result = Math.round(result);
 
             $('#messages').empty();
             if (isNaN(result)) {

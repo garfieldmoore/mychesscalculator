@@ -21,7 +21,7 @@
         </fieldset>
 
         <uib-accordion close-others="oneAtATime">
-            <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+            <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
                 <uib-accordion-heading>
                     Game {{game.id}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
                 </uib-accordion-heading>
