@@ -8,9 +8,10 @@ app.controller('RatingCalculator2Controller',
             grade: '',
         };
 
-        $scope.chessFederations = ['ELO', 'ECF'];
-        $scope.selectedChessFederation = 'ELO';
+        $scope.chessFederations = ['FIDE ELO', 'USCF ELO', 'ECF'];
+        $scope.selectedChessFederation = 'FIDE ELO';
         $scope.selectedGame = 0;
+
         $scope.dropboxitemselected = function(item) {
 
             $scope.selectedChessFederation = item;
@@ -95,7 +96,15 @@ app.controller('RatingCalculator2Controller',
         $scope.calculate = function() {
             console.log('Calculating Grade...')
             var currentgrade = parseInt($scope.player.grade);
-            var result = chessGradeCalculator.calculate(currentgrade, $scope.games, $scope.selectedChessFederation);
+
+            var calculationType= 'ECF';
+            if ($scope.selectedChessFederation == 'FIDE ELO'){
+                calculationType='ELO-ND';
+            } else if ($scope.selectedChessFederation == 'USCF ELO'){
+              calculationType='ELO';
+            }
+
+            var result = chessGradeCalculator.calculate(currentgrade, $scope.games, calculationType);
             result = Math.round(result);
 
             $('#messages').empty();
