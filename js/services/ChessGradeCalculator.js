@@ -52,74 +52,79 @@ function ApplyRoundingUpRule(grade) {
     return Math.round(grade);
 }
 
+function LogicalDistributionElo(currentgrade, games){
+  var playera = parseInt(currentgrade);
+  var k = 20;
+  var magic = 400;
+  var expectedChances = 0;
+  var result = 0;
+
+  for (var i = 0; i < games.length; i++) {
+      LogGameResultInfo(games[i]);
+      var playerb = parseInt(games[i].grade);
+
+      if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
+          // expectedChances = 1 / (1 + (Math.pow((playerb - playera, 10) / magic)));
+          expectedChances = playerb - playera;
+          expectedChances = expectedChances / 400;
+          expectedChances = Math.pow(10,expectedChances);
+          expectedChances = 1 / (1 + expectedChances);
+
+          var gameresult = games[i].result;
+
+          if (gameresult == 0) {
+              result = 0.5; // draw
+          } else if (gameresult == 1) {
+              result = 1; //win
+          } else {
+              result = 0; //loss
+          }
+
+          currentgrade = (currentgrade + k * (result - expectedChances));
+      }
+  }
+
+  return Math.round(currentgrade);
+
+}
+
+function EcfCalculation(currentgrade, games) {
+    var sumOfAllGrades = 0;
+    var numberofRatedGames = 0;
+    currentgrade = parseInt(currentgrade);
+    if (IsValid(currentgrade)) {
+        sumOfAllGrades += currentgrade;
+        numberofRatedGames++;
+    }
+
+    for (var i = 0; i < games.length; i++) {
+        LogGameResultInfo(games[i]);
+        var opponentsgrade = parseInt(games[i].grade);
+
+        if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
+            opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
+            var resultRewardPoints = GetRewardPoints(games[i])
+
+            sumOfAllGrades += opponentsgrade + resultRewardPoints;
+            numberofRatedGames++;
+        }
+
+    }
+
+    var averageGrade = ApplyRoundingUpRule(sumOfAllGrades / numberofRatedGames);
+    return averageGrade;
+}
+
 app.factory('chessGradeCalculator', function() {
     return {
         createFor: function(chessFederation) {
             if (chessFederation === 'ELO') {
                 return {
-                    CalculationFrom: function(currentgrade, games) {
-                        var playera = parseInt(currentgrade);
-                        var k = 20;
-                        var magic = 400;
-                        var expectedChances = 0;
-                        var result = 0;
-
-                        for (var i = 0; i < games.length; i++) {
-                            LogGameResultInfo(games[i]);
-                            var playerb = parseInt(games[i].grade);
-
-                            if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
-                                // expectedChances = 1 / (1 + (Math.pow((playerb - playera, 10) / magic)));
-                                expectedChances = playerb - playera;
-                                expectedChances = expectedChances / 400;
-                                expectedChances = Math.pow(10,expectedChances);
-                                expectedChances = 1 / (1 + expectedChances);
-
-                                var gameresult = games[i].result;
-
-                                if (gameresult == 0) {
-                                    result = 0.5; // draw
-                                } else if (gameresult == 1) {
-                                    result = 1; //win
-                                } else {
-                                    result = 0; //loss
-                                }
-
-                                currentgrade = (currentgrade + k * (result - expectedChances));
-                            }
-                        }
-
-                        return Math.round(currentgrade);
-                    }
+                    CalculationFrom: LogicalDistributionElo
                 }
             } else {
                 return {
-                    CalculationFrom: function(currentgrade, games) {
-                        var sumOfAllGrades = 0;
-                        var numberofRatedGames = 0;
-                        currentgrade = parseInt(currentgrade);
-                        if (IsValid(currentgrade)) {
-                            sumOfAllGrades += currentgrade;
-                            numberofRatedGames++;
-                        }
-
-                        for (var i = 0; i < games.length; i++) {
-                            LogGameResultInfo(games[i]);
-                            var opponentsgrade = parseInt(games[i].grade);
-
-                            if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
-                                opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
-                                var resultRewardPoints = GetRewardPoints(games[i])
-
-                                sumOfAllGrades += opponentsgrade + resultRewardPoints;
-                                numberofRatedGames++;
-                            }
-
-                        }
-
-                        var averageGrade = ApplyRoundingUpRule(sumOfAllGrades / numberofRatedGames);
-                        return averageGrade;
-                    }
+                    CalculationFrom: EcfCalculation
                 }
             }
 
