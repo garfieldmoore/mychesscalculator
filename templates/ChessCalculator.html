@@ -1,64 +1,74 @@
 <!-- Container -->
 <div class='container'>
-    <form name="calc" id="calcForm" action="" method="POST">
-        <fieldset>
-            <label for='chessFederationSelector'>Grading system</label>
-            <div class="dropdown">
+  <form name="calc" id="calcForm" action="" method="POST">
+    <fieldset>
+      <label for='chessFederationSelector'>Grading system</label>
+      <div class="dropdown">
 
-                <button class="btn btn-primary dropdown-toggle" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
+        <button class="btn btn-primary dropdown-toggle" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
  <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="chessFederationSelector">
-                    <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
-                </ul>
-            </div>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="chessFederationSelector">
+          <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
+        </ul>
+      </div>
 
-            <div class='form-group form-inline'>
-                <label for='currentgrade'>My grade</label>
-                <div>
-                    <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
-                </div>
-            </div>
-        </fieldset>
+      <div class='form-group form-inline'>
+        <label for='currentgrade'>My grade</label>
+        <div>
+          <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
+        </div>
+      </div>
 
-        <uib-accordion close-others="oneAtATime">
-            <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
-                <uib-accordion-heading>
-                    Game {{game.id}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-                </uib-accordion-heading>
+      <label for='kfactorSelector'>K Factor</label>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="kfactorSelector" type="button" data-toggle="dropdown">{{selectedKfactor}}
+    <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="kfactorSelector">
+          <li ng-repeat="a in kfactors"><a ng-click="dropboxselectKfactor(a)">{{a}}</a></li>
+        </ul>
+      </div>
 
-                <div class='form-group form-inline'>
-                    <label for='grade1'>Opponent's Grade: </label>
-                    <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
+    </fieldset>
+</hr>
+    <uib-accordion close-others="oneAtATime">
+      <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
+        <uib-accordion-heading>
+          Game {{game.id}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+        </uib-accordion-heading>
 
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" id="resultSelector" type="button" data-toggle="dropdown">{{game.resultText}}
+        <div class='form-group form-inline'>
+          <label for='grade1'>Opponent's Grade: </label>
+          <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
+
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" id="resultSelector" type="button" data-toggle="dropdown">{{game.resultText}}
          <span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="resultSelector">
-                            <li ng-model="game.result" ng-value="1"><a ng-click="dropboxResultitemselected(game, 1)">Win</a></li>
-                            <li ng-model="game.result" ng-value="0"><a ng-click="dropboxResultitemselected(game,0)">Draw</a></li>
-                            <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
-                        </ul>
-                        <button type="button" class="btn btn-default btn-xs btn-round btn-danger pull-right" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="resultSelector">
+              <li ng-model="game.result" ng-value="1"><a ng-click="dropboxResultitemselected(game, 1)">Win</a></li>
+              <li ng-model="game.result" ng-value="0"><a ng-click="dropboxResultitemselected(game,0)">Draw</a></li>
+              <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
+            </ul>
+            <button type="button" class="btn btn-default btn-xs btn-round btn-danger pull-right" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
 
-                    </div>
-                    <!-- drop down -->
-                </div>
-                <!-- form group -->
-            </div>
-        </uib-accordion>
-
-        <div id='messages'>
-
+          </div>
+          <!-- drop down -->
         </div>
+        <!-- form group -->
+      </div>
+    </uib-accordion>
 
-        <fieldset>
-            <legend></legend>
-        </fieldset>
+    <div id='messages'>
 
-        <div class='form-group'>
-            <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success" type="button" id="Calculate" ng-click="calculate()"></button>
-            <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary" type='button' id='AddGame' ng-click="addNewGame()"></button>
-        </div>
-    </form>
+    </div>
+
+    <fieldset>
+      <legend></legend>
+    </fieldset>
+
+    <div class='form-group'>
+      <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success" type="button" id="Calculate" ng-click="calculate()"></button>
+      <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary" type='button' id='AddGame' ng-click="addNewGame()"></button>
+    </div>
+  </form>
 </div>
 <!-- container -->

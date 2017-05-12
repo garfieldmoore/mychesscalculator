@@ -160,3 +160,7 @@ ul.drop-accordian-menu a:hover {
   letter-spacing: 2px;
   font-family: Baloo, cursive;
 }
+
+uib-accordion {
+  padding:10px;
+}
