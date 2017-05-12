@@ -8,8 +8,14 @@ app.controller('RatingCalculator2Controller',
       grade: 1200,
     };
 
-    $scope.kfactors = [10,20,40];
-    $scope.selectedKfactor = 20;
+    $scope.kfactors = {
+    availableOptions: [
+      {id: 10, name: '10'},
+      {id: 20, name: '20'},
+      {id: 30, name: '40'}
+    ],
+    selectedOption: {id: 20, name: '20'} //This sets the default value of the select in the ui
+    };
 
     $scope.chessFederations = ['FIDE ELO', 'USCF ELO', 'ECF'];
     $scope.selectedChessFederation = 'FIDE ELO';
@@ -32,7 +38,7 @@ app.controller('RatingCalculator2Controller',
     }
 
     $scope.dropboxselectKfactor = function(kfactor) {
-      $scope.selectedKfactor = kfactor;
+      $scope.selectedKfactor = 20;
     }
 
     $scope.games = [];
@@ -95,8 +101,6 @@ app.controller('RatingCalculator2Controller',
           view: 'input'
         }
       },
-
-
     ];
 
     $scope.calculate = function() {
@@ -110,7 +114,9 @@ app.controller('RatingCalculator2Controller',
         calculationType = 'ELO';
       }
 
+      var kfactor = $scope.kfactors.selectedOption.id;
       var result = chessGradeCalculator.calculate(currentgrade, $scope.games, calculationType);
+
       result = Math.round(result);
 
       $('#messages').empty();

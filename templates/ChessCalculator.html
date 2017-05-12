@@ -1,6 +1,7 @@
 <!-- Container -->
 <div class='container'>
   <form name="calc" id="calcForm" action="" method="POST">
+
     <fieldset>
       <label for='chessFederationSelector'>Grading system</label>
       <div class="dropdown">
@@ -14,22 +15,17 @@
 
       <div class='form-group form-inline'>
         <label for='currentgrade'>My grade</label>
-        <div>
-          <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
-        </div>
-      </div>
+        <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
 
-      <label for='kfactorSelector'>K Factor</label>
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" id="kfactorSelector" type="button" data-toggle="dropdown">{{selectedKfactor}}
-    <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="kfactorSelector">
-          <li ng-repeat="a in kfactors"><a ng-click="dropboxselectKfactor(a)">{{a}}</a></li>
-        </ul>
-      </div>
+        <label for='kfactorSelector'>K Factor</label>
+        <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id"
+        ng-model="kfactors.selectedOption"></select>
 
+      </div>
     </fieldset>
-</hr>
+
+    </hr>
+
     <uib-accordion close-others="oneAtATime">
       <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
         <uib-accordion-heading>
