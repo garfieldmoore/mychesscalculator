@@ -89,7 +89,7 @@ app.factory('chessGradeCalculator', function() {
                             }
                         }
 
-                        return currentgrade;
+                        return Math.round(currentgrade);
                     }
                 }
             } else {
