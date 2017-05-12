@@ -1,36 +1,30 @@
 describe("Calculating wins", function() {
 
-    beforeEach(function() {
-        $injector = angular.injector(['ratingsApp']);
-        myService = $injector.get('chessGradeCalculator');
+  beforeEach(function() {
+    module('ratingsApp');
+  });
 
-    });
+  it('grade should increase to 130 when a 100 grade beats a 110 grade', inject(function(chessGradeCalculator) {
 
-    it('grade should increase to 130 when a 100 grade beats a 110 grade', function() {
-      $injector = angular.injector(['ratingsApp']);
-      myService = $injector.get('chessGradeCalculator');
+    var games = [{
+      id: 'game1',
+      grade: 110,
+      result: 1
+    }]
 
-        var games = [{
-            id: 'game1',
-            grade: 110,
-            result: 1
-        }]
+    var grade = chessGradeCalculator.calculate(100, games);
+    expect(grade).toEqual(130, "grade increases")
+  }));
 
-        var grade = myService.calculate(100, games);
-        expect(grade).toEqual(130, "grade increases")
-    });
+  it('converts from strings to numbers', inject(function(chessGradeCalculator) {
 
-    it('converts from strings to numbers', function() {
-      $injector = angular.injector(['ratingsApp']);
-      myService = $injector.get('chessGradeCalculator');
+    var games = [{
+      id: 'game1',
+      grade: '110',
+      result: 1
+    }]
 
-        var games = [{
-            id: 'game1',
-            grade: '110',
-            result: 1
-        }]
-
-        var grade = myService.calculate('100', games);
-        expect(grade).toEqual(130, "grade increases")
-    });
+    var grade = chessGradeCalculator.calculate('100', games);
+    expect(grade).toEqual(130, "grade increases")
+  }));
 });
