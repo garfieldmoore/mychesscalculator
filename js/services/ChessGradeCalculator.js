@@ -278,7 +278,7 @@ function MatchedRange(difference, element) {
   // }
   var current = normalDistributionDifferenceLookup[element];
   var next = normalDistributionDifferenceLookup[element + 1]
-  var isgreaterThanCurrent = difference > current;
+  var isgreaterThanCurrent = difference >= current;
   var islessThanNext =  difference < next;
 
   return isgreaterThanCurrent && islessThanNext;
