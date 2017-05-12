@@ -1,4 +1,4 @@
-describe("losing games", function() {
+describe("ECF losing games", function() {
 
   beforeEach(function() {
     module('ratingsApp');

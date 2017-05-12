@@ -1,4 +1,4 @@
-describe("Maximum grade difference rule", function() {
+describe("ECF Maximum grade difference rule", function() {
 
   beforeEach(function() {
     module('ratingsApp');

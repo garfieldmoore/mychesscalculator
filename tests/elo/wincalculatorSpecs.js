@@ -1,11 +1,11 @@
-describe("Calculating wins", function() {
+describe("USCF ELO wins", function() {
 
   beforeEach(function() {
     module('ratingsApp');
 
   });
 
-  it('should calcuate a 2000 player beating a 1953 player as having new FIDE elo of 2009', inject(function(chessGradeCalculator) {
+  it('should calcuate a 2000 player beating a 1953 player as having new USCF elo of 2009', inject(function(chessGradeCalculator) {
 
     var games = [{
       id: 'game1',
