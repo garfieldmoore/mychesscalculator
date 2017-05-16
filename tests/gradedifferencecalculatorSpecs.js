@@ -12,7 +12,7 @@ describe("ECF Maximum grade difference rule", function() {
       result: 1
     }]
 
-    var grade = chessGradeCalculator.calculate(100, games);
+    var grade = chessGradeCalculator.calculate(100, games,'ECF');
     expect(grade).toEqual(145, "grade increases")
   }));
 
@@ -24,7 +24,7 @@ describe("ECF Maximum grade difference rule", function() {
       result: -1
     }]
 
-    var grade = chessGradeCalculator.calculate(150, games);
+    var grade = chessGradeCalculator.calculate(150, games,'ECF');
     expect(grade).toEqual(105, "grade decreases")
   }));
 });

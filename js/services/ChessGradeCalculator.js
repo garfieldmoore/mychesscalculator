@@ -157,6 +157,8 @@ var normalDistributionExpectedResultValues = [0.00,
   1.00
 ];
 
+var kfactor=10;
+
 function IsValid(currentgrade) {
   return currentgrade != 'undefined' && currentgrade > 0 && !isNaN(currentgrade);
 }
@@ -211,7 +213,6 @@ function ApplyRoundingUpRule(grade) {
 
 function LogicalDistributionElo(currentgrade, games) {
   var playera = parseInt(currentgrade);
-  var k = 20;
   var magic = 400;
   var expectedChances = 0;
   var result = 0;
@@ -237,7 +238,7 @@ function LogicalDistributionElo(currentgrade, games) {
         result = 0; //loss
       }
 
-      currentgrade = (currentgrade + k * (result - expectedChances));
+      currentgrade = (currentgrade + kfactor * (result - expectedChances));
     }
   }
 
@@ -304,7 +305,6 @@ function LookupExpectedWinPercentage(playerA, playerB) {
 
 function NormalDistributionElo(currentgrade, games) {
   var playera = parseInt(currentgrade);
-  var k = 20;
   var expectedChances = 0;
   var result = 0;
 
@@ -326,7 +326,7 @@ function NormalDistributionElo(currentgrade, games) {
         result = 0; //loss
       }
 
-      currentgrade = currentgrade + k * (result - expectedChances);
+      currentgrade = currentgrade + kfactor * (result - expectedChances);
     }
   }
 
@@ -352,11 +352,13 @@ app.factory('chessGradeCalculator', function() {
 
     },
 
-    calculate: function(currentgrade, games, chessFederation) {
+    calculate: function(currentgrade, games, chessFederation, player1kFactor) {
       console.log('Current Grade:' + currentgrade);
 
+      kfactor = player1kFactor;
+
       var calculation = this.createFor(chessFederation);
-      return calculation.CalculationFrom(currentgrade, games);
+      return calculation.CalculationFrom(currentgrade, games, kfactor);
 
     }
   }

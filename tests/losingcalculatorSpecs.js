@@ -12,7 +12,7 @@ describe("ECF losing games", function() {
       result: -1
     }]
 
-    var grade = chessGradeCalculator.calculate(100, games);
+    var grade = chessGradeCalculator.calculate(100, games,'ECF');
     expect(grade).toEqual(85, "grade decreases")
   }));
 });

@@ -13,7 +13,7 @@ describe("USCF ELO wins", function() {
       result: 1
     }]
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO');
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO',20);
     expect(grade).toEqual(2009, "grade increases")
   }));
 
@@ -25,7 +25,7 @@ describe("USCF ELO wins", function() {
       result: 1
     }]
 
-    var grade = chessGradeCalculator.calculate('2000', games, 'ELO');
+    var grade = chessGradeCalculator.calculate('2000', games, 'ELO',20);
     expect(grade).toBeGreaterThan(2000, "should be a number");
   }));
 });

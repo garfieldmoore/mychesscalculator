@@ -12,7 +12,7 @@ describe("ECF Calculating wins", function() {
       result: 1
     }]
 
-    var grade = chessGradeCalculator.calculate(100, games);
+    var grade = chessGradeCalculator.calculate(100, games,'ECF');
     expect(grade).toEqual(130, "grade increases")
   }));
 
@@ -24,7 +24,7 @@ describe("ECF Calculating wins", function() {
       result: 1
     }]
 
-    var grade = chessGradeCalculator.calculate('100', games);
+    var grade = chessGradeCalculator.calculate('100', games,'ECF');
     expect(grade).toEqual(130, "grade increases")
   }));
 });

@@ -19,7 +19,7 @@ describe("FIDE ELO wins", function() {
       }
     ];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND');
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
     expect(grade).toEqual(2037, "grade increases");
   }))
 
@@ -31,7 +31,7 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND');
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
     expect(grade).toEqual(2000, "grade increases");
   }))
 
@@ -43,7 +43,7 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND');
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
     expect(grade).toEqual(2020, "grade increases");
   }))
 
@@ -55,7 +55,7 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND');
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
     expect(grade).toEqual(2020, "grade increases"); // actually 2019.8
   }))
 
@@ -67,7 +67,7 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND');
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
     expect(grade).toEqual(2019, "grade increases");
   }))
 

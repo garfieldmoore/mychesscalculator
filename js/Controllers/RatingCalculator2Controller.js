@@ -115,7 +115,7 @@ app.controller('RatingCalculator2Controller',
       }
 
       var kfactor = $scope.kfactors.selectedOption.id;
-      var result = chessGradeCalculator.calculate(currentgrade, $scope.games, calculationType);
+      var result = chessGradeCalculator.calculate(currentgrade, $scope.games, calculationType, kfactor);
 
       result = Math.round(result);
 

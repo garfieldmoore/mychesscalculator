@@ -7,7 +7,7 @@ describe("Calculating ECF drawn games", function() {
 
   it('calculate should return players current grade when no games have been played', inject(function(chessGradeCalculator) {
 
-    var grade = chessGradeCalculator.calculate(102, []);
+    var grade = chessGradeCalculator.calculate(102, [],'ECF');
     expect(grade).toEqual(102, "The grades should be the same")
   }));
 
@@ -23,7 +23,7 @@ describe("Calculating ECF drawn games", function() {
       result: 0
     }]
 
-    var grade = chessGradeCalculator.calculate(102, games);
+    var grade = chessGradeCalculator.calculate(102, games,'ECF');
     expect(grade).toEqual(102, "The grades should be the same")
   }));
 
@@ -35,7 +35,7 @@ describe("Calculating ECF drawn games", function() {
       result: 0
     }]
 
-    var grade = chessGradeCalculator.calculate(100, games);
+    var grade = chessGradeCalculator.calculate(100, games,'ECF');
     expect(grade).toEqual(110, "The grades should be the same")
   }));
 
@@ -47,7 +47,7 @@ describe("Calculating ECF drawn games", function() {
       result: 0
     }]
 
-    var grade = chessGradeCalculator.calculate(100, games);
+    var grade = chessGradeCalculator.calculate(100, games,'ECF');
     expect(grade).toEqual(90, "The grades should be the same")
   }));
 });
