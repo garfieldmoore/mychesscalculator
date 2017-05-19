@@ -2,10 +2,15 @@ describe("FIDE ELO wins", function() {
 
   beforeEach(function() {
     module('ratingsApp');
-
   });
 
-  it('should calcuate a 2000 player beating a 2400 player twice as having new FIDE elo of 2037', inject(function(chessGradeCalculator) {
+  var chessGradeCalculator;
+  beforeEach(inject(['chessGradeCalculator', function(service) {
+    chessGradeCalculator = service;
+  }]));
+
+
+  it('should calcuate a 2000 player beating a 2400 player twice as having new FIDE elo of 2037', () => {
 
     var games = [{
         id: 'game1',
@@ -19,11 +24,11 @@ describe("FIDE ELO wins", function() {
       }
     ];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2037, "grade increases");
-  }))
+  })
 
-  it('should find expected win ratio of 0 (first lookup item)', inject(function(chessGradeCalculator) {
+  it('should find expected win ratio of 0 (first lookup item)', () => {
 
     var games = [{
       id: 'game1',
@@ -31,11 +36,11 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2000, "grade increases");
-  }))
+  })
 
-  it('should find maximum win ration of 1 - last lookup item', inject(function(chessGradeCalculator) {
+  it('should find maximum win ration of 1 - last lookup item', () => {
 
     var games = [{
       id: 'game1',
@@ -43,11 +48,11 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2020, "grade increases");
-  }))
+  })
 
-  it('should find match on boundary', inject(function(chessGradeCalculator) {
+  it('should find match on boundary', () => {
 
     var games = [{
       id: 'game1',
@@ -55,11 +60,11 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2020, "grade increases"); // actually 2019.8
-  }))
+  })
 
-  it('should find match on boundary plus 1', inject(function(chessGradeCalculator) {
+  it('should find match on boundary plus 1', () => {
 
     var games = [{
       id: 'game1',
@@ -67,8 +72,8 @@ describe("FIDE ELO wins", function() {
       result: 1
     }];
 
-    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND',20);
+    var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2019, "grade increases");
-  }))
+  })
 
 });
