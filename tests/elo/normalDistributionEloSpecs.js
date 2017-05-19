@@ -1,4 +1,4 @@
-describe("FIDE ELO wins", function() {
+describe("FIDE ELO wins", () => {
 
   beforeEach(function() {
     module('ratingsApp');

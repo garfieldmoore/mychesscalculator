@@ -1,4 +1,4 @@
-describe("Calculating ECF drawn games", function() {
+describe("Calculating ECF drawn games", () => {
 
   beforeEach(function() {
     module('ratingsApp');

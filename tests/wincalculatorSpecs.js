@@ -1,4 +1,4 @@
-describe("ECF Calculating wins", function() {
+describe("ECF Calculating wins", () => {
 
   beforeEach(function() {
     module('ratingsApp');
