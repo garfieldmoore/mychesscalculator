@@ -22,4 +22,4 @@ app.config(function($routeProvider) {
     redirectTo: '/calculator'
   });
 
-});
+});  
