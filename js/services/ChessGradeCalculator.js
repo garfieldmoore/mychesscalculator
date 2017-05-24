@@ -9,7 +9,7 @@ function LogGameResultInfo(game) {
   console.log('opponents grade:');
   console.log(game.grade);
 
-  console.log('Result:');;
+  console.log('Result:');
   console.log(game.result);
 }
 
@@ -31,9 +31,9 @@ function ApplyMaximumGradeDifferenceRule(mygrade, opponentsgrade) {
 function GetRewardPoints(game) {
 
   var offset;
-  if (game.result == 0) {
+  if (game.result === 0) {
     offset = 0;
-  } else if (game.result == 1) {
+  } else if (game.result === 1) {
     offset = 50;
   } else {
     offset = -50;
@@ -45,7 +45,7 @@ function GetRewardPoints(game) {
 
 function HasResult(game) {
 
-  return game.result != 'undefined'
+  return game.result != 'undefined';
 }
 
 function ApplyRoundingUpRule(grade) {
@@ -70,11 +70,11 @@ function LogicalDistributionElo(currentgrade, games) {
       expectedChances = Math.pow(10, expectedChances);
       expectedChances = 1 / (1 + expectedChances);
 
-      var gameresult = games[i].result;
+      var gameresult = games[i].result; 
 
-      if (gameresult == 0) {
+      if (gameresult === 0) {
         result = 0.5; // draw
-      } else if (gameresult == 1) {
+      } else if (gameresult === 1) {
         result = 1; //win
       } else {
         result = 0; //loss
@@ -92,6 +92,7 @@ function EcfCalculation(currentgrade, games) {
   var sumOfAllGrades = 0;
   var numberofRatedGames = 0;
   currentgrade = parseInt(currentgrade);
+
   if (IsValid(currentgrade)) {
     sumOfAllGrades += currentgrade;
     numberofRatedGames++;
@@ -103,7 +104,7 @@ function EcfCalculation(currentgrade, games) {
 
     if (IsValid(games[i].grade) && IsValid(currentgrade) && HasResult(games[i])) {
       opponentsgrade = ApplyMaximumGradeDifferenceRule(currentgrade, opponentsgrade);
-      var resultRewardPoints = GetRewardPoints(games[i])
+      var resultRewardPoints = GetRewardPoints(games[i]);
 
       sumOfAllGrades += opponentsgrade + resultRewardPoints;
       numberofRatedGames++;
@@ -120,7 +121,7 @@ function MatchedRange(difference, element) {
   //   return true;
   // }
   var current = normalDistributionDifferenceLookup[element];
-  var next = normalDistributionDifferenceLookup[element + 1]
+  var next = normalDistributionDifferenceLookup[element + 1];
   var isgreaterThanCurrent = difference >= current;
   var islessThanNext =  difference < next;
 
@@ -160,9 +161,9 @@ function NormalDistributionElo(currentgrade, games) {
 
       var gameresult = games[i].result;
 
-      if (gameresult == 0) {
+      if (gameresult === 0) {
         result = 0.5; // draw
-      } else if (gameresult == 1) {
+      } else if (gameresult === 1) {
         result = 1; //win
       } else {
         result = 0; //loss
@@ -181,27 +182,24 @@ app.factory('chessGradeCalculator', function() {
       if (chessFederation === 'ELO') {
         return {
           CalculationFrom: LogicalDistributionElo
-        }
+        };
       } else if (chessFederation == 'ELO-ND') {
         return {
           CalculationFrom: NormalDistributionElo
-        }
+        };
       } else {
         return {
           CalculationFrom: EcfCalculation
-        }
+        };
       }
-
     },
 
     calculate: function(currentgrade, games, chessFederation, player1kFactor) {
       console.log('Current Grade:' + currentgrade);
 
       kfactor = player1kFactor;
-
       var calculation = this.createFor(chessFederation);
       return calculation.CalculationFrom(currentgrade, games, kfactor);
-
     }
-  }
+  };
 });

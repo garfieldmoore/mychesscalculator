@@ -14,7 +14,7 @@ app.controller('RatingCalculator2Controller',
       {id: 20, name: '20'},
       {id: 30, name: '40'}
     ],
-    selectedOption: {id: 20, name: '20'} //This sets the default value of the select in the ui
+      selectedOption: {id: 20, name: '20'} //This sets the default value of the select in the ui
     };
 
     $scope.chessFederations = ['FIDE ELO', 'USCF ELO', 'ECF'];
@@ -24,22 +24,22 @@ app.controller('RatingCalculator2Controller',
     $scope.dropboxitemselected = function(item) {
 
       $scope.selectedChessFederation = item;
-    }
+    };
 
     $scope.dropboxResultitemselected = function(game, result) {
       game.result = result;
-      if (game.result == 1) {
-        game.resultText = 'Win'
-      } else if (game.result == 0) {
-        game.resultText = 'Draw'
+      if (game.result === 1) {
+        game.resultText = 'Win';
+      } else if (game.result === 0) {
+        game.resultText = 'Draw';
       } else {
-        game.resultText = 'Loss'
+        game.resultText = 'Loss';
       }
-    }
+    };
 
     $scope.dropboxselectKfactor = function(kfactor) {
       $scope.selectedKfactor = 20;
-    }
+    };
 
     $scope.games = [];
     for (var i = 0; i < 1; i++) {
@@ -89,7 +89,7 @@ app.controller('RatingCalculator2Controller',
         required: true,
         cssClassing: 'testing',
         type: {
-          view: 'radio'
+          view: 'radio'   
         }
       },
       {
@@ -104,7 +104,7 @@ app.controller('RatingCalculator2Controller',
     ];
 
     $scope.calculate = function() {
-      console.log('Calculating Grade...')
+      console.log('Calculating Grade...');
       var currentgrade = parseInt($scope.player.grade);
 
       var calculationType = 'ECF';
@@ -125,6 +125,6 @@ app.controller('RatingCalculator2Controller',
       } else {
         $('#messages').append('<p>Your grade is now ' + result + '</p>');
       }
-    }
+    };
   }
 );

@@ -6,7 +6,7 @@ app.config(function($routeProvider) {
   $routeProvider.when('/calculator', {
     templateUrl: 'templates/ChessCalculator.html',
     controller: 'RatingCalculator2Controller'
-  });
+  });      
 
   $routeProvider.when('/feedback', {
     templateUrl: 'templates/customerFeedback.html',
@@ -22,4 +22,4 @@ app.config(function($routeProvider) {
     redirectTo: '/calculator'
   });
 
-});  
+});

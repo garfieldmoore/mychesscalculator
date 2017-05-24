@@ -11,10 +11,10 @@ app.controller('CustomerFeedbackController',
             // var email = encodeURI($('#email').val());
 
             var feedback = encodeURI($('#feedback_message').val());
-
+ 
             console.log('name ' + name);
             console.log('title ' + title);
-            console.log('email ' + email);
+            // console.log('email ' + email);
             console.log('message ' + feedback);
 
             // var body = {name:'garfield', title:'test message', email:'garfieldmoore@gmail.com', message:'this is a test'};
@@ -33,5 +33,5 @@ app.controller('CustomerFeedbackController',
                     console.log("Error: " + errorThrown);
                 }
             });
-        }
+        };
 });
