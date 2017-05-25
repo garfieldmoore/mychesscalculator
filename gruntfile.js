@@ -24,8 +24,9 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      all: ['js/Controllers/*.js', 'js/*.js', 'js/services/*.js', '!js/bootstrap*.js', '!js/npm.js', '!js/angular**.js'],
+      all: ['tests/**/*Specs.js','js/Controllers/*.js', 'js/*.js', 'js/services/*.js', '!js/bootstrap*.js', '!js/npm.js', '!js/angular**.js'],
       options: {
+        esversion: 6,
         browser: true,
         jasmine: true,
         node: true,
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      files: ['js/**/*.js', 'js/Controllers/*.js', 'js/services/*.js', './*.html', '.jshintrc'],
+      files: ['tests/**/*Specs.js','js/**/*.js', 'js/Controllers/*.js', 'js/services/*.js', './*.html', '.jshintrc'],
       tasks: ['jshint'],
       options: {
         reload: true,

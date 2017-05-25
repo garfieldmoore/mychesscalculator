@@ -15,10 +15,10 @@ describe("ECF Maximum grade difference rule", () => {
       id: 'game1',
       grade: 150,
       result: 1
-    }]
+    }];
 
     var grade = chessGradeCalculator.calculate(100, games, 'ECF');
-    expect(grade).toEqual(145, "grade increases")
+    expect(grade).toEqual(145, "grade increases");
   });
 
   it('grade should decrease to 120 when a 150 grade loses to a 100 grade ', () => {
@@ -27,9 +27,9 @@ describe("ECF Maximum grade difference rule", () => {
       id: 'game1',
       grade: 100,
       result: -1
-    }]
+    }];
 
     var grade = chessGradeCalculator.calculate(150, games, 'ECF');
-    expect(grade).toEqual(105, "grade decreases")
+    expect(grade).toEqual(105, "grade decreases");
   });
 });

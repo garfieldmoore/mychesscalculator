@@ -15,10 +15,10 @@ describe("USCF ELO wins", () => {
       id: 'game1',
       grade: 1953,
       result: 1
-    }]
+    }];
 
     var grade = chessGradeCalculator.calculate(2000, games, 'ELO', 20);
-    expect(grade).toEqual(2009, "grade increases")
+    expect(grade).toEqual(2009, "grade increases");
   });
 
   it('converts from strings to numbers', () => {
@@ -27,7 +27,7 @@ describe("USCF ELO wins", () => {
       id: 'game1',
       grade: '1953',
       result: 1
-    }]
+    }];
 
     var grade = chessGradeCalculator.calculate('2000', games, 'ELO', 20);
     expect(grade).toBeGreaterThan(2000, "should be a number");

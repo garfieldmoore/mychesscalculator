@@ -15,10 +15,10 @@ describe("ECF Calculating wins", () => {
       id: 'game1',
       grade: 110,
       result: 1
-    }]
+    }];
 
     var grade = chessGradeCalculator.calculate(100, games, 'ECF');
-    expect(grade).toEqual(130, "grade increases")
+    expect(grade).toEqual(130, "grade increases");
   });
 
   it('converts from strings to numbers', () => {
@@ -27,9 +27,9 @@ describe("ECF Calculating wins", () => {
       id: 'game1',
       grade: '110',
       result: 1
-    }]
+    }];
 
     var grade = chessGradeCalculator.calculate('100', games, 'ECF');
-    expect(grade).toEqual(130, "grade increases")
+    expect(grade).toEqual(130, "grade increases");
   });
 });

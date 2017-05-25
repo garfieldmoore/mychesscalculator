@@ -26,7 +26,7 @@ describe("FIDE ELO wins", () => {
 
     var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2037, "grade increases");
-  })
+  });
 
   it('should find expected win ratio of 0 (first lookup item)', () => {
 
@@ -38,7 +38,7 @@ describe("FIDE ELO wins", () => {
 
     var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2000, "grade increases");
-  })
+  });
 
   it('should find maximum win ration of 1 - last lookup item', () => {
 
@@ -50,7 +50,7 @@ describe("FIDE ELO wins", () => {
 
     var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2020, "grade increases");
-  })
+  });
 
   it('should find match on boundary', () => {
 
@@ -62,7 +62,7 @@ describe("FIDE ELO wins", () => {
 
     var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2020, "grade increases"); // actually 2019.8
-  })
+  });
 
   it('should find match on boundary plus 1', () => {
 
@@ -74,6 +74,6 @@ describe("FIDE ELO wins", () => {
 
     var grade = chessGradeCalculator.calculate(2000, games, 'ELO-ND', 20);
     expect(grade).toEqual(2019, "grade increases");
-  })
+  });
 
 });
