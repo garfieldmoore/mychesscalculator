@@ -51,6 +51,25 @@ app.controller('RatingCalculator2Controller',
       $scope.games[i] = g;
     }
 
+    function PlayerStats()
+    {
+      var name="";
+      var value=0;
+    }
+
+
+    $scope.playerStats=[];
+
+    var stat = new PlayerStats();
+    stat.name="Performance";
+    stat.value="0";
+    $scope.playerStats.push(stat);
+
+    stat = new PlayerStats();
+    stat.name="Highest oppenent win";
+    stat.value="0";
+    $scope.playerStats.push(stat);
+
     $scope.addNewGame = function() {
       console.log("Adding new game");
       var newItemNo = $scope.games.length + 1;
@@ -89,7 +108,7 @@ app.controller('RatingCalculator2Controller',
         required: true,
         cssClassing: 'testing',
         type: {
-          view: 'radio'   
+          view: 'radio'
         }
       },
       {

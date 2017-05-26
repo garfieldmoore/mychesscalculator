@@ -23,9 +23,34 @@
 
       </div>
     </fieldset>
+  </hr>
 
-    </hr>
-    <section id="games" class="col-md-6">
+    <section id="stats" class="col-md-4">
+
+      <uib-accordion close-others="oneAtATime">
+        <div uib-accordion-group class="panel-default" heading="Statistics" ng-init="status.open=true" is-open="true" is-disabled="false">
+          <uib-accordion-heading>
+            Statistics <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+          </uib-accordion-heading>
+
+            <table class="table table-striped">
+              <tr>
+                <th>Statistic</th>
+                <th>Result</th>
+              </tr>
+
+              <tr  ng-repeat="stat in playerStats" >
+                <td>{{stat.name}}</td>
+                <td>{{stat.value}}</td>
+              </tr>
+            </table>
+
+          <!-- form group -->
+        </div>
+      </uib-accordion>
+    </section>
+
+    <section id="games" class="col-md-8">
       <uib-accordion close-others="oneAtATime">
         <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
           <uib-accordion-heading>
@@ -54,21 +79,7 @@
       </uib-accordion>
     </section>
 
-    <section id="stats" class="col-md-6">
-
-      <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default" heading="Statistics" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
-          <uib-accordion-heading>
-            Statistics <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-          </uib-accordion-heading>
-
-
-          <!-- form group -->
-        </div>
-      </uib-accordion>
-    </section>
-
-    <div class="container col-md-12">
+    <div class="row col-md-12">
       <div id='messages'>
 
       </div>
@@ -81,9 +92,8 @@
         <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success" type="button" id="Calculate" ng-click="calculate()"></button>
         <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary" type='button' id='AddGame' ng-click="addNewGame()"></button>
       </div>
-  </form>
   </div>
-  <!-- container -->
-
+  <!-- row -->
+</form>
 </div>
 <!-- container -->
