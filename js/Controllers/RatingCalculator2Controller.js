@@ -9,12 +9,23 @@ app.controller('RatingCalculator2Controller',
     };
 
     $scope.kfactors = {
-    availableOptions: [
-      {id: 10, name: '10'},
-      {id: 20, name: '20'},
-      {id: 30, name: '40'}
-    ],
-      selectedOption: {id: 20, name: '20'} //This sets the default value of the select in the ui
+      availableOptions: [{
+          id: 10,
+          name: '10'
+        },
+        {
+          id: 20,
+          name: '20'
+        },
+        {
+          id: 30,
+          name: '40'
+        }
+      ],
+      selectedOption: {
+        id: 20,
+        name: '20'
+      } //This sets the default value of the select in the ui
     };
 
     $scope.chessFederations = ['FIDE ELO', 'USCF ELO', 'ECF'];
@@ -51,24 +62,40 @@ app.controller('RatingCalculator2Controller',
       $scope.games[i] = g;
     }
 
-    function PlayerStats()
-    {
-      var name="";
-      var value=0;
+    function ScoreCard() {
+      var statistics = [];
+
+      return {
+        playerStats: statistics,
+      };
     }
 
+    function PlayerStatistic(name, value) {
+      var name1 = name;
+      var result = value;
 
-    $scope.playerStats=[];
+      return {
+        name: name1,
+        value: result,
+      };
+    }
 
-    var stat = new PlayerStats();
-    stat.name="Performance";
-    stat.value="0";
-    $scope.playerStats.push(stat);
+    $scope.scoreCard = new ScoreCard();
 
-    stat = new PlayerStats();
-    stat.name="Highest oppenent win";
-    stat.value="0";
-    $scope.playerStats.push(stat);
+    var stat = new PlayerStatistic("Performance", "N/A");
+    $scope.scoreCard.playerStats.push(stat);
+
+    stat = new PlayerStatistic("Best win", "N/A");
+    $scope.scoreCard.playerStats.push(stat);
+
+    stat = new PlayerStatistic("Winning Streak", "N/A");
+    $scope.scoreCard.playerStats.push(stat);
+
+    stat = new PlayerStatistic("Losing streak", "N/A");
+    $scope.scoreCard.playerStats.push(stat);
+
+    stat = new PlayerStatistic("Average opponent grade", "N/A");
+    $scope.scoreCard.playerStats.push(stat);
 
     $scope.addNewGame = function() {
       console.log("Adding new game");
