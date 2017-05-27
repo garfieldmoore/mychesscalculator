@@ -1,5 +1,78 @@
 'use strict';
 
+function ScoreCard(playergames) {
+  var playerStats = [];
+  var games = []; // playergames;
+
+  function addStat(stat) {
+    playerStats.push(stat);
+  }
+
+  function score() {
+    for (let i = 0; i < playerStats.length; i++) {
+      playerStats[i].calculate(this.games);
+    }
+  }
+
+  function setGames(playerGames) {
+    this.games = playerGames;
+  }
+
+  return {
+    playerStats: playerStats,
+    score: score,
+    addStat: addStat,
+    games: games,
+    setGames: setGames,
+  };
+}
+
+function PlaceholderStat(statname) {
+  var name = statname;
+  var value = "";
+
+  function calculate() {
+    this.value = "N/A";
+  }
+
+  return {
+    name: name,
+    value: value,
+    calculate: calculate,
+  };
+}
+
+function BestWin() {
+  var name = "Best Win";
+  var value = "N/A";
+
+  function calculate(games) {
+
+    if (games === undefined || games.length === 0) {
+      return;
+    }
+
+    var highest = 0;
+    var hasSet = false;
+    for (let i = 0; i < games.length; i++) {
+      if (games[i].grade > highest) {
+        hasSet = true;
+        highest = games[i].grade;
+      }
+    }
+
+    if (hasSet) {
+      this.value = highest;
+    }
+  }
+
+  return {
+    name: name,
+    value: value,
+    calculate: calculate,
+  };
+}
+
 app.controller('RatingCalculator2Controller',
   function RatingCalculator2Controller($scope, chessGradeCalculator) {
     console.log('Enter default controller');
@@ -62,40 +135,18 @@ app.controller('RatingCalculator2Controller',
       $scope.games[i] = g;
     }
 
-    function ScoreCard() {
-      var statistics = [];
-
-      return {
-        playerStats: statistics,
-      };
-    }
-
-    function PlayerStatistic(name, value) {
-      var name1 = name;
-      var result = value;
-
-      return {
-        name: name1,
-        value: result,
-      };
-    }
 
     $scope.scoreCard = new ScoreCard();
+    $scope.scoreCard.addStat(new PlaceholderStat("Performance"));
+    $scope.scoreCard.addStat(new BestWin());
+    $scope.scoreCard.addStat(new PlaceholderStat("Winning streak"));
+    $scope.scoreCard.addStat(new PlaceholderStat("Losing Streak"));
+    $scope.scoreCard.addStat(new PlaceholderStat("Average opponent grade"));
 
-    var stat = new PlayerStatistic("Performance", "N/A");
-    $scope.scoreCard.playerStats.push(stat);
+    $scope.scoreCard.games = $scope.games;
 
-    stat = new PlayerStatistic("Best win", "N/A");
-    $scope.scoreCard.playerStats.push(stat);
+    $scope.scoreCard.score();
 
-    stat = new PlayerStatistic("Winning Streak", "N/A");
-    $scope.scoreCard.playerStats.push(stat);
-
-    stat = new PlayerStatistic("Losing streak", "N/A");
-    $scope.scoreCard.playerStats.push(stat);
-
-    stat = new PlayerStatistic("Average opponent grade", "N/A");
-    $scope.scoreCard.playerStats.push(stat);
 
     $scope.addNewGame = function() {
       console.log("Adding new game");
@@ -107,6 +158,7 @@ app.controller('RatingCalculator2Controller',
       });
 
       $scope.selectedGame = $scope.games.length - 1;
+      $scope.scoreCard.games = $scope.games;
     };
 
     $scope.removeChoice = function(index) {
@@ -164,6 +216,8 @@ app.controller('RatingCalculator2Controller',
       var result = chessGradeCalculator.calculate(currentgrade, $scope.games, calculationType, kfactor);
 
       result = Math.round(result);
+
+      $scope.scoreCard.score();
 
       $('#messages').empty();
       if (isNaN(result)) {
