@@ -86,47 +86,52 @@ describe('player statistics', () => {
 
     });
 
-    it('should ignore zero and undefined grades', () => {
+    it('should ignore zero grades', () => {
       var ag = new AverageOpponentGrade();
       var games = [{
         grade: 10
       }, {
         grade: 0
-      }, {}];
+      }];
 
       ag.calculate(games);
 
-      expect(ag.value).toBe(5);
+      expect(ag.value).toBe(10);
+
+    });
+
+    it('should ignore undefined grades', () => {
+      var ag = new AverageOpponentGrade();
+      var games = [{
+        grade: 10
+      }, {grade:undefined}];
+
+      ag.calculate(games);
+
+      expect(ag.value).toBe(10);
+
+    });
+
+    it('zero grade is shown as N/A', ()=>{
+      var ag = new AverageOpponentGrade();
+      var games=[{grade:0},{grade:0}];
+
+      ag.calculate(games);
+
+      expect(ag.value).toBe('N/A');
+    })
+
+    it('should convert strings to numbers', () => {
+      var ag = new AverageOpponentGrade();
+      var games = [{
+        grade: '10'
+      }, {grade:'5'}];
+
+      ag.calculate(games);
+
+      expect(ag.value).toBe(8);
 
     });
 
   });
 });
-
-function AverageOpponentGrade() {
-  var name = 'Average opponent grade';
-  var value = 'N/A';
-
-  function calculate(games) {
-
-    averageGrade = 'N/A';
-    if (games === undefined) {
-      return;
-    }
-
-    for (let i = 0; i < games.length; i++) {
-      averageGrade += games[i].grade;
-    }
-
-    averageGrade = (averageGrade / games.length);
-    // if (!isNan(averageGrade)) {
-      this.value = averageGrade;
-    // }
-
-    return {
-      calculate: calculate,
-      name: name,
-      value: value,
-    };
-  }
-}
