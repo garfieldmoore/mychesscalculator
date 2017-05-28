@@ -131,7 +131,7 @@ describe('player statistics', () => {
       ag.calculate(games);
 
       expect(ag.value).toBe('N/A');
-    })
+    });
 
     it('should convert strings to numbers', () => {
       var ag = new AverageOpponentGrade();
