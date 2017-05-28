@@ -5,6 +5,14 @@
     margin:0;
 }
 
+#footerPanel {
+    background-color: #265a88;
+    border-color: #265a88;
+    padding:0;
+    margin:0;
+    height:100vh;
+}
+
 
 /*header.image-bg-fluid-height h2 {
     padding: 50px 0 50px 0;
