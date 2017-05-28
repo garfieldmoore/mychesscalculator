@@ -36,6 +36,18 @@ describe('player statistics', () => {
 
       expect(bestwin.value).toBe("N/A");
     });
+
+    it('should convert strings to numbers', () => {
+      var games = [{
+        grade: '10',
+      }, {grade:'5'}];
+
+      var bestwin = new BestWin();
+      bestwin.calculate(games);
+
+      expect(bestwin.value).toBe(10);
+    });
+
   });
 
   describe('average opponent grade', () => {

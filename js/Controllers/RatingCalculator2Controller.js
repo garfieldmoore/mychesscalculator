@@ -55,9 +55,9 @@ function BestWin() {
     var highest = 0;
     var hasSet = false;
     for (let i = 0; i < games.length; i++) {
-      if (games[i].grade > highest) {
+      if (Number(games[i].grade) > highest) {
         hasSet = true;
-        highest = games[i].grade;
+        highest = Number(games[i].grade);
       }
     }
 
