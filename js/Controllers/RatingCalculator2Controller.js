@@ -285,10 +285,11 @@ app.controller('RatingCalculator2Controller',
       $scope.scoreCard.score();
 
       $('#messages').empty();
+      $('#stat_current_grade').empty();
       if (isNaN(result)) {
         $('#messages').append('<div><p>There are some invalid entries for either your grade or your opponents grades.  Correct and try again.</p></div>');
       } else {
-        $('#messages').append('<p>Your grade is now ' + result + '</p>');
+        $('#stat_current_grade').append(result);
       }
     };
   }
