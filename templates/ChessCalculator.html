@@ -27,7 +27,7 @@
     </fieldset>
   </hr>
 
-  <div class="formm-group">
+  <div class="form-group">
     <section id="stats" class="col-md-4">
 
       <uib-accordion close-others="oneAtATime">
@@ -53,7 +53,7 @@
       </uib-accordion>
     </section>
 
-    <section id="games" class="col-md-8">
+    <section id="games" class="col-md-6">
       <uib-accordion close-others="oneAtATime">
         <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
           <uib-accordion-heading>
