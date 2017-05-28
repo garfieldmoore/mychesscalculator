@@ -1,20 +1,21 @@
-<!-- Container -->
 <div class='container'>
   <form name="calc" id="calcForm" action="" method="POST">
 
     <fieldset>
-      <div class="form-group">
-      <label for='chessFederationSelector'>Grading system</label>
+      <div class='row'>
+        <div class="form-group">
+          <label for='chessFederationSelector'>Grading system</label>
 
-      <div class="dropdown">
+          <div class="dropdown">
 
-        <button class="btn btn-primary dropdown-toggle form-control" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
+            <button class="btn btn-primary dropdown-toggle form-control" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
  <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="chessFederationSelector">
-          <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
-        </ul>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="chessFederationSelector">
+              <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
 
       <div class='form-group form-inline'>
         <label for='currentgrade'>My grade</label>
@@ -25,16 +26,16 @@
 
       </div>
     </fieldset>
-  </hr>
 
-  <div class="form-group">
-    <section id="stats" class="col-md-4">
+    <div class='row'>
 
-      <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default" heading="Statistics" ng-init="status.open=true" is-open="true" is-disabled="false">
-          <uib-accordion-heading>
-            Statistics <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-          </uib-accordion-heading>
+      <section id="stats" class="col-md-4">
+
+        <uib-accordion close-others="oneAtATime">
+          <div uib-accordion-group class="panel-default" heading="Statistics" ng-init="status.open=true" is-open="true" is-disabled="false">
+            <uib-accordion-heading>
+              Statistics <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+            </uib-accordion-heading>
 
             <table class="table table-striped">
               <tr>
@@ -42,61 +43,58 @@
                 <th>Result</th>
               </tr>
 
-              <tr  ng-repeat="stat in scoreCard.playerStats" >
+              <tr ng-repeat="stat in scoreCard.playerStats">
                 <td>{{stat.name}}</td>
                 <td>{{stat.value}}</td>
               </tr>
             </table>
 
-          <!-- form group -->
-        </div>
-      </uib-accordion>
-    </section>
-
-    <section id="games" class="col-md-6">
-      <uib-accordion close-others="oneAtATime">
-        <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
-          <uib-accordion-heading>
-            Game {{game.id}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
-          </uib-accordion-heading>
-
-          <div class='form-group form-inline'>
-            <label for='grade1'>Opponent's Grade: </label>
-            <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
-
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" id="resultSelector" type="button" data-toggle="dropdown">{{game.resultText}}
-         <span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="resultSelector">
-                <li ng-model="game.result" ng-value="1"><a ng-click="dropboxResultitemselected(game, 1)">Win</a></li>
-                <li ng-model="game.result" ng-value="0"><a ng-click="dropboxResultitemselected(game,0)">Draw</a></li>
-                <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
-              </ul>
-              <button type="button" class="btn btn-default btn-xs btn-round btn-danger pull-right" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
-
-            </div>
-            <!-- drop down -->
+            <!-- form group -->
           </div>
-          <!-- form group -->
-        </div>
-      </uib-accordion>
-    </section>
-</div>
+        </uib-accordion>
+      </section>
+
+      <section id="games" class="col-md-6">
+        <uib-accordion close-others="oneAtATime">
+          <div uib-accordion-group class="panel-default" ng-repeat="game in games" heading="Game {{game.id}}" ng-init="status.open = $index==selectedGame" is-open="status.open" is-disabled="status.isFirstDisabled">
+            <uib-accordion-heading>
+              Game {{game.id}} <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.isCustomHeaderOpen, 'glyphicon-chevron-right': !status.isCustomHeaderOpen}"></i>
+            </uib-accordion-heading>
+
+            <div class='form-group form-inline'>
+              <label for='grade1'>Opponent's Grade: </label>
+              <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
+
+              <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="resultSelector" type="button" data-toggle="dropdown">{{game.resultText}}
+         <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="resultSelector">
+                  <li ng-model="game.result" ng-value="1"><a ng-click="dropboxResultitemselected(game, 1)">Win</a></li>
+                  <li ng-model="game.result" ng-value="0"><a ng-click="dropboxResultitemselected(game,0)">Draw</a></li>
+                  <li ng-model="game.result" ng-value="-1"><a ng-click="dropboxResultitemselected(game,-1)">Loss</a></li>
+                </ul>
+                <button type="button" class="btn btn-default btn-xs btn-round btn-danger pull-right" ng-disabled="{{ $index == 0}}" ng-click="removeChoice($index)"><span class="glyphicon glyphicon-minus"></span></button>
+
+              </div>
+              <!-- drop down -->
+            </div>
+            <!-- form group -->
+          </div>
+        </uib-accordion>
+      </section>
+    </div>
+
     <div class="row col-md-12">
       <div id='messages'>
 
       </div>
 
-      <fieldset>
-        <legend></legend>
-      </fieldset>
-
       <div class='form-group'>
         <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success" type="button" id="Calculate" ng-click="calculate()"></button>
         <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary" type='button' id='AddGame' ng-click="addNewGame()"></button>
       </div>
-  </div>
-  <!-- row -->
-</form>
+    </div>
+    <!-- row -->
+  </form>
 </div>
 <!-- container -->
