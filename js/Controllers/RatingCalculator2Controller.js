@@ -104,6 +104,42 @@ function AverageOpponentGrade() {
   };
 }
 
+function WinningStreak() {
+  var name = "Winning streak";
+  var value = "N/A";
+
+  function calculate(games) {
+    var wins = 0;
+    var lastWinStreak = 0;
+
+    for (let i = 0; i < games.length; i++) {
+      var game=games[i];
+      if (game.result == 1 && game.grade !== undefined && game.grade !==0) {
+        wins++;
+      } else if (game.result != 1) {
+        if (wins > lastWinStreak){
+            lastWinStreak=wins;
+        }
+        wins = 0;
+      }
+    }
+
+    if (wins > lastWinStreak) {
+      lastWinStreak = wins;
+    }
+
+    if (lastWinStreak > 0) {
+      this.value = lastWinStreak;
+    }
+  }
+
+  return {
+    calculate: calculate,
+    name: name,
+    value: value,
+  };
+}
+
 app.controller('RatingCalculator2Controller',
   function RatingCalculator2Controller($scope, chessGradeCalculator) {
     console.log('Enter default controller');
@@ -166,12 +202,10 @@ app.controller('RatingCalculator2Controller',
       $scope.games[i] = g;
     }
 
-
     $scope.scoreCard = new ScoreCard();
     $scope.scoreCard.addStat(new PlaceholderStat("Performance"));
     $scope.scoreCard.addStat(new BestWin());
-    $scope.scoreCard.addStat(new PlaceholderStat("Winning streak"));
-    $scope.scoreCard.addStat(new PlaceholderStat("Losing Streak"));
+    $scope.scoreCard.addStat(new WinningStreak());
     $scope.scoreCard.addStat(new AverageOpponentGrade());
 
     $scope.scoreCard.games = $scope.games;
