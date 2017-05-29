@@ -167,6 +167,11 @@ uib-accordion {
   padding:10px;
 }
 
-#Calculate{
+.actionBtn{
   margin-right: 20px;
 }
+
+/*.stat_current_grade{
+  border: 1px solid green ;
+
+}*/
