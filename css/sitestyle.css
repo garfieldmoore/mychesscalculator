@@ -1,8 +1,8 @@
 .navbar-inverse {
-    background-color: #265a88;
-    border-color: #265a88;
-    padding:0;
-    margin:0;
+  background-color: #265a88;
+  border-color: #265a88;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar-fixed-bottom {
@@ -16,9 +16,10 @@
   background-color: #265a88;
 }
 
-.navbar-right{
-  margin-right:20px;
+.navbar-right {
+  margin-right: 20px;
 }
+
 
 /*header.image-bg-fluid-height h2 {
     padding: 50px 0 50px 0;
@@ -28,150 +29,155 @@
     font-family: lato;
 }*/
 
-.form-inline > * {
-   margin:5px 3px;
+.form-inline>* {
+  margin: 5px 3px;
 }
 
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   /* Margin bottom by footer height */
   margin-bottom: 0px;
 }
 
+
 /* Styles go here */
 
-.testing{
-  font-weight:bold;
-  background-color:red;
+.testing {
+  font-weight: bold;
+  background-color: red;
 }
+
 
 /*fieldset{
     background: #FCFCFC;
     padding: 16px;
     border: 1px solid #D5D5D5;
 }*/
-.addfields{
-    margin: 10px 0;
+
+.addfields {
+  margin: 10px 0;
 }
 
 #choicesDisplay {
-    padding: 10px;
-    background: rgb(227, 250, 227);
-    border: 1px solid rgb(171, 239, 171);
-    color: rgb(9, 56, 9);
+  padding: 10px;
+  background: rgb(227, 250, 227);
+  border: 1px solid rgb(171, 239, 171);
+  color: rgb(9, 56, 9);
 }
 
-.remove{
-    background: #C76868;
-    color: #FFF;
-    font-weight: bold;
-    font-size: 21px;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    padding: 4px 9px;
-    vertical-align: top;
-    line-height: 100%;
+.remove {
+  background: #C76868;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 21px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 4px 9px;
+  vertical-align: top;
+  line-height: 100%;
 }
 
-button:disabled, button:disabled:hover{
-    background-color:#dddddd;;
+button:disabled, button:disabled:hover {
+  background-color: #dddddd;
+  ;
 }
+
 
 /* round button styles */
 
 .btn-round {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .btn-round.btn-lg {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .btn-round.btn-sm {
-    width: 34px;
-    height: 34px;
+  width: 34px;
+  height: 34px;
 }
 
 .btn-round.btn-xs {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
-#chessFederationSelector, #resultSelector{
+#chessFederationSelector, #resultSelector {
   width: 25%;
 }
+
 
 /*.form-inline .button {
   display:inline-block;
   vertical-align: middle;
 }*/
 
+
 /* drop down menu */
+
 ul.dropdown-wide {
- 	width: 280px !important;
+  width: 280px !important;
 }
 
 ul.drop-accordian-menu {
-    display:none;
-    max-height: 250px;
-    overflow-y: auto;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-family: Arial, Helvetica, Sans-Serif;
-    font-size: 9pt;
-    width: auto;
+  display: none;
+  max-height: 250px;
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: Arial, Helvetica, Sans-Serif;
+  font-size: 9pt;
+  width: auto;
 }
+
 ul.drop-accordian-menu li {
-    border-bottom: 1px solid #ccc;
-    margin: 0;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
 }
 
 ul.drop-accordian-menu li a {
-    display: block;
-    padding: 5px 5px 5px 20px;
-    color: #000;
-    text-decoration: none;
-  	font-size: 8pt;
-    font-style: normal;
-    width: auto;
+  display: block;
+  padding: 5px 5px 5px 20px;
+  color: #000;
+  text-decoration: none;
+  font-size: 8pt;
+  font-style: normal;
+  width: auto;
 }
 
 ul.drop-accordian-menu a:hover {
-    background-color: #265a88;
-    color: #000;
-}
-
-#firstLevelNav_small2 {
   background-color: #265a88;
-  border-color: #265a88;
+  color: #000;
 }
 
-#headername h2{
+#headername h2 {
   color: white;
-  text-align:center;
+  text-align: center;
   text-transform: capitalize;
   letter-spacing: 2px;
   font-family: Baloo, cursive;
 }
 
 uib-accordion {
-  padding:10px;
+  padding: 10px;
 }
 
-.actionBtn{
+.actionBtn {
   margin-right: 20px;
 }
 
-/*.stat_current_grade{
-  border: 1px solid green ;
-
-}*/
+.btn-mnu-mb  {
+  background-color: #265a88;
+  border-color: #265a88;
+}
