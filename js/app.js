@@ -1,12 +1,12 @@
 'use strict';
-var app = angular.module('ratingsApp', ['ngRoute', 'ui.bootstrap']);
+var app = angular.module('ratingsApp', [ 'ngRoute', 'ui.bootstrap']);
 
-app.config(function($routeProvider) {
+app.config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/calculator', {
     templateUrl: 'templates/ChessCalculator.html',
     controller: 'RatingCalculator2Controller'
-  });      
+  });
 
   $routeProvider.when('/feedback', {
     templateUrl: 'templates/customerFeedback.html',
@@ -22,4 +22,5 @@ app.config(function($routeProvider) {
     redirectTo: '/calculator'
   });
 
+  $locationProvider.html5Mode(true);
 });
