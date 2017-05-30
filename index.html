@@ -84,15 +84,18 @@
       <li class="divider"></li>
       <li><a href="/#!/feedback">Send feedback</a></li>
       <li><a href="/#!/about">About</a></li>
+      <li class="disabled"><a href="/#!/about" >Log in</a></li>
       <!-- <li><a href="#">Contact Us</a></li>
           <li><a href="#">Help</a></li>
           <li class="divider"></li>
           <li><a href="#">Log Off</a></li> -->
     </ul>
 
+<!-- the ID is required in buttons to keep the hover color blue. needs to be fixed-->
+
     <div class="pull-right visible-sm visible-xs">
       <div class="btn-group" id="firstLevelNav_small">
-        <button id="firstLevelNav_small2" type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+        <button id="firstLevelNav_small2" type="button" class="btn btn-default btn-sm dropdown-toggle btn-mnu-mb" data-toggle="dropdown">
     <i class="fa fa-bars fa-2x"><!-- --></i> <span class="caret"><!-- --></span>
   </button>
         <ul class="dropdown-menu pull-right dropdown-wide">
@@ -105,6 +108,8 @@
                   <li class="divider"></li>
                   <li><a href="#">Log Off</a></li> -->
         </ul>
+
+        <button id="firstLevelNav_small2" type="button" class="btn btn-default btn-sm btn-mnu-mb disabled"><i class="fa  fa-sign-in fa-2x "><!-- --></i> </button>
       </div>
     </div>
 
