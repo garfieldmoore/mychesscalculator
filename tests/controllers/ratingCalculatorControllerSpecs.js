@@ -38,4 +38,62 @@ describe('rating calculator controller', () => {
       expect(scope.games[1].id).toEqual(2);
     });
   });
+
+  describe('remove game', () => {
+    var controllerService;
+    var sut;
+    var scope;
+    var mockChessCalculator;
+
+    beforeEach(module('ratingsApp'));
+
+    beforeEach(inject(function($controller, $rootScope) {
+      controllerService = $controller;
+      scope = $rootScope.$new();
+      mockChessCalculator = jasmine.createSpy('ChessGradeCalculator', 'MyMethod');
+
+      sut = controllerService("RatingCalculator2Controller", {
+        '$scope': scope,
+        'chessGradeCalculator': mockChessCalculator
+      });
+
+    }));
+
+    it('should remove selected game', () => {
+      scope.addNewGame();
+      scope.addNewGame();
+
+      expect(scope.games.length).toEqual(3);
+
+      scope.removeChoice(2);
+
+      expect(scope.games.length).toEqual(2);
+
+    });
+  });
+
+  describe('calculate', () => {
+    var controllerService;
+    var sut;
+    var scope;
+    var mockChessCalculator;
+
+    beforeEach(module('ratingsApp'));
+
+    beforeEach(inject(function($controller, $rootScope) {
+      controllerService = $controller;
+      scope = $rootScope.$new();
+      mockChessCalculator = jasmine.createSpy('ChessGradeCalculator', 'MyMethod');
+
+      sut = controllerService("RatingCalculator2Controller", {
+        '$scope': scope,
+        'chessGradeCalculator': mockChessCalculator
+      });
+
+    }));
+
+    it('should call calculator', () => {
+
+    });
+  });
 });

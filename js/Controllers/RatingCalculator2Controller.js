@@ -113,12 +113,12 @@ function WinningStreak() {
     var lastWinStreak = 0;
 
     for (let i = 0; i < games.length; i++) {
-      var game=games[i];
-      if (game.result == 1 && game.grade !== undefined && game.grade !==0) {
+      var game = games[i];
+      if (game.result == 1 && game.grade !== undefined && game.grade !== 0) {
         wins++;
       } else if (game.result != 1) {
-        if (wins > lastWinStreak){
-            lastWinStreak=wins;
+        if (wins > lastWinStreak) {
+          lastWinStreak = wins;
         }
         wins = 0;
       }
@@ -193,14 +193,6 @@ app.controller('RatingCalculator2Controller',
     };
 
     $scope.games = [];
-    for (var i = 0; i < 1; i++) {
-      var g = {
-        id: i + 1,
-        result: 1,
-        resultText: 'Win',
-      };
-      $scope.games[i] = g;
-    }
 
     $scope.scoreCard = new ScoreCard();
     $scope.scoreCard.addStat(new PlaceholderStat("Performance"));
@@ -211,7 +203,6 @@ app.controller('RatingCalculator2Controller',
     $scope.scoreCard.games = $scope.games;
 
     $scope.scoreCard.score();
-
 
     $scope.addNewGame = function() {
       console.log("Adding new game");
@@ -225,6 +216,8 @@ app.controller('RatingCalculator2Controller',
       $scope.selectedGame = $scope.games.length - 1;
       $scope.scoreCard.games = $scope.games;
     };
+
+    $scope.addNewGame();
 
     $scope.removeChoice = function(index) {
 
