@@ -14,13 +14,6 @@
 
   <base href="/">
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-  <script src="js/bootstrap.min.js"></script>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -28,29 +21,33 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+  <!-- External JS frameworks and libraries -->
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+  <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <link href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo|Lato">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <!-- <link rel="stylesheet" href="css/cerulean-bootstrap-theme.css" /> -->
+  <!-- Site style sheets-->
   <link rel="stylesheet" href="css/sitestyle.css" />
-  <!-- <link rel="stylesheet" href="css/contact-feedback-form.css"> -->
 
   <!-- Controllers and services for angular -->
   <script type='text/javascript' src='js/app.js'></script>
   <script type="text/javascript" src="js/services/NormalDistributionData.js"></script>
-
   <script type='text/javascript' src='js/Controllers/RatingCalculator2Controller.js'></script>
   <script type='text/javascript' src='js/Controllers/CustomerFeedbackController.js'></script>
-
   <script type='text/javascript' src='js/services/ChessGradeCalculator.js'></script>
 
   <!-- Google analytics -->
@@ -84,14 +81,14 @@
       <li class="divider"></li>
       <li><a href="/#!/feedback">Send feedback</a></li>
       <li><a href="/#!/about">About</a></li>
-      <li class="disabled"><a href="/#!/about" >Log in</a></li>
+      <li class="disabled"><a href="/#!/about">Log in</a></li>
       <!-- <li><a href="#">Contact Us</a></li>
           <li><a href="#">Help</a></li>
           <li class="divider"></li>
           <li><a href="#">Log Off</a></li> -->
     </ul>
 
-<!-- the ID is required in buttons to keep the hover color blue. needs to be fixed-->
+    <!-- the ID is required in buttons to keep the hover color blue. needs to be fixed-->
 
     <div class="pull-right visible-sm visible-xs">
       <div class="btn-group" id="firstLevelNav_small">
@@ -128,13 +125,13 @@
     </div> -->
 
   <div id="footer">
-      <div class="navbar-inverse navbar-fixed-bottom">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-              <div><a href="https://uk.linkedin.com/in/garfieldmoore"><i class="glyphicon glyphicon-copyright-mark"></i> Garfield Moore</a></div>
-            </div>
+    <div class="navbar-inverse navbar-fixed-bottom">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <div><a href="https://uk.linkedin.com/in/garfieldmoore"><i class="glyphicon glyphicon-copyright-mark"></i> Garfield Moore</a></div>
         </div>
       </div>
+    </div>
   </div>
 </body>
 
