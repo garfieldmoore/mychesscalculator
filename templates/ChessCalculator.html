@@ -3,18 +3,20 @@
 
     <fieldset>
       <!-- <legend>My chess grade</legend> -->
-      <div class="form-group form-inline">
+      <div class="form-group">
         <label for='chessFederationSelector'>Grading system</label>
         <select name="repeatSelect" id="repeatSelect" ng-model="selectedChessFederation">
           <option ng-repeat="cf in chessFederations" value="{{cf}}">{{cf}}</option>
         </select>
+      </div>
 
-        <label for='currentgrade'>My grade</label>
-        <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
+        <div class="form-group form-inline">
+          <label for='currentgrade'>My grade</label>
+          <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
 
-        <label for='kfactorSelector'>K Factor</label>
-        <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id" ng-model="kfactors.selectedOption"></select>
-
+          <label for='kfactorSelector'>K Factor</label>
+          <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id" ng-model="kfactors.selectedOption"></select>
+       </div>
         <!-- </div> -->
     </fieldset>
 
