@@ -189,3 +189,40 @@ uib-accordion {
   background-color: #265a88;
   border-color: #265a88;
 }
+
+.stat{
+  display: block;
+  /*visibility: hidden;*/
+}
+
+.stat_title {
+    font-size: 1.0rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+.current_grade {
+      display: inline-block;
+      font-size: 56px;
+      font-size: 5.6rem;
+      font-weight: 700;
+      line-height: .7;
+      letter-spacing: 1px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 15px 20px;
+      background-color: #265a88;
+  }
+
+  .stat_panel {
+      padding-left: 40px;
+      padding-right: 40px;
+  }
+
+  .stat_panel {
+      /*width: 100%;*/
+      height: auto;
+      text-align: center;
+      padding: 0 20px 40px;
+  }

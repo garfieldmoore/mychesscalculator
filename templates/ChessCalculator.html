@@ -10,17 +10,17 @@
         </select>
       </div>
 
-        <div class="form-group form-inline">
-          <label for='currentgrade'>My grade</label>
-          <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
+      <div class="form-group form-inline">
+        <label for='currentgrade'>My grade</label>
+        <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
 
-          <label for='kfactorSelector'>K Factor</label>
-          <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id" ng-model="kfactors.selectedOption"></select>
-       </div>
-        <!-- </div> -->
+        <label for='kfactorSelector'>K Factor</label>
+        <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id" ng-model="kfactors.selectedOption"></select>
+      </div>
+      <!-- </div> -->
     </fieldset>
 
-    <div class='row'>
+    <div class='stats_panels row'>
 
       <section id="stats" class="col-md-4">
 
@@ -35,16 +35,29 @@
                 <th>Statistic</th>
                 <th>Result</th>
               </tr>
+              <tr>
+                <div class="stat_panel">
+                  <div class="stat">
+                    <div id="stat_title">
+                      <h4>My current grade</h4>
+                      <div id="stat_current_grade" class="current_grade">
+                        1200
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-              <tr ng-repeat="stat in scoreCard.playerStats">
-                <td>{{stat.name}}</td>
-                <td>{{stat.value}}</td>
-              </tr>
+                <tr>
+                  <tr ng-repeat="stat in scoreCard.playerStats">
+                    <td>{{stat.name}}</td>
+                    <td>{{stat.value}}</td>
+                  </tr>
             </table>
 
             <!-- form group -->
           </div>
         </uib-accordion>
+
       </section>
 
       <section id="games" class="col-md-6">
@@ -83,13 +96,6 @@
 
       </div>
 
-      <div id="stat_title">
-        <h3>My current grade
-        <div id="stat_current_grade" class="current_grade">
-
-        </div>
-        </h3>
-      </div>
     </div>
 
     <div class='form-group'>
@@ -102,5 +108,5 @@
 
     <!-- row -->
   </form>
-  </div>
-  <!-- container -->
+</div>
+<!-- container -->
