@@ -26,6 +26,7 @@ module.exports = function(grunt) {
     jshint: {
       all: ['tests/**/*Specs.js','js/Controllers/*.js', 'js/*.js', 'js/services/*.js', '!js/bootstrap*.js', '!js/npm.js', '!js/angular**.js'],
       options: {
+        "validthis": true,
         esversion: 6,
         browser: true,
         jasmine: true,

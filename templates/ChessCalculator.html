@@ -2,31 +2,20 @@
   <form name="calc" id="calcForm" action="" method="POST">
 
     <fieldset>
-
       <!-- <legend>My chess grade</legend> -->
-      <div class='row'>
-        <div class="form-group">
-          <label for='chessFederationSelector'>Grading system</label>
+      <div class="form-group form-inline">
+        <label for='chessFederationSelector'>Grading system</label>
+        <select name="repeatSelect" id="repeatSelect" ng-model="selectedChessFederation">
+          <option ng-repeat="cf in chessFederations" value="{{cf}}">{{cf}}</option>
+        </select>
 
-          <div class="dropdown">
-
-            <button class="btn btn-primary dropdown-toggle form-control" id="chessFederationSelector" type="button" data-toggle="dropdown">{{selectedChessFederation}}
- <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="chessFederationSelector">
-              <li ng-repeat="a in chessFederations"><a ng-click="dropboxitemselected(a)">{{a}}</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class='form-group form-inline'>
         <label for='currentgrade'>My grade</label>
         <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
 
         <label for='kfactorSelector'>K Factor</label>
         <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id" ng-model="kfactors.selectedOption"></select>
 
-      </div>
+        <!-- </div> -->
     </fieldset>
 
     <div class='row'>
@@ -84,6 +73,7 @@
           </div>
         </uib-accordion>
       </section>
+
     </div>
 
     <div class="row col-md-12">
@@ -98,15 +88,17 @@
         </div>
         </h3>
       </div>
-
-      <div class='form-group'>
-        <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success actionBtn" type="button" id="Calculate" ng-click="calculate()"></button>
-        <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary actionBtn" type='button' id='AddGame' ng-click="addNewGame()"></button>
-        <button class="btn btn-default btn-lg glyphicon glyphicon-save btn-round btn-info  actionBtn disabled" type='button' id='save' ng-click="saveGame()"></button>
-
-      </div>
     </div>
+
+    <div class='form-group'>
+      <button class="btn btn-default btn-lg glyphicon glyphicon-ok btn-round btn-success actionBtn" type="button" id="Calculate" ng-click="calculate()"></button>
+      <button class="btn btn-default btn-lg glyphicon glyphicon-plus btn-round btn-primary actionBtn" type='button' id='AddGame' ng-click="addNewGame()"></button>
+      <button class="btn btn-default btn-lg glyphicon glyphicon-save btn-round btn-info  actionBtn disabled" type='button' id='save' ng-click="saveGame()"></button>
+
+    </div>
+
+
     <!-- row -->
   </form>
-</div>
-<!-- container -->
+  </div>
+  <!-- container -->

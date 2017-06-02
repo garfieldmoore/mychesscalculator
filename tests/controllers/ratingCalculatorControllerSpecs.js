@@ -1,23 +1,40 @@
 describe('rating calculator controller', () => {
+  var controllerService;
+  var sut;
+  var scope;
+  var mockChessCalculator;
+
+  beforeEach(module('ratingsApp'));
+
+  beforeEach(inject(function($controller, $rootScope) {
+    controllerService = $controller;
+    scope = $rootScope.$new();
+    mockChessCalculator = jasmine.createSpy('ChessGradeCalculator', 'MyMethod');
+
+    sut = controllerService("RatingCalculator2Controller", {
+      '$scope': scope,
+      'chessGradeCalculator': mockChessCalculator
+    });
+
+  }));
+
+  it('creates statistics', ()=>{
+
+    expect(scope.scoreCard.playerStats[0].name).toEqual(new PlaceholderStat("Performance").name);
+    expect(scope.scoreCard.playerStats[0].value).toEqual("N/A");
+
+    expect(scope.scoreCard.playerStats[1].name).toEqual(new BestWin().name);
+    expect(scope.scoreCard.playerStats[1].value).toEqual("N/A");
+
+    expect(scope.scoreCard.playerStats[2].name).toEqual(new WinningStreak().name);
+    expect(scope.scoreCard.playerStats[2].value).toEqual("N/A");
+
+    expect(scope.scoreCard.playerStats[3].name).toEqual(new AverageOpponentGrade().name);
+    expect(scope.scoreCard.playerStats[3].value).toEqual("N/A");
+
+  });
+
   describe('add new game', () => {
-    var controllerService;
-    var sut;
-    var scope;
-    var mockChessCalculator;
-
-    beforeEach(module('ratingsApp'));
-
-    beforeEach(inject(function($controller, $rootScope) {
-      controllerService = $controller;
-      scope = $rootScope.$new();
-      mockChessCalculator = jasmine.createSpy('ChessGradeCalculator', 'MyMethod');
-
-      sut = controllerService("RatingCalculator2Controller", {
-        '$scope': scope,
-        'chessGradeCalculator': mockChessCalculator
-      });
-
-    }));
 
     it('should create one game by default with default values', () => {
 
@@ -40,24 +57,6 @@ describe('rating calculator controller', () => {
   });
 
   describe('remove game', () => {
-    var controllerService;
-    var sut;
-    var scope;
-    var mockChessCalculator;
-
-    beforeEach(module('ratingsApp'));
-
-    beforeEach(inject(function($controller, $rootScope) {
-      controllerService = $controller;
-      scope = $rootScope.$new();
-      mockChessCalculator = jasmine.createSpy('ChessGradeCalculator', 'MyMethod');
-
-      sut = controllerService("RatingCalculator2Controller", {
-        '$scope': scope,
-        'chessGradeCalculator': mockChessCalculator
-      });
-
-    }));
 
     it('should remove selected game', () => {
       scope.addNewGame();
@@ -73,24 +72,6 @@ describe('rating calculator controller', () => {
   });
 
   describe('calculate', () => {
-    var controllerService;
-    var sut;
-    var scope;
-    var mockChessCalculator;
-
-    beforeEach(module('ratingsApp'));
-
-    beforeEach(inject(function($controller, $rootScope) {
-      controllerService = $controller;
-      scope = $rootScope.$new();
-      mockChessCalculator = jasmine.createSpy('ChessGradeCalculator', 'MyMethod');
-
-      sut = controllerService("RatingCalculator2Controller", {
-        '$scope': scope,
-        'chessGradeCalculator': mockChessCalculator
-      });
-
-    }));
 
     it('should call calculator', () => {
 

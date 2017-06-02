@@ -18,6 +18,12 @@ app.config(function($routeProvider, $locationProvider) {
     // controller:'CustomerFeedbackController'
   });
 
+  $routeProvider.when('/login', {
+    templateUrl: 'templates/login.html',
+    // controller:'CustomerFeedbackController'
+  });
+
+
   $routeProvider.otherwise({
     redirectTo: '/calculator'
   });
