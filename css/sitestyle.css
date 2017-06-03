@@ -196,7 +196,7 @@ uib-accordion {
 }
 
 .stat_title {
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 1px;
     margin-bottom: 10px;
@@ -204,8 +204,8 @@ uib-accordion {
 
 .current_grade {
       display: inline-block;
-      font-size: 56px;
-      font-size: 5.6rem;
+      font-size: 36px;
+      font-size: 4.6rem;
       font-weight: 700;
       line-height: .7;
       letter-spacing: 1px;
