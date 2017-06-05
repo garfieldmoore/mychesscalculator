@@ -20,7 +20,7 @@ describe('rating calculator controller', () => {
 
   it('creates statistics', ()=>{
 
-    expect(scope.scoreCard.playerStats[0].name).toEqual(new PlaceholderStat("Performance").name);
+    expect(scope.scoreCard.playerStats[0].name).toEqual(new FidePerformance().name);
     expect(scope.scoreCard.playerStats[0].value).toEqual("N/A");
 
     expect(scope.scoreCard.playerStats[1].name).toEqual(new BestWin().name);
@@ -33,6 +33,12 @@ describe('rating calculator controller', () => {
     expect(scope.scoreCard.playerStats[3].value).toEqual("N/A");
 
   });
+
+  it('Performance stat should be disabled when not FIDE ELO', ()=>{
+    scope.selectedChessFederation = "ECF";
+  });
+
+
 
   describe('add new game', () => {
 

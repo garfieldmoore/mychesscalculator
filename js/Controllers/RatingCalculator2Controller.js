@@ -30,6 +30,22 @@ function ScoreCard(playergames) {
 function PlaceholderStat(statname) {
   var name = statname;
   var value = "";
+  var type="Placeholder";
+
+  function calculate() {
+    this.value = "N/A";
+  } 
+
+  return {
+    name: name,
+    value: value,
+    calculate: calculate,
+  };
+}
+
+function FidePerformance() {
+  var name = "Performance";
+  var value = "N/A";
 
   function calculate() {
     this.value = "N/A";
@@ -177,6 +193,18 @@ app.controller('RatingCalculator2Controller',
       $scope.selectedChessFederation = item;
     };
 
+    $scope.$watch("selectedChessFederation", function(newValue, oldValue) {
+
+      if ($scope.selectedChessFederation == "FIDE ELO") {
+        $scope.scoreCard.playerStats[0]=new FidePerformance();
+      }
+      else {
+        $scope.scoreCard.playerStats[0]=new PlaceholderStat("Performance");
+      }
+
+      $scope.scoreCard.playerStats[0].calculate();
+    });
+
     $scope.dropboxResultitemselected = function(game, result) {
       game.result = result;
       if (game.result === 1) {
@@ -195,7 +223,7 @@ app.controller('RatingCalculator2Controller',
     $scope.games = [];
 
     $scope.scoreCard = new ScoreCard();
-    $scope.scoreCard.addStat(new PlaceholderStat("Performance"));
+    $scope.scoreCard.addStat(new FidePerformance());
     $scope.scoreCard.addStat(new BestWin());
     $scope.scoreCard.addStat(new WinningStreak());
     $scope.scoreCard.addStat(new AverageOpponentGrade());
