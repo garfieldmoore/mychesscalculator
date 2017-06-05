@@ -89,7 +89,7 @@ function FidePerformance() {
 
     stat = new AverageScore();
     stat.calculate(games);
-    var averageScore = stat.value.toFixed(2);
+    var averageScore = stat.value;
 
     var performance = LookupExpectedWinPercentage(averageScore);
 
@@ -102,7 +102,12 @@ function FidePerformance() {
     var matchedChance = normalDistributionExpectedResultValues.length;
     for (var i = 0; i < normalDistributionExpectedResultValues.length; i++) {
       matchedChance = i;
-      if (normalDistributionExpectedResultValues[i] == score) {
+      // if (normalDistributionExpectedResultValues[i] == score) {
+      //   break;
+      // }
+
+      if (normalDistributionExpectedResultValues[i] > score) {
+        matchedChance = matchedChance - 1;
         break;
       }
     }
