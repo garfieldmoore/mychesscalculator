@@ -170,6 +170,7 @@ ul.drop-accordian-menu a:hover {
 }
 
 #headername h2 {
+  padding-left:10px;
   color: white;
   text-align: center;
   text-transform: capitalize;
