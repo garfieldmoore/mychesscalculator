@@ -91,7 +91,7 @@ describe('player statistics', () => {
 
     it('should be calculate average for multiple games', () => {
       var stat = new AverageScore();
-      var games = [{result:1}, {result:0}];
+      var games = [{result:1}, {result:-1}];
 
       stat.calculate(games);
 
@@ -505,7 +505,7 @@ describe('player statistics', () => {
 
       var stat = new FidePerformance();
       var player = {grade:2000};
-      var games=[{result:1, grade:1953}, {result:0, grade:2062}];
+      var games=[{result:1, grade:1953}, {result:-1, grade:2062}];
 
       stat.calculate(games, player);
 
@@ -517,7 +517,7 @@ describe('player statistics', () => {
 
       var stat = new FidePerformance();
       var player = {grade:2000};
-      var games=[{result:1, grade:1953}, {result:0, grade:2062},{result:1, grade:2164}];
+      var games=[{result:1, grade:1953}, {result:-1, grade:2062},{result:1, grade:2164}];
 
       stat.calculate(games, player);
 
@@ -529,14 +529,12 @@ describe('player statistics', () => {
 
       var stat = new FidePerformance();
       var player = {grade:2000};
-      var games=[{result:1, grade:1953}, {result:0, grade:2062},{result:1, grade:2164},{result:0.5, grade:2354}];
+      var games=[{result:1, grade:1953}, {result:-1, grade:2062},{result:1, grade:2164},{result:0, grade:2354}];
 
       stat.calculate(games, player);
 
       expect(stat.value).toBe(2220);
 
     });
-
-
   });
 });

@@ -40,10 +40,19 @@ function AverageScore() {
     }
 
     for (let i = 0; i < games.length; i++) {
-      if ((games[i].result !== undefined)) {
-        sum += Number(games[i].result);
+      if (games[i].result !== undefined) {
+
+        if (games[i].result === -1) {
+          sum += 0;
+        } else if (games[i].result === 0) {
+          sum += 0.5;
+        }
+        else {
+          sum += Number(games[i].result);
+        }
       }
     }
+
     this.value = (sum / games.length);
   }
 
