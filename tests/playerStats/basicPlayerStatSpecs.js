@@ -493,13 +493,50 @@ describe('player statistics', () => {
     it('should calculate performance', ()=>{
       var stat = new FidePerformance();
       var player = {grade:2000};
-      var games=[{result:1, opponentsGrade:1953}];
+      var games=[{result:1, grade:1953}];
 
       stat.calculate(games, player);
 
       expect(stat.value).toBe(2753);
 
     });
+
+    it('calculates for 2 games', ()=>{
+
+      var stat = new FidePerformance();
+      var player = {grade:2000};
+      var games=[{result:1, grade:1953}, {result:0, grade:2062}];
+
+      stat.calculate(games, player);
+
+      expect(stat.value).toBe(2008);
+
+    });
+
+    it('calculates for 3 games', ()=>{
+
+      var stat = new FidePerformance();
+      var player = {grade:2000};
+      var games=[{result:1, grade:1953}, {result:0, grade:2062},{result:1, grade:2164}];
+
+      stat.calculate(games, player);
+
+      expect(stat.value).toBe(2177);
+
+    });
+
+    it('calculates for 4 games', ()=>{
+
+      var stat = new FidePerformance();
+      var player = {grade:2000};
+      var games=[{result:1, grade:1953}, {result:0, grade:2062},{result:1, grade:2164},{result:0.5, grade:2354}];
+
+      stat.calculate(games, player);
+
+      expect(stat.value).toBe(2220);
+
+    });
+
 
   });
 });

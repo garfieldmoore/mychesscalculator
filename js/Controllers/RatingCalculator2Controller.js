@@ -44,7 +44,7 @@ function AverageScore() {
         sum += Number(games[i].result);
       }
     }
-    this.value = sum / games.length;
+    this.value = (sum / games.length);
   }
 
   return {
@@ -77,6 +77,37 @@ function FidePerformance() {
 
   function calculate(games) {
     this.value = "N/A";
+
+    if (games === undefined || games.length === 0) {
+      this.value = "N/A";
+      return;
+    }
+
+    var stat = new AverageOpponentGrade();
+    stat.calculate(games);
+    var averageGrade = stat.value;
+
+    stat = new AverageScore();
+    stat.calculate(games);
+    var averageScore = stat.value.toFixed(2);
+
+    var performance = LookupExpectedWinPercentage(averageScore);
+
+    var diff = normalDistributionPerformance[performance];
+    this.value = averageGrade + diff;
+  }
+
+  function LookupExpectedWinPercentage(score) {
+    var gradeDifference = score;
+    var matchedChance = normalDistributionExpectedResultValues.length;
+    for (var i = 0; i < normalDistributionExpectedResultValues.length; i++) {
+      matchedChance = i;
+      if (normalDistributionExpectedResultValues[i] == score) {
+        break;
+      }
+    }
+
+    return matchedChance;
   }
 
   return {

@@ -157,7 +157,7 @@ var normalDistributionExpectedResultValues = [0.00,
   1.00
 ];
 
-var normaldistributionPerformance = [-800,
+var normalDistributionPerformance = [-800,
 -677,
 -589,
 -538,
