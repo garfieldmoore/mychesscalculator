@@ -99,6 +99,11 @@ function FidePerformance() {
     stat.calculate(games);
     var averageGrade = stat.value;
 
+    if(isNaN(averageGrade)){
+      this.value="N/A";
+      return;
+    }
+     
     stat = new AverageScore();
     stat.calculate(games);
     var averageScore = stat.value;

@@ -559,5 +559,15 @@ describe('player statistics', () => {
 
     });
 
+    it('should be N/A if no grade', ()=>{
+      var stat = new FidePerformance();
+      var player = {grade:2000};
+      var games=[{result:1}];
+
+      stat.calculate(games, player);
+
+      expect(stat.value).toBe("N/A");
+
+    });
   });
 });
