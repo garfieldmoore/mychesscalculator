@@ -33,27 +33,30 @@ function AverageScore() {
 
   function calculate(games) {
     var sum = 0;
-
+    var gameCount=0;
     if (games === undefined || games.length === 0) {
       this.value = 0;
       return;
     }
 
     for (let i = 0; i < games.length; i++) {
-      if (games[i].result !== undefined) {
-
+      if (games[i].result !== undefined && games[i].grade !== undefined) {
+        gameCount++;
         if (games[i].result === -1) {
           sum += 0;
         } else if (games[i].result === 0) {
           sum += 0.5;
-        }
-        else {
+        } else {
           sum += Number(games[i].result);
         }
       }
     }
 
-    this.value = (sum / games.length);
+    this.value = (sum / gameCount);
+    if (isNaN(this.value)){
+      this.value=0;
+    }
+
   }
 
   return {

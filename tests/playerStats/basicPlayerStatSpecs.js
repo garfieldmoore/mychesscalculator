@@ -81,7 +81,7 @@ describe('player statistics', () => {
 
     it('should be calculate average for 1 game', () => {
       var stat = new AverageScore();
-      var games = [{result:1}];
+      var games = [{grade:120,result:1}];
 
       stat.calculate(games);
 
@@ -91,7 +91,17 @@ describe('player statistics', () => {
 
     it('should be calculate average for multiple games', () => {
       var stat = new AverageScore();
-      var games = [{result:1}, {result:-1}];
+      var games = [{grade:120,result:1}, {grade:120,result:-1}];
+
+      stat.calculate(games);
+
+      expect(stat.name).toBe('Average score');
+      expect(stat.value).toBe(0.5);
+    });
+
+    it('should ignore games with undefined grade', () => {
+      var stat = new AverageScore();
+      var games = [{grade:100, result:1}, {grade:120, result:-1},{result:1}];
 
       stat.calculate(games);
 
@@ -536,5 +546,18 @@ describe('player statistics', () => {
       expect(stat.value).toBe(2220);
 
     });
+
+    it('games with no grade should not be counted', ()=>{
+
+      var stat = new FidePerformance();
+      var player = {grade:2000};
+      var games=[{result:1, grade:1953}, {result:-1, grade:2062},{result:1, grade:2164}, {result:1}];
+
+      stat.calculate(games, player);
+
+      expect(stat.value).toBe(2177);
+
+    });
+
   });
 });
