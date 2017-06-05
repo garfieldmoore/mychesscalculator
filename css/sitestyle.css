@@ -175,12 +175,11 @@ uib-accordion {
 
 .actionBtn {
   margin-right: 20px;
-  margin-bottom:100px;
-  margin-top:20px;
-
+  margin-bottom: 100px;
+  margin-top: 20px;
 }
 
-.btn-mnu-mb  {
+.btn-mnu-mb {
   background-color: #265a88;
   border-color: #265a88;
 }
@@ -190,39 +189,43 @@ uib-accordion {
   border-color: #265a88;
 }
 
-.stat{
+.stat {
   display: block;
   /*visibility: hidden;*/
 }
 
 .stat_title {
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
 
 .current_grade {
-      display: inline-block;
-      font-size: 36px;
-      font-size: 4.6rem;
-      font-weight: 700;
-      line-height: .7;
-      letter-spacing: 1px;
-      color: #fff;
-      border-radius: 5px;
-      padding: 15px 20px;
-      background-color: #265a88;
-  }
+  display: inline-block;
+  font-size: 36px;
+  font-size: 4.6rem;
+  font-weight: 700;
+  line-height: .7;
+  letter-spacing: 1px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px 20px;
+  background-color: #265a88;
+}
 
-  .stat_panel {
-      padding-left: 40px;
-      padding-right: 40px;
-  }
+.stat_panel {
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
-  .stat_panel {
-      /*width: 100%;*/
-      height: auto;
-      text-align: center;
-      padding: 0 20px 40px;
-  }
+.stat_panel {
+  /*width: 100%;*/
+  height: auto;
+  text-align: center;
+  padding: 0 20px 40px;
+}
+
+fieldset {
+  margin-top: 10px;
+}
