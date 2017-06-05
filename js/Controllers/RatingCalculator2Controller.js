@@ -34,11 +34,12 @@ function PlaceholderStat(statname) {
 
   function calculate() {
     this.value = "N/A";
-  } 
+  }
 
   return {
     name: name,
     value: value,
+    type: type,
     calculate: calculate,
   };
 }
@@ -199,7 +200,7 @@ app.controller('RatingCalculator2Controller',
         $scope.scoreCard.playerStats[0]=new FidePerformance();
       }
       else {
-        $scope.scoreCard.playerStats[0]=new PlaceholderStat("Performance");
+       $scope.scoreCard.playerStats[0]=new PlaceholderStat("Performance");
       }
 
       $scope.scoreCard.playerStats[0].calculate();
@@ -223,6 +224,7 @@ app.controller('RatingCalculator2Controller',
     $scope.games = [];
 
     $scope.scoreCard = new ScoreCard();
+
     $scope.scoreCard.addStat(new FidePerformance());
     $scope.scoreCard.addStat(new BestWin());
     $scope.scoreCard.addStat(new WinningStreak());

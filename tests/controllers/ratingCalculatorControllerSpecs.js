@@ -36,6 +36,14 @@ describe('rating calculator controller', () => {
 
   it('Performance stat should be disabled when not FIDE ELO', ()=>{
     scope.selectedChessFederation = "ECF";
+    scope.$apply();
+    expect(scope.scoreCard.playerStats[0].type).toEqual("Placeholder");
+
+    scope.selectedChessFederation = "FIDE ELO";
+    scope.$apply();
+
+    expect(scope.scoreCard.playerStats[0].type).toEqual(new FidePerformance().type);
+
   });
 
 
