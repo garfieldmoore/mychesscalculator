@@ -1,3 +1,11 @@
+body {
+    font-family: 'Lato',Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #000000;
+    background-color: #fff;
+}
+
 .navbar-inverse {
   background-color: #265a88;
   border-color: #265a88;
