@@ -27,12 +27,39 @@ function ScoreCard(playergames) {
   };
 }
 
+function AverageScore() {
+  var value = 0;
+  var name = "Average score";
+
+  function calculate(games) {
+    var sum = 0;
+
+    if (games === undefined || games.length === 0) {
+      this.value = 0;
+      return;
+    }
+
+    for (let i = 0; i < games.length; i++) {
+      if ((games[i].result !== undefined)) {
+        sum += Number(games[i].result);
+      }
+    }
+    this.value = sum / games.length;
+  }
+
+  return {
+    calculate: calculate,
+    name: name,
+    value: value,
+  };
+}
+
 function PlaceholderStat(statname) {
   var name = statname;
   var value = "";
-  var type="Placeholder";
+  var type = "Placeholder";
 
-  function calculate() {
+  function calculate(games) {
     this.value = "N/A";
   }
 
@@ -48,7 +75,7 @@ function FidePerformance() {
   var name = "Performance";
   var value = "N/A";
 
-  function calculate() {
+  function calculate(games) {
     this.value = "N/A";
   }
 
@@ -197,10 +224,9 @@ app.controller('RatingCalculator2Controller',
     $scope.$watch("selectedChessFederation", function(newValue, oldValue) {
 
       if ($scope.selectedChessFederation == "FIDE ELO") {
-        $scope.scoreCard.playerStats[0]=new FidePerformance();
-      }
-      else {
-       $scope.scoreCard.playerStats[0]=new PlaceholderStat("Performance");
+        $scope.scoreCard.playerStats[0] = new FidePerformance();
+      } else {
+        $scope.scoreCard.playerStats[0] = new PlaceholderStat("Performance");
       }
 
       $scope.scoreCard.playerStats[0].calculate();

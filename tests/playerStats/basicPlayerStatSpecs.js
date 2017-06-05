@@ -52,6 +52,55 @@ describe('player statistics', () => {
 
   });
 
+  describe('average score', () => {
+
+    it('should default to zero', () => {
+      var stat = new AverageScore();
+
+      expect(stat.name).toBe('Average score');
+      expect(stat.value).toBe(0);
+    });
+
+    it('should be zero when not defined', () => {
+      var stat = new AverageScore();
+
+      stat.calculate([]);
+
+      expect(stat.name).toBe('Average score');
+      expect(stat.value).toBe(0);
+    });
+
+    it('should not include games with no result', () => {
+      var stat = new AverageScore();
+
+      stat.calculate([{ result: undefined }]);
+
+      expect(stat.name).toBe('Average score');
+      expect(stat.value).toBe(0);
+    });
+
+    it('should be calculate average for 1 game', () => {
+      var stat = new AverageScore();
+      var games = [{result:1}];
+
+      stat.calculate(games);
+
+      expect(stat.name).toBe('Average score');
+      expect(stat.value).toBe(1);
+    });
+
+    it('should be calculate average for multiple games', () => {
+      var stat = new AverageScore();
+      var games = [{result:1}, {result:0}];
+
+      stat.calculate(games);
+
+      expect(stat.name).toBe('Average score');
+      expect(stat.value).toBe(0.5);
+    });
+
+  });
+
   describe('average opponent grade', () => {
 
     it('should default to not appplicable', () => {
@@ -172,11 +221,14 @@ describe('player statistics', () => {
 
     it('should remain N/A until when there are no wins', () => {
       games = [{
-        result: 0, grade:1200
+        result: 0,
+        grade: 1200
       }, {
-        result: undefined, grade:1200
+        result: undefined,
+        grade: 1200
       }, {
-        result: -1, grade:1200
+        result: -1,
+        grade: 1200
       }];
       stat.calculate(games);
 
@@ -186,7 +238,8 @@ describe('player statistics', () => {
 
     it('should recognise single winning streak', () => {
       games = [{
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }];
       stat.calculate(games);
 
@@ -195,13 +248,17 @@ describe('player statistics', () => {
 
     it('should stop counting wins after a loss', () => {
       games = [{
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }, {
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }, {
-        result: -1, grade:1200
+        result: -1,
+        grade: 1200
       }, {
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }];
 
       stat.calculate(games);
@@ -212,13 +269,17 @@ describe('player statistics', () => {
 
     it('should stop counting wins after a draw', () => {
       games = [{
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }, {
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }, {
-        result: 0, grade:1200
+        result: 0,
+        grade: 1200
       }, {
-        result: 1, grade:1200
+        result: 1,
+        grade: 1200
       }];
 
       stat.calculate(games);
@@ -228,7 +289,28 @@ describe('player statistics', () => {
     });
 
     it('should count wins after draw', () => {
-      games = [{result: 1, grade:1200}, {result: 1, grade:1200}, {result: 0, grade:1200}, {result: 1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200}];
+      games = [{
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 0,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }];
 
       stat.calculate(games);
 
@@ -237,7 +319,28 @@ describe('player statistics', () => {
     });
 
     it('should count wins after loss', () => {
-      games = [{result: 1, grade:1200}, {result: 1, grade:1200}, {result: -1, grade:1200}, {result: 1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200}];
+      games = [{
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: -1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }];
 
       stat.calculate(games);
 
@@ -246,7 +349,34 @@ describe('player statistics', () => {
     });
 
     it('should count highest group only', () => {
-      games = [{result: 1, grade:1200}, {result: 1, grade:1200}, {result: -1, grade:1200}, {result: 1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200},  {result:-1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200} ];
+      games = [{
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: -1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: -1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }];
 
       stat.calculate(games);
 
@@ -255,7 +385,40 @@ describe('player statistics', () => {
     });
 
     it('should count highest win group if at start', () => {
-      games = [{result: 1, grade:1200}, {result: 1, grade:1200}, {result: 1, grade:1200},{result: 1, grade:1200}, {result: -1, grade:1200},  {result:1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200},  {result:-1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200} ];
+      games = [{
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: -1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: -1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }];
 
       stat.calculate(games);
 
@@ -264,7 +427,28 @@ describe('player statistics', () => {
     });
 
     it('should not count wins for undefined grades', () => {
-      games = [{result: 1, grade:1200}, {result: 1, grade:1200}, {result: 0, grade:1200}, {result: 1, grade:undefined}, {result:1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200}];
+      games = [{
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 0,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: undefined
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }];
 
       stat.calculate(games);
 
@@ -273,11 +457,47 @@ describe('player statistics', () => {
     });
 
     it('should not count wins for zero grades', () => {
-      games = [{result: 1, grade:1200}, {result: 1, grade:1200}, {result: -1, grade:1200}, {result: 1, grade:0}, {result:1, grade:1200}, {result:1, grade:1200}, {result:1, grade:1200}];
+      games = [{
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: -1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 0
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }, {
+        result: 1,
+        grade: 1200
+      }];
 
       stat.calculate(games);
 
       expect(stat.value).toBe(3);
+
+    });
+
+  });
+
+  describe('FIDE performance stats',()=>{
+
+    it('should calculate performance', ()=>{
+      var stat = new FidePerformance();
+      var player = {grade:2000};
+      var games=[{result:1, opponentsGrade:1953}];
+
+      stat.calculate(games, player);
+
+      expect(stat.value).toBe(2753);
 
     });
 
