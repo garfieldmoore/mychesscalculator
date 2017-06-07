@@ -15,6 +15,7 @@ describe('player statistics', () => {
     it('result is single opponents grade', () => {
       var games = [{
         grade: 1200,
+        result:1
       }];
 
       scorecard = new ScoreCard();
@@ -40,6 +41,7 @@ describe('player statistics', () => {
     it('should convert strings to numbers', () => {
       var games = [{
         grade: '10',
+        result:1
       }, {
         grade: '5'
       }];
@@ -48,6 +50,15 @@ describe('player statistics', () => {
       bestwin.calculate(games);
 
       expect(bestwin.value).toBe(10);
+    });
+
+    it('should only include wins', ()=>{
+      var stat= new BestWin();
+      var games=[{result:1, grade:1200}, {result:0,grade:1300},{result:-1,grade:1400}];
+
+      stat.calculate(games);
+
+      expect(stat.value).toBe(1200);
     });
 
   });

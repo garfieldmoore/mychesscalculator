@@ -33,7 +33,7 @@ function AverageScore() {
 
   function calculate(games) {
     var sum = 0;
-    var gameCount=0;
+    var gameCount = 0;
     if (games === undefined || games.length === 0) {
       this.value = 0;
       return;
@@ -53,8 +53,8 @@ function AverageScore() {
     }
 
     this.value = (sum / gameCount);
-    if (isNaN(this.value)){
-      this.value=0;
+    if (isNaN(this.value)) {
+      this.value = 0;
     }
 
   }
@@ -99,11 +99,11 @@ function FidePerformance() {
     stat.calculate(games);
     var averageGrade = stat.value;
 
-    if(isNaN(averageGrade)){
-      this.value="N/A";
+    if (isNaN(averageGrade)) {
+      this.value = "N/A";
       return;
     }
-     
+
     stat = new AverageScore();
     stat.calculate(games);
     var averageScore = stat.value;
@@ -152,7 +152,7 @@ function BestWin() {
     var highest = 0;
     var hasSet = false;
     for (let i = 0; i < games.length; i++) {
-      if (Number(games[i].grade) > highest) {
+      if (Number(games[i].grade) > highest && games[i].result === 1) {
         hasSet = true;
         highest = Number(games[i].grade);
       }
