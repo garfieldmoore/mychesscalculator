@@ -21,7 +21,7 @@
 
                   <div class="form-group form-inline">
                     <label for='currentgrade'>My grade</label>
-                    <input type="text" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
+                    <input type="number" pattern="[0-9]*" class="form-control" placeholder="your current grade" id="currentgrade" ng-model="player.grade">
 
                     <label for='kfactorSelector'>K Factor</label>
                     <select name="kfactorselect" id="kfactorselect" ng-options="option.name for option in kfactors.availableOptions track by option.id" ng-model="kfactors.selectedOption"></select>
@@ -83,7 +83,7 @@
 
             <div class='form-group form-inline'>
               <label for='grade1'>Opponent's Grade: </label>
-              <input type="text" class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
+              <input type="number" pattern="[0-9]*"  class="form-control" ng-model="game.grade" placeholder="your opponents grade" id="grade" grade=''>
 
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" id="resultSelector" type="button" data-toggle="dropdown">{{game.resultText}}
