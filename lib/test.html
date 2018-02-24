@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Chess Grade Calculator test suite</title>
+
+    <link rel="stylesheet" href="node_modules/jasmine-core/lib/jasmine-core/jasmine.css">
+
+    <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script src="node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="node_modules/jasmine-core/lib/jasmine-core/boot.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="lib/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-mocks/angular-mocks.js"></script>
+
+    <!-- SUT -->
+    <script type='text/javascript' src='js/app.js'></script>
+    <!-- <script type='text/javascript' src='examples/spy.js'></script> -->
+    <script type="text/javascript" src="js/services/ChessGradeCalculator.js"></script>
+    <script type="text/javascript" src="js/services/NormalDistributionData.js"></script>
+    <script type="text/javascript" src="js\Controllers\RatingCalculator2Controller.js"></script>
+
+    <!-- My specs-->
+    <script type="text/javascript" src="tests/elo/normalDistributionEloSpecs.js"></script>
+    <script type="text/javascript" src="tests/drawngamescalculatorSpecs.js"></script>
+    <script type="text/javascript" src="tests/wincalculatorSpecs.js"></script>
+    <script type="text/javascript" src="tests/losingcalculatorSpecs.js"></script>
+    <script type="text/javascript" src="tests/gradedifferencecalculatorSpecs.js"></script>
+    <script type="text/javascript" src="tests/elo/wincalculatorSpecs.js"></script>
+    <script type="text/javascript" src="tests/playerStats/basicPlayerStatSpecs.js"></script>
+    <script type="text/javascript" src="tests\controllers\ratingCalculatorControllerSpecs.js"></script>
+</head>
+
+<body>
+
+</body>
+
+</html>
