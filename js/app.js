@@ -4,7 +4,7 @@ var app = angular.module('ratingsApp', [ 'ngRoute', 'ui.bootstrap']);
 app.config(function($routeProvider, $locationProvider) {
 
   $routeProvider.when('/calculator', {
-    templateUrl: 'templates/ChessCalculator.html',
+    templateUrl: 'templates/chessCalculator/ChessCalculator.html',
     controller: 'RatingCalculator2Controller'
   });
 
